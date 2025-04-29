@@ -67,7 +67,7 @@ for(let i = 0; i < arrUsers.length; i++) {
   if (isNameValid && isEmailValid && isPasswordValid) {
       const formData = new FormData(signUpForm);
       const data = Object.fromEntries(formData.entries());
-      console.log("✅ Form Data:", data);
+      
 
       fetch("http://localhost:3000/users", {
         method: "POST",
