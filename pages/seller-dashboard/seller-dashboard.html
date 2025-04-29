@@ -11,6 +11,17 @@
 </head>
 
 <body>
+<nav class="navbar">
+    <ul>
+        <li>
+            <a class="home-link">
+                <i class="fa-solid fa-house"></i>
+                <span class="home-link">Home</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
     <nav class="sidebar">
         <p class="sidebar-title">Seller Panel</p>
         <div class="menu-content">
@@ -21,12 +32,12 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </div>
                     <ul class="menu-items submenu">
-                        <div class="menu-title" style="padding: 20px;">
+                        <div  class="menu-title remove-form" style="padding: 20px;">
                             <i class="fa-solid fa-chevron-left"></i>
                             <span>Product Management</span>
                         </div>
                         <li class="item">
-                            <a>Add New Product</a>
+                            <a id="new-product">Add New Product</a>
                         </li>
                     </ul>
                 </li>
@@ -50,84 +61,80 @@
         </div>
     </nav>
 
-    <nav class="navbar">
-        <ul>
-            <li>
-                <a class="home-link">
-                    <i class="fa-solid fa-house"></i>
-                    <span class="home-link">Home</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    
 
-    <main class="main">
+<main class="main">
+<!-- Product-list -->
+    <div class="product-list">
+        <div class="product-card">
+            <div class="product-tumb">
+                <img src="https://img.fortawesome.com/1ce05b4b/start-illustration.svg" alt="">
+            </div>
+            <div class="product-details">
+                <span class="product-catagory">Women,bag</span>
+                <h4>Women leather bag</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
+            <div class="product-bottom-details">
+                <div class="product-price"><small>$96.00</small>$230.99</div>
+                    <div class="product-controls">
+                        <i class="fa fa-pen"></i>
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Add-new-Product -->
         <div id="new-product-form" class="container" style="padding-top: 100px;">
             <div class="text">
-                Contact us Form
+                Add New Product
             </div>
             <form action="#">
                 <div class="form-row">
-                    <div class="input-data">
-                        <input type="text" required>
+                    <div style="display: block !important;" class="input-data">
+                        <input type="text" name="title" required>
                         <div class="underline"></div>
-                        <label for="">First Name</label>
+                        <label for="">Title</label>
                     </div>
-                    <div class="input-data">
-                        <input type="text" required>
+                    <div style="display: block !important;" class="input-data">
+                        <input type="text" name="imageUrl" required>
                         <div class="underline"></div>
-                        <label for="">Last Name</label>
+                        <label for="">Image Url</label>
                     </div>
+
+                    <div style="display: block !important;" class="input-data">
+                        <input type="text" name="price" required>
+                        <div class="underline"></div>
+                        <label for="">Enter Your Price</label>
+                    </div>
+
+                    <div style="display: block !important;" class="input-data">
+                        <input type="text" name="category" required>
+                        <div class="underline"></div>
+                        <label for="">Category</label>
                 </div>
-                <div class="form-row">
-                    <div class="input-data">
-                        <input type="text" required>
-                        <div class="underline"></div>
-                        <label for="">Email Address</label>
-                    </div>
-                    <div class="input-data">
-                        <input type="text" required>
-                        <div class="underline"></div>
-                        <label for="">Website Name</label>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="input-data textarea">
-                        <textarea rows="8" cols="80" required></textarea>
+
+                <div style="display: block !important;" class="form-row">
+                    <div style="width: 95%;" class="input-data textarea">
+                        <textarea rows="8" name="description" cols="20" required></textarea>
                         <br />
                         <div class="underline"></div>
-                        <label for="">Write your message</label>
+                        <label for="">Write your Descreption here</label>
                         <br />
-                        <div class="form-row submit-btn">
-                            <div class="input-data">
-                                <div class="inner"></div>
-                                <input type="submit" value="submit">
-                            </div>
-                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row submit-btn">
+                    <div class="input-data">
+                    <div class="inner"></div>
+                        <input type="submit" value="submit">
+                    </div>
+                </div>
             </form>
         </div>
 
-
-
-        <div class="product-list">
-            <div class="product-card">
-                <div class="product-tumb">
-                    <img src="https://i.imgur.com/xdbHo4E.png" alt="">
-                </div>
-                <div class="product-details">
-                    <span class="product-catagory">Women,bag</span>
-                    <h4>Women leather bag</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-                    <div class="product-bottom-details">
-                        <div class="product-price"><small>$96.00</small>$230.99</div>
-                        <div class="product-controls">
-                            <i class="fa fa-pen"></i>
-                            <i class="fa fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
 
     <script src="./seller-dashboard.js"></script>
