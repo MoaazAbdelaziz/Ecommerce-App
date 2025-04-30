@@ -11,16 +11,16 @@
 </head>
 
 <body>
-<nav class="navbar">
-    <ul>
-        <li>
-            <a class="home-link">
-                <i class="fa-solid fa-house"></i>
-                <span class="home-link">Home</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+    <nav class="navbar">
+        <ul>
+            <li>
+                <a class="home-link">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="home-link">Home</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
     <nav class="sidebar">
         <p class="sidebar-title">Seller Panel</p>
@@ -32,7 +32,7 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </div>
                     <ul class="menu-items submenu">
-                        <div  class="menu-title remove-form" style="padding: 20px;">
+                        <div class="menu-title remove-form" style="padding: 20px;">
                             <i class="fa-solid fa-chevron-left"></i>
                             <span>Product Management</span>
                         </div>
@@ -61,30 +61,31 @@
         </div>
     </nav>
 
-    
-
-<main class="main">
-<!-- Product-list -->
-    <div class="product-list">
 
 
-<div style="display: block !important; position: relative; left:30%; width: 50%; " class="input-data">
-    <input  type="search" name="search" id="search" required>
-    <div class="underline"></div>
-    <label for="">search for product</label>
-</div>
+    <main class="main">
+        <!-- Product-list -->
+        <div class="product-list">
 
-    
 
-        
-        <div  style="padding: 20px;  display: flex; flex-wrap: wrap; flex-direction: row; gap: 40px;" class="product-table">
+            <div style="display: block !important; position: relative; left:30%; width: 50%; " class="input-data">
+                <input type="search" name="search" id="search" required>
+                <div class="underline"></div>
+                <label for="">search for product</label>
+            </div>
+
+
+
+
+            <div style="padding: 20px;  display: flex; flex-wrap: wrap; flex-direction: row; gap: 40px;"
+                class="product-table">
+            </div>
+
+
         </div>
 
-      
-    </div>
 
-
-<!-- Add-new-Product -->
+        <!-- Add-new-Product -->
         <div id="new-product-form" class="container" style="padding-top: 100px;">
             <div class="text">
                 Add New Product
@@ -117,30 +118,31 @@
                         <input type="text" name="category" required>
                         <div class="underline"></div>
                         <label for="">Category</label>
-                </div>
+                    </div>
 
-                <div style="display: block !important;" class="form-row">
-                    <div style="width: 95%;" class="input-data textarea">
-                        <textarea rows="8" name="description" cols="20" required></textarea>
-                        <br />
-                        <div class="underline"></div>
-                        <label for="">Write your Descreption here</label>
-                        <br />
-                    </div>
-                </div>
-                <div style="display: flex; ">
-                    <div style="display: block !important;" class="input-data">
-                        <input type="number" name="quantity" required>
-                        <div class="underline"></div>
-                        <label for="">Quantity</label>
-                    </div>
-                    <div style="border-radius: 5px !important;" class="form-row submit-btn">
-                        <div class="input-data">
-                        <div class="inner"></div>
-                            <input type="submit" value="submit">
+                    <div style="display: block !important;" class="form-row">
+                        <div style="width: 95%;" class="input-data textarea">
+                            <textarea rows="8" name="description" cols="20" required></textarea>
+                            <br />
+                            <div class="underline"></div>
+                            <label for="">Write your Descreption here</label>
+                            <br />
                         </div>
                     </div>
-                </div>
+                    <div style="display: flex; ">
+                        <div style="display: block !important;" class="input-data">
+                            <input type="number" name="quantity" required>
+                            <div class="underline"></div>
+                            <label for="">Quantity</label>
+                        </div>
+                        <div style="border-radius: 5px !important;" class="form-row submit-btn">
+                            <div class="input-data">
+                                <div class="inner"></div>
+                                <input id="submitBtn" type="submit" value="submit">
+                                <input id="updateBtn" type="submit" value="update">
+                            </div>
+                        </div>
+                    </div>
 
             </form>
         </div>
