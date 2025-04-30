@@ -214,15 +214,15 @@
 }
 
 .product-price {
-  font-size: 18px;
+  font-size: 24px;
   color: #fbb72c;
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .product-price small {
   font-size: 80%;
   font-weight: 400;
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
   display: inline-block;
   margin-right: 5px;
 }
