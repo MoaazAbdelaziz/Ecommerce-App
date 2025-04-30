@@ -90,7 +90,7 @@ productForm.addEventListener("submit", function (event) {
 const productTable = document.querySelector(".product-table");
 const productArr= [];
 let user = JSON.parse(localStorage.getItem("user"));
-let cart=""
+
 listAllproducts();
 function listAllproducts(){
     
@@ -109,7 +109,7 @@ fetch('http://localhost:3000/products')
                 }
             }
             console.log(productArr);
-            
+            let cart = "";
             for (let i = 0; i < productArr.length; i++) {
                 cart += `
                 <div class="product-card">
