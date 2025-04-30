@@ -66,23 +66,21 @@
 <main class="main">
 <!-- Product-list -->
     <div class="product-list">
-        <div class="product-card">
-            <div class="product-tumb">
-                <img src="https://img.fortawesome.com/1ce05b4b/start-illustration.svg" alt="">
-            </div>
-            <div class="product-details">
-                <span class="product-catagory">Women,bag</span>
-                <h4>Women leather bag</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, possimus nostrum!</p>
-            <div class="product-bottom-details">
-                <div class="product-price"><small>$96.00</small>$230.99</div>
-                    <div class="product-controls">
-                        <i class="fa fa-pen"></i>
-                        <i class="fa fa-shopping-cart"></i>
-                    </div>
-                </div>
-            </div>
+
+
+<div style="display: block !important; position: relative; left:30%; width: 50%; " class="input-data">
+    <input  type="search" name="search" id="search" required>
+    <div class="underline"></div>
+    <label for="">search for product</label>
+</div>
+
+    
+
+        
+        <div  style="padding: 20px;  display: flex; flex-wrap: wrap; flex-direction: row; gap: 40px;" class="product-table">
         </div>
+
+      
     </div>
 
 
@@ -91,17 +89,22 @@
             <div class="text">
                 Add New Product
             </div>
-            <form action="#">
+            <form id="newProductForm" action="#">
                 <div class="form-row">
                     <div style="display: block !important;" class="input-data">
                         <input type="text" name="title" required>
                         <div class="underline"></div>
                         <label for="">Title</label>
                     </div>
-                    <div style="display: block !important;" class="input-data">
-                        <input type="text" name="imageUrl" required>
-                        <div class="underline"></div>
-                        <label for="">Image Url</label>
+                    <div style="display: flex; ">
+                        <div style="display: block !important;" class="input-data">
+                            <input type="text" name="imageUrl" required>
+                            <div class="underline"></div>
+                            <label for="">Image Url</label>
+                        </div>
+                        <!-- <div style="width: 5%;">
+                            <button style="padding: 10px; border-radius: 50%; cursor: pointer;" ><i class="fa-solid fa-plus"></i></button>
+                        </div> -->
                     </div>
 
                     <div style="display: block !important;" class="input-data">
@@ -125,13 +128,20 @@
                         <br />
                     </div>
                 </div>
-
-                <div class="form-row submit-btn">
-                    <div class="input-data">
-                    <div class="inner"></div>
-                        <input type="submit" value="submit">
+                <div style="display: flex; ">
+                    <div style="display: block !important;" class="input-data">
+                        <input type="number" name="quantity" required>
+                        <div class="underline"></div>
+                        <label for="">Quantity</label>
+                    </div>
+                    <div style="border-radius: 5px !important;" class="form-row submit-btn">
+                        <div class="input-data">
+                        <div class="inner"></div>
+                            <input type="submit" value="submit">
+                        </div>
                     </div>
                 </div>
+
             </form>
         </div>
 
