@@ -36,13 +36,12 @@
   ],
   "products": [
     {
-      "id": 1,
       "title": "Sony WH-1000XM3 Bluetooth Wireless Over Ear Headphones with Mic (Silver)",
       "imageUrl": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1692947383286-714WUJlhbLS._SL1500_.jpg",
-      "price": 773,
-      "description": "Digital noise cancelling : Industry leading Active Noise Cancellation (ANC) lends a personalized, virtually soundproof experience at any situation\r\nHi-Res Audio : A built-in amplifier integrated in HD Noise Cancelling Processor QN1 realises the best-in-class signal-to-noise ratio and low distortion for portable devices.\r\nDriver Unit : Powerful 40-mm drivers with Liquid Crystal Polymer (LCP) diaphragms make the headphones perfect for handling heavy beats and can reproduce a full range of frequencies up to 40 kHz.\r\nVoice assistant : Alexa enabled (In-built) for voice access to music, information and more. Activate with a simple touch. Frequency response: 4 Hz-40,000 Hz",
+      "price": "773",
+      "description": "Digital noise cancelling : Industry leading Active Noise Cancellation (ANC) lends a personalized, virtually soundproof experience at any situation\nHi-Res Audio : A built-in amplifier integrated in HD Noise Cancelling Processor QN1 realises the best-in-class signal-to-noise ratio and low distortion for portable devices.\nDriver Unit : Powerful 40-mm drivers with Liquid Crystal Polymer (LCP) diaphragms make the headphones perfect for handling heavy beats and can reproduce a full range of frequencies up to 40 kHz.\nVoice assistant : Alexa enabled (In-built) for voice access to music, information and more. Activate with a simple touch. Frequency response: 4 Hz-40,000 Hz",
       "category": "audio",
-      "quantity": 10,
+      "quantity": "10",
       "approved": true,
       "seller": {
         "id": "78fa",
@@ -50,11 +49,11 @@
         "email": "moaaz@gmail.com",
         "role": "seller",
         "password": "123456"
-      }
+      },
+      "id": "1"
     },
     {
-      "id": "9a32",
-      "title": "405",
+      "title": "505",
       "imageUrl": "832",
       "price": "180",
       "description": "Laboris maxime dolor",
@@ -67,13 +66,13 @@
         "email": "moaaz@gmail.com",
         "role": "seller",
         "password": "123456"
-      }
+      },
+      "id": "9a32"
     },
     {
-      "id": "e41a",
       "title": "233",
       "imageUrl": "531",
-      "price": "65",
+      "price": "6000",
       "description": "Eum nisi velit repr",
       "category": "126",
       "quantity": "175",
@@ -84,58 +83,8 @@
         "email": "moaaz@gmail.com",
         "role": "seller",
         "password": "123456"
-      }
-    },
-    {
-      "id": "40b9",
-      "title": "743",
-      "imageUrl": "601",
-      "price": "881",
-      "description": "Officiis reprehender",
-      "category": "687",
-      "quantity": "343",
-      "approved": true,
-      "seller": {
-        "id": "78fa",
-        "name": "Chantale Fuentes",
-        "email": "moaaz@gmail.com",
-        "role": "seller",
-        "password": "123456"
-      }
-    },
-    {
-      "id": "1c13",
-      "title": "929",
-      "imageUrl": "510",
-      "price": "327",
-      "description": "Unde asperiores earu",
-      "category": "629",
-      "quantity": "29",
-      "approved": true,
-      "seller": {
-        "id": "78fa",
-        "name": "Chantale Fuentes",
-        "email": "moaaz@gmail.com",
-        "role": "seller",
-        "password": "123456"
-      }
-    },
-    {
-      "id": "dd61",
-      "title": "621",
-      "imageUrl": "201",
-      "price": "195",
-      "description": "Incidunt blanditiis",
-      "category": "173",
-      "quantity": "938",
-      "approved": true,
-      "seller": {
-        "id": "78fa",
-        "name": "Chantale Fuentes",
-        "email": "moaaz@gmail.com",
-        "role": "seller",
-        "password": "123456"
-      }
+      },
+      "id": "e41a"
     },
     {
       "id": "337e",
@@ -206,23 +155,6 @@
       }
     },
     {
-      "id": "6b43",
-      "title": "Mooooaaaaz",
-      "imageUrl": "https://www.canvas-schildersdoeken.nl//Files/10/304000/304659/ProductPhotos/448/2008127978.jpg",
-      "price": "204",
-      "description": "Alias et sapiente se",
-      "category": "115",
-      "quantity": "968",
-      "approved": true,
-      "seller": {
-        "id": "78fa",
-        "name": "Chantale Fuentes",
-        "email": "moaaz@gmail.com",
-        "role": "seller",
-        "password": "123456"
-      }
-    },
-    {
       "id": "51f3",
       "title": "kenacomb for burning skin",
       "imageUrl": "https://tdawi.com/media/catalog/product/cache/c02fd180406f0a5f799ad7095a14ddcd/k/e/kenacomb_cream_1__nvyw3dmolyg0rj6x.jpg",
@@ -240,13 +172,12 @@
       }
     },
     {
-      "id": "5e39",
-      "title": "381",
-      "imageUrl": "899",
-      "price": "589",
-      "description": "Non dignissimos reru",
-      "category": "577",
-      "quantity": "396",
+      "title": "KenaComb",
+      "imageUrl": "531",
+      "price": "6000",
+      "description": "Eum nisi velit repr",
+      "category": "126",
+      "quantity": "175",
       "approved": true,
       "seller": {
         "id": "78fa",
@@ -254,7 +185,8 @@
         "email": "moaaz@gmail.com",
         "role": "seller",
         "password": "123456"
-      }
+      },
+      "id": "b31d"
     }
   ]
 }

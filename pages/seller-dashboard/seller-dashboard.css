@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-
-
-
-
 .sidebar {
   position: fixed;
   height: 100%;
@@ -156,7 +152,7 @@
   width: 380px;
   position: relative;
   box-shadow: 0 2px 7px #dfdfdf;
-  margin-block: 25px ;
+  margin-block: 25px;
   /* margin-inline: 25px ; */
   height: 450px;
   background: #fafafa;
