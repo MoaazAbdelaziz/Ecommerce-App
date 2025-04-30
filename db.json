@@ -138,13 +138,12 @@
       }
     },
     {
-      "id": "0ae2",
-      "title": "95",
-      "imageUrl": "763",
-      "price": "832",
+      "title": "Yone",
+      "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
+      "price": "1000000000",
       "description": "Sunt sit modi neque",
       "category": "377",
-      "quantity": "719",
+      "quantity": "1",
       "approved": true,
       "seller": {
         "id": "3379",
@@ -152,7 +151,8 @@
         "email": "kenacomb@gmail.com",
         "role": "seller",
         "password": "111111"
-      }
+      },
+      "id": "0ae2"
     },
     {
       "id": "51f3",
