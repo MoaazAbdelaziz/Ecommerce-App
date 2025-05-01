@@ -32,6 +32,13 @@
       "email": "kenacomb@gmail.com",
       "role": "seller",
       "password": "111111"
+    },
+    {
+      "id": "343f",
+      "name": "Hisham Fawzy Ali Hassan",
+      "email": "myzam@mailinator.com",
+      "role": "customer",
+      "password": "123456"
     }
   ],
   "products": [
@@ -53,91 +60,6 @@
       "id": "1"
     },
     {
-      "title": "505",
-      "imageUrl": "832",
-      "price": "180",
-      "description": "Laboris maxime dolor",
-      "category": "895",
-      "quantity": "926",
-      "approved": true,
-      "seller": {
-        "id": "78fa",
-        "name": "Chantale Fuentes",
-        "email": "moaaz@gmail.com",
-        "role": "seller",
-        "password": "123456"
-      },
-      "id": "9a32"
-    },
-    {
-      "title": "233",
-      "imageUrl": "531",
-      "price": "6000",
-      "description": "Eum nisi velit repr",
-      "category": "126",
-      "quantity": "175",
-      "approved": true,
-      "seller": {
-        "id": "78fa",
-        "name": "Chantale Fuentes",
-        "email": "moaaz@gmail.com",
-        "role": "seller",
-        "password": "123456"
-      },
-      "id": "e41a"
-    },
-    {
-      "id": "337e",
-      "title": "144",
-      "imageUrl": "608",
-      "price": "654",
-      "description": "Optio id id quibus",
-      "category": "486",
-      "quantity": "82",
-      "approved": true,
-      "seller": {
-        "id": "3379",
-        "name": "Hisham Fawzy Ali Hassan",
-        "email": "kenacomb@gmail.com",
-        "role": "seller",
-        "password": "111111"
-      }
-    },
-    {
-      "id": "6bba",
-      "title": "837",
-      "imageUrl": "764",
-      "price": "351",
-      "description": "Eos quia numquam ex",
-      "category": "223",
-      "quantity": "917",
-      "approved": true,
-      "seller": {
-        "id": "3379",
-        "name": "Hisham Fawzy Ali Hassan",
-        "email": "kenacomb@gmail.com",
-        "role": "seller",
-        "password": "111111"
-      }
-    },
-    {
-      "id": "cc06",
-      "title": "675",
-      "imageUrl": "848",
-      "price": "356",
-      "description": "Aliquip obcaecati do",
-      "category": "455",
-      "quantity": "546",
-      "approved": true,
-      "seller": {
-        "id": "3379",
-        "name": "Hisham Fawzy Ali Hassan",
-        "email": "kenacomb@gmail.com",
-        "role": "seller",
-        "password": "111111"
-      }
-    },
-    {
       "title": "Yone",
       "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
       "price": "1000000000",
@@ -155,13 +77,30 @@
       "id": "0ae2"
     },
     {
-      "id": "51f3",
       "title": "kenacomb for burning skin",
       "imageUrl": "https://tdawi.com/media/catalog/product/cache/c02fd180406f0a5f799ad7095a14ddcd/k/e/kenacomb_cream_1__nvyw3dmolyg0rj6x.jpg",
       "price": "200",
       "description": "Accusantium nobis et",
       "category": "631",
-      "quantity": "1000000000",
+      "quantity": "10",
+      "approved": true,
+      "seller": {
+        "id": "3379",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "kenacomb@gmail.com",
+        "role": "seller",
+        "password": "111111"
+      },
+      "id": "51f3"
+    },
+    {
+      "id": "c784",
+      "title": "Pantheon",
+      "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg",
+      "price": "191",
+      "description": "Laboris minim possim",
+      "category": "575",
+      "quantity": "567",
       "approved": true,
       "seller": {
         "id": "3379",
@@ -172,21 +111,108 @@
       }
     },
     {
-      "title": "KenaComb",
-      "imageUrl": "531",
-      "price": "6000",
-      "description": "Eum nisi velit repr",
-      "category": "126",
-      "quantity": "175",
+      "title": "Aurther Morgan",
+      "imageUrl": "https://static.wikitide.net/greatcharacterswiki/2/2f/Arthur_Morgan.jpg",
+      "price": "159",
+      "description": "Itaque dolorem lorem",
+      "category": "165",
+      "quantity": "516",
       "approved": true,
       "seller": {
-        "id": "78fa",
-        "name": "Chantale Fuentes",
-        "email": "moaaz@gmail.com",
+        "id": "3379",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "kenacomb@gmail.com",
         "role": "seller",
-        "password": "123456"
+        "password": "111111"
       },
-      "id": "b31d"
+      "id": "fa0b"
+    }
+  ],
+  "cart": [
+    {
+      "id": "9c8b",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "1",
+          "title": "Sony WH-1000XM3 Bluetooth Wireless Over Ear Headphones with Mic (Silver)",
+          "price": "773",
+          "imageUrl": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1692947383286-714WUJlhbLS._SL1500_.jpg",
+          "quantity": 15
+        },
+        {
+          "id": "c784",
+          "title": "Pantheon",
+          "price": "191",
+          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg",
+          "quantity": 3
+        },
+        {
+          "id": "51f3",
+          "title": "kenacomb for burning skin",
+          "price": "200",
+          "imageUrl": "https://tdawi.com/media/catalog/product/cache/c02fd180406f0a5f799ad7095a14ddcd/k/e/kenacomb_cream_1__nvyw3dmolyg0rj6x.jpg",
+          "quantity": 2
+        },
+        {
+          "id": "0ae2",
+          "title": "Yone",
+          "price": "1000000000",
+          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "020a",
+      "user": {
+        "id": "343f",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "myzam@mailinator.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "1",
+          "title": "Sony WH-1000XM3 Bluetooth Wireless Over Ear Headphones with Mic (Silver)",
+          "price": "773",
+          "imageUrl": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1692947383286-714WUJlhbLS._SL1500_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "0ae2",
+          "title": "Yone",
+          "price": "1000000000",
+          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "51f3",
+          "title": "kenacomb for burning skin",
+          "price": "200",
+          "imageUrl": "https://tdawi.com/media/catalog/product/cache/c02fd180406f0a5f799ad7095a14ddcd/k/e/kenacomb_cream_1__nvyw3dmolyg0rj6x.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "fa0b",
+          "title": "Aurther Morgan",
+          "price": "159",
+          "imageUrl": "https://static.wikitide.net/greatcharacterswiki/2/2f/Arthur_Morgan.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "c784",
+          "title": "Pantheon",
+          "price": "191",
+          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg",
+          "quantity": 1
+        }
+      ]
     }
   ]
 }

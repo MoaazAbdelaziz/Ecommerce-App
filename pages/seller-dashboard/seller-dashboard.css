@@ -142,9 +142,8 @@
 }
 
 .product-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  
+  width: 100%;
   margin-top: 90px;
 }
 
