@@ -14,10 +14,10 @@
     },
     {
       "id": "e8a8",
-      "name": "Dale Gibson",
-      "email": "nurufytaji@mailinator.com",
-      "role": "seller",
-      "password": "11223344"
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "role": "admin",
+      "password": "123456"
     },
     {
       "id": "78fa",
