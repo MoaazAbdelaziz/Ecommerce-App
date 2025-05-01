@@ -31,14 +31,7 @@ const container = document.getElementById("container");
 const svg=document.querySelector("svg");
 svg.addEventListener("click", () => {
     container.classList.remove("right-panel-active");
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (user) {
-        console.log("User logged in. Welcome back!");
-        window.location.href = "./../home/home.html";
-    } else {
-        console.log("User not logged in. Redirecting to login page.");
-        window.location.href = "./../auth/auth.html";
-    }
+    window.location.href = "./../home/home.html";
 })
 
 signUpButton.addEventListener("click", () => {
@@ -105,16 +98,7 @@ document.getElementById("rpassword").addEventListener("input", validatePassword)
 
 
 
-const homeButton = document.querySelector(".home");
 
-homeButton.addEventListener("click", () => {
-    if (!localStorage.getItem("user")) {
-        console.log("User not logged in. Redirecting to login page.");
-    } else {
-        console.log("User logged in. Welcome back!");
-        window.location.href = "./../home/home.html";
-    }
-});
 
 
 
@@ -142,7 +126,6 @@ loginForm.addEventListener("submit", (event) => {
         localStorage.setItem("user", JSON.stringify(user));
         hideAlert(loginAlertBox);
         window.location.href = "./../home/home.html";
-        
       } else {
         showAlert(loginAlertBox, "Invalid email or password.");
       }
