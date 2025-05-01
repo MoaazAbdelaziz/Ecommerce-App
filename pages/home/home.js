@@ -31,7 +31,10 @@ window.onload = function () {
       logIn.style.display = "none";
 
       hello.textContent += `${user.name}!`;
-    } else {
+    } else if (user.role == "admin") {
+      window.location.href = "./../admin/admin.html";
+    }
+    else {
       console.log("User role not recognized. Hiding seller dashboard.");
       sellerDashboard.style.display = "none";
       orderDashboard.style.display = "none";
@@ -99,97 +102,51 @@ window.onload = function () {
     });
 
   // Function to handle adding to cart
- 
-function addToCart(product) {
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user) {
-    Swal.fire({
-      title: "You need to log in!",
-      text: "Please log in to add items to your cart.",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Go to Login",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = "./../auth/auth.html";
-      }
-    });
-    return;
-  }
 
-  fetch("http://localhost:3000/cart")
-    .then((res) => res.json())
-    .then((orders) => {
-      const userOrder = orders.find((order) => order.user.id === user.id);
-
-      if (userOrder) {
-        // شوف لو المنتج ده موجود بالفعل في الأوردر
-        const existingProduct = userOrder.products.find(
-          (p) => p.id === product.id
-        );
-
-        let updatedProducts;
-
-        if (existingProduct) {
-          // ✅ لو موجود: زود الـ quantity
-          updatedProducts = userOrder.products.map((p) => {
-            if (p.id === product.id) {
-              return { ...p, quantity: (p.quantity || 1) + 1 };
-            }
-            return p;
-          });
-        } else {
-          // ✅ لو مش موجود: ضيفه مع quantity = 1
-          updatedProducts = [
-            ...userOrder.products,
-            {
-              id: product.id,
-              title: product.title,
-              price: product.price,
-              imageUrl: product.imageUrl,
-              quantity: 1,
-            },
-          ];
+  function addToCart(product) {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      Swal.fire({
+        title: "You need to log in!",
+        text: "Please log in to add items to your cart.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Go to Login",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.location.href = "./../auth/auth.html";
         }
+      });
+      return;
+    }
 
-        fetch(`http://localhost:3000/cart/${userOrder.id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ products: updatedProducts }),
-        })
-          .then(() => {
-            Swal.fire({
-              icon: "success",
-              imageUrl: `${product.imageUrl}`,
-              imageWidth: 100,
-              imageHeight: 100,
-              imageAlt: "Custom image",
-              title: "Added to Cart",
-              text: `"${product.title}" has been added to your cart!`,
-              showConfirmButton: false,
-              timer: 1500,
+    fetch("http://localhost:3000/cart")
+      .then((res) => res.json())
+      .then((orders) => {
+        const userOrder = orders.find((order) => order.user.id === user.id);
+
+        if (userOrder) {
+          // شوف لو المنتج ده موجود بالفعل في الأوردر
+          const existingProduct = userOrder.products.find(
+            (p) => p.id === product.id
+          );
+
+          let updatedProducts;
+
+          if (existingProduct) {
+            // ✅ لو موجود: زود الـ quantity
+            updatedProducts = userOrder.products.map((p) => {
+              if (p.id === product.id) {
+                return { ...p, quantity: (p.quantity || 1) + 1 };
+              }
+              return p;
             });
-          })
-          .catch((err) => console.error("Failed to update order:", err));
-      } else {
-        // ✅ لو مفيش أوردر: نعمل أوردر جديد
-        fetch("http://localhost:3000/cart", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            user: {
-              id: user.id,
-              name: user.name,
-              email: user.email,
-              role: user.role,
-            },
-            products: [
+          } else {
+            // ✅ لو مش موجود: ضيفه مع quantity = 1
+            updatedProducts = [
+              ...userOrder.products,
               {
                 id: product.id,
                 title: product.title,
@@ -197,26 +154,72 @@ function addToCart(product) {
                 imageUrl: product.imageUrl,
                 quantity: 1,
               },
-            ],
-          }),
-        })
-          .then(() => {
-            Swal.fire({
-              icon: "success",
-              title: "Added to Cart",
-              imageUrl: `${product.imageUrl}`,
-              imageWidth: 100,
-              imageHeight: 100,
-              text: `"${product.title}" has been added to your cart!`,
-              showConfirmButton: false,
-              timer: 1500,
-            });
+            ];
+          }
+
+          fetch(`http://localhost:3000/cart/${userOrder.id}`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ products: updatedProducts }),
           })
-          .catch((err) => console.error("Failed to create new order:", err));
-      }
-    })
-    .catch((err) => console.error("Failed to fetch orders:", err));
-}
+            .then(() => {
+              Swal.fire({
+                icon: "success",
+                imageUrl: `${product.imageUrl}`,
+                imageWidth: 100,
+                imageHeight: 100,
+                imageAlt: "Custom image",
+                title: "Added to Cart",
+                text: `"${product.title}" has been added to your cart!`,
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            })
+            .catch((err) => console.error("Failed to update order:", err));
+        } else {
+          // ✅ لو مفيش أوردر: نعمل أوردر جديد
+          fetch("http://localhost:3000/cart", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              user: {
+                id: user.id,
+                name: user.name,
+                email: user.email,
+                role: user.role,
+              },
+              products: [
+                {
+                  id: product.id,
+                  title: product.title,
+                  price: product.price,
+                  imageUrl: product.imageUrl,
+                  quantity: 1,
+                },
+              ],
+            }),
+          })
+            .then(() => {
+              Swal.fire({
+                icon: "success",
+                title: "Added to Cart",
+                imageUrl: `${product.imageUrl}`,
+                imageWidth: 100,
+                imageHeight: 100,
+                text: `"${product.title}" has been added to your cart!`,
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            })
+            .catch((err) => console.error("Failed to create new order:", err));
+        }
+      })
+      .catch((err) => console.error("Failed to fetch orders:", err));
+  }
 
 
 

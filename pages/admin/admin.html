@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../all.css">
     <link rel="stylesheet" href="./admin.css">
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
+
 <body>
-    
+    <nav class="navbar">
+        <ul>
+            <li>
+                <a class="home-link">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="logout">Logout</span>
+                </a>
+            </li>
+
+        </ul>
+    </nav>
+
+
+    <!-- Dashboard Cards -->
+    <main class="dashboard">
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User Management" />
+            <h2>User Management</h2>
+            <p>Add, edit, or remove users. Manage roles and permissions.</p>
+            <button class="manage-users">Manage Users</button>
+        </div>
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Product Management" />
+            <h2>Product Management</h2>
+            <p>Approve or reject products. Edit or delete existing items.</p>
+            <button class="manage-products">Manage Products</button>
+        </div>
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="Order Management" />
+            <h2>Order Management</h2>
+            <p>View and manage all customer orders in one place.</p>
+            <button class="manage-orders">Manage Orders</button>
+        </div>
+    </main>
+
     <script src="./admin.js"></script>
 </body>
+
 </html>

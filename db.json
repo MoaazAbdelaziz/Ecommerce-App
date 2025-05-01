@@ -14,10 +14,10 @@
     },
     {
       "id": "e8a8",
-      "name": "Dale Gibson",
-      "email": "nurufytaji@mailinator.com",
-      "role": "seller",
-      "password": "11223344"
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "role": "admin",
+      "password": "123456"
     },
     {
       "id": "78fa",
@@ -32,13 +32,6 @@
       "email": "kenacomb@gmail.com",
       "role": "seller",
       "password": "111111"
-    },
-    {
-      "id": "343f",
-      "name": "Hisham Fawzy Ali Hassan",
-      "email": "myzam@mailinator.com",
-      "role": "customer",
-      "password": "123456"
     }
   ],
   "products": [
@@ -164,52 +157,6 @@
           "title": "Yone",
           "price": "1000000000",
           "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": "020a",
-      "user": {
-        "id": "343f",
-        "name": "Hisham Fawzy Ali Hassan",
-        "email": "myzam@mailinator.com",
-        "role": "customer"
-      },
-      "products": [
-        {
-          "id": "1",
-          "title": "Sony WH-1000XM3 Bluetooth Wireless Over Ear Headphones with Mic (Silver)",
-          "price": "773",
-          "imageUrl": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1692947383286-714WUJlhbLS._SL1500_.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "0ae2",
-          "title": "Yone",
-          "price": "1000000000",
-          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "51f3",
-          "title": "kenacomb for burning skin",
-          "price": "200",
-          "imageUrl": "https://tdawi.com/media/catalog/product/cache/c02fd180406f0a5f799ad7095a14ddcd/k/e/kenacomb_cream_1__nvyw3dmolyg0rj6x.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "fa0b",
-          "title": "Aurther Morgan",
-          "price": "159",
-          "imageUrl": "https://static.wikitide.net/greatcharacterswiki/2/2f/Arthur_Morgan.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "c784",
-          "title": "Pantheon",
-          "price": "191",
-          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg",
           "quantity": 1
         }
       ]
