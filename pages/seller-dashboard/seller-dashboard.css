@@ -142,7 +142,9 @@
 }
 
 .product-list {
-  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   width: 100%;
   margin-top: 90px;
 }
@@ -152,7 +154,7 @@
   position: relative;
   box-shadow: 0 2px 7px #dfdfdf;
   margin-block: 25px;
-  /* margin-inline: 25px ; */
+  
   height: 450px;
   background: #fafafa;
 }
