@@ -122,20 +122,6 @@ body {
   color: #64748b;
 }
 
-.user-role label {
-  font-size: 14px;
-  color: #475569;
-  margin-right: 10px;
-}
-
-.user-role select {
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid #cbd5e1;
-  background-color: #f8fafc;
-  font-size: 14px;
-}
-
 .user-actions {
   display: flex;
   gap: 12px;
@@ -183,4 +169,108 @@ body {
   100% {
     background-position: 0% 50%;
   }
+}
+
+#add-update-modal ul li {
+  list-style: none;
+}
+
+#add-update-modal ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#add-update-modal h1 {
+  font-weight: 800;
+  color: #3333ff;
+  font-size: 24px;
+  width: 200px;
+  text-align: center;
+  margin: 30px 100px;
+}
+
+#add-update-modal {
+  background: #fff;
+  position: relative;
+  width: 400px;
+  margin: 5vh auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+input {
+  border: none;
+  margin: 1em 40px;
+  width: 300px;
+  padding: 10px;
+  font-size: 16px;
+  border-bottom: 2px solid #3333ff;
+  background: none;
+  display: block;
+  color: black;
+}
+
+input:focus {
+  outline: none;
+}
+
+#submit {
+  margin: 3em auto 4em;
+  border: 2px solid #3333ff;
+  color: #3333ff;
+}
+#submit:hover {
+  color: #fff;
+}
+
+.btn {
+  background: none;
+  border: 2px solid #252525;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 15em auto;
+  padding: 1.2em 2em;
+  color: #212121;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: ease all 0.3s;
+  display: block;
+}
+
+.btn:hover {
+  background: #3333ff;
+  color: #fff;
+  border: #3333ff solid 2px;
+}
+.btn:active {
+  background: #3333aa;
+  color: #fff;
+  border: #3333aa solid 2px;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  font-weight: 400;
+  border: 3px solid #ee4444;
+  width: 20px;
+  color: #ee4444;
+}
+
+select {
+  border: none;
+  margin: 1em 40px;
+  width: 300px;
+  padding: 10px;
+  border-bottom: 2px solid #3333ff;
+  background: none;
+  color: black;
+
+  font-size: 16px;
+}
+
+select:focus {
+  outline: none;
 }

@@ -1,11 +1,6 @@
 {
   "users": [
     {
-      "name": "Sawyer Brock",
-      "email": "paceg@mailinator.com",
-      "id": "c94d"
-    },
-    {
       "id": "3a01",
       "name": "Hisham Fawzy",
       "email": "hishamfawzy16@gmail.com",
@@ -21,7 +16,7 @@
     },
     {
       "id": "78fa",
-      "name": "Chantale Fuentes",
+      "name": "moaaz",
       "email": "moaaz@gmail.com",
       "role": "seller",
       "password": "123456"
