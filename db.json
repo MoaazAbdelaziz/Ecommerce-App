@@ -87,7 +87,6 @@
       "id": "51f3"
     },
     {
-      "id": "c784",
       "title": "Pantheon",
       "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg",
       "price": "191",
@@ -101,7 +100,8 @@
         "email": "kenacomb@gmail.com",
         "role": "seller",
         "password": "111111"
-      }
+      },
+      "id": "c784"
     },
     {
       "title": "Aurther Morgan",
