@@ -1,27 +1,23 @@
-window.addEventListener('load', function () {
-    let user = JSON.parse(localStorage.getItem("user"));
 
-    
-    console.log(user);
-    if (!user) {
-        window.location.href = "./../home/home.html";
-        console.log("User not logged in. Redirecting to login page.");
+window.addEventListener("load", function () {
+  let user = JSON.parse(localStorage.getItem("user"));
 
-        
-    }else if (user.role == "customer") {
-        window.location.href = "./../home/home.html";
-        console.log("User logged in. Welcome back!");
-    }
-    else{
-
+  console.log(user);
+  if (!user) {
+    window.location.href = "./../home/home.html";
+    console.log("User not logged in. Redirecting to login page.");
+  } else if (user.role == "customer") {
+    window.location.href = "./../home/home.html";
+    console.log("User logged in. Welcome back!");
+  } else {
     const menu = document.querySelector(".menu-content");
     const menuItems = document.querySelectorAll(".submenu-item");
     const subMenuTitles = document.querySelectorAll(".submenu .menu-title");
     const logOut = document.querySelector(".home-link");
-      
+
     logOut.addEventListener("click", () => {
-        localStorage.removeItem("user");
-        window.location.href = "./../auth/auth.html";
+      localStorage.removeItem("user");
+      window.location.href = "./../auth/auth.html";
     });
 
     menuItems.forEach((item, index) => {
@@ -99,7 +95,7 @@ window.addEventListener('load', function () {
           productArr.push(result);
           productForm.reset();
           showProductList();
-          displayProducts(productArr);
+          displayProducts(productArr.filter((p) => p.approved === true));
           bindEditEvents();
           bindDeleteEvents();
         })
@@ -133,9 +129,9 @@ window.addEventListener('load', function () {
             (p) => p.id == currentEditProductId
           );
           if (index !== -1) {
-            updatedProduct.id = currentEditProductId; // retain id
+            updatedProduct.id = currentEditProductId; 
             productArr[index] = updatedProduct;
-            displayProducts(productArr);
+            displayProducts(productArr.filter((p) => p.approved === true));
             bindEditEvents();
             bindDeleteEvents();
             showProductList();
@@ -179,13 +175,20 @@ window.addEventListener('load', function () {
       document.querySelectorAll(".fa-trash").forEach((icon) => {
         icon.addEventListener("click", () => {
           const id = icon.getAttribute("data-id");
+          const product = productArr.find((p) => p.id == id);
+
+          if (product && product.seller.email !== user.email) {
+            alert("You are not authorized to delete this product.");
+            return;
+          }
+
           fetch(`http://localhost:3000/products/${id}`, {
             method: "DELETE",
           })
             .then((res) => {
               if (!res.ok) throw new Error("Delete failed");
               productArr = productArr.filter((p) => p.id != id);
-              displayProducts(productArr);
+              displayProducts(productArr.filter((p) => p.approved === true));
               bindEditEvents();
               bindDeleteEvents();
             })
@@ -194,41 +197,44 @@ window.addEventListener('load', function () {
       });
     }
 
-    function bindEditEvents() {
-      document.querySelectorAll(".fa-pen").forEach((icon) => {
-        icon.addEventListener("click", () => {
-          const index = icon.getAttribute("data-index");
-          const product = productArr[index];
-          productForm.title.value = product.title;
-          productForm.imageUrl.value = product.imageUrl;
-          productForm.price.value = product.price;
-          productForm.description.value = product.description;
-          productForm.category.value = product.category;
-          productForm.quantity.value = product.quantity;
-          currentEditProductId = product.id;
 
-          showProductForm();
-          submitButton.style.display = "none";
-          updateBtn.style.display = "block";
-        });
-      });
-    }
-    let emptarr=[];
+   function bindEditEvents() {
+     document.querySelectorAll(".fa-pen").forEach((icon) => {
+       icon.addEventListener("click", () => {
+         const index = icon.getAttribute("data-index");
+         const product = productArr[index];
+
+         if (product.seller.email !== user.email) {
+           alert("You are not authorized to edit this product.");
+           return;
+         }
+
+         productForm.title.value = product.title;
+         productForm.imageUrl.value = product.imageUrl;
+         productForm.price.value = product.price;
+         productForm.description.value = product.description;
+         productForm.category.value = product.category;
+         productForm.quantity.value = product.quantity;
+         currentEditProductId = product.id;
+
+         showProductForm();
+         submitButton.style.display = "none";
+         updateBtn.style.display = "block";
+       });
+     });
+   }
+
+
     function listAllproducts() {
       fetch("http://localhost:3000/products")
         .then((res) => res.json())
         .then((data) => {
           productArr = data.filter((p) => p.seller.email === user.email);
-          for (let i = 0; i < productArr.length; i++) {
-            if (productArr[i].approved== true) {
-              // productArr[i].approved = "Approved";
-              emptarr.push(productArr[i]);
-            }
-            else {
-              // productArr[i].approved = "Not Approved";
-            }
-          }
-          displayProducts(emptarr);
+          const approvedProducts = productArr.filter(
+            (p) => p.approved === true
+          );
+
+          displayProducts(approvedProducts);
           bindEditEvents();
           bindDeleteEvents();
         })
@@ -237,18 +243,14 @@ window.addEventListener('load', function () {
 
     searchInput.addEventListener("input", function () {
       const searchValue = searchInput.value.toLowerCase();
-      const filtered = productArr.filter((p) =>
-        p.title.toLowerCase().includes(searchValue)
-      );
+      const filtered = productArr
+        .filter((p) => p.approved === true)
+        .filter((p) => p.title.toLowerCase().includes(searchValue));
       displayProducts(filtered);
       bindEditEvents();
       bindDeleteEvents();
     });
 
     listAllproducts();
-
-    }
-    
-    
-
+  }
 });
