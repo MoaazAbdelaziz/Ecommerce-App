@@ -1,3 +1,5 @@
+let currentEditUserId = null;
+
 const renderUsers = function (filteredUsers, usersContainer) {
     usersContainer.innerHTML = "";
 
@@ -112,7 +114,6 @@ const validateForm = function (updatedEmail) {
         return false;
     }
 
-
     if (password.length < 6) {
         Swal.fire("Validation Error", "Password must be at least 6 characters long.", "error");
         return false;
@@ -171,6 +172,9 @@ window.addEventListener('load', async function () {
     const addUserBtn = document.querySelector(".add-user-btn");
     const formClose = document.querySelector(".close");
     const userManagmentContainer = document.querySelector(".user-management-container");
+    const form = document.getElementById("add-update-form");
+    const submitBtn = document.getElementById("submit");
+
     formModal.style.display = "none";
 
     usersContainer.addEventListener("click", async function (e) {
@@ -192,7 +196,6 @@ window.addEventListener('load', async function () {
                     users = await getUsers();
                     customerOrSellerOrOtherAdmins = users.filter(user => user.role === "customer" || user.role === "seller" || user.id !== userAdmin.id);
                     renderUsers(customerOrSellerOrOtherAdmins, usersContainer);
-
                     Swal.fire("Deleted!", "The user and their data have been deleted.", "success");
                 } catch (error) {
                     Swal.fire("Error", "Failed to delete user: " + error.message, "error");
@@ -208,83 +211,55 @@ window.addEventListener('load', async function () {
             document.getElementById("email").value = user.email;
             document.getElementById("password").value = user.password;
             document.querySelector("select").value = user.role;
-
-            const submitBtn = document.getElementById("submit");
-            submitBtn.textContent = "Update";
-            submitBtn.addEventListener("click", async function (e) {
-                e.preventDefault();
-                const updatedEmail = document.getElementById("email").value;
-
-                if (await checkEmailUnique(updatedEmail, id) && validateForm(updatedEmail)) {
-                    const updatedData = {
-                        name: document.getElementById("name").value,
-                        email: updatedEmail,
-                        password: document.getElementById("password").value,
-                        role: document.querySelector("select").value,
-                    };
-
-                    try {
-                        await updateUser(id, updatedData);
-
-                        users = await getUsers();
-                        customerOrSellerOrOtherAdmins = users.filter(user => user.role === "customer" || user.role === "seller" || user.id !== userAdmin.id);
-                        renderUsers(customerOrSellerOrOtherAdmins, usersContainer);
-
-                        Swal.fire("Success", "User updated successfully", "success");
-                        formModal.style.display = "none";
-                        userManagmentContainer.style.display = "block";
-                    } catch (error) {
-                        Swal.fire("Error", "Failed to update user: " + error.message, "error");
-                    }
-                }
-            });
+            submitBtn.value = "Update";
+            document.querySelector(".title").textContent = "Update User";
+            currentEditUserId = id;
         }
     });
 
     addUserBtn.addEventListener("click", function () {
-        const title = document.querySelector(".title");
-        const form = document.getElementById("add-update-form");
-        const submitBtn = document.getElementById("submit");
+        form.reset();
+        document.querySelector(".title").textContent = "Add New User";
         submitBtn.value = "Add";
-        title.textContent = "Add New User";
+        currentEditUserId = null;
         userManagmentContainer.style.display = "none";
         formModal.style.display = "block";
+    });
 
-        submitBtn.addEventListener("click", async function (e) {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const name = formData.get("name");
-            const email = formData.get("email");
-            const password = formData.get("password");
-            const role = formData.get("role");
+    submitBtn.addEventListener("click", async function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        const name = formData.get("name");
+        const email = formData.get("email");
+        const password = formData.get("password");
+        const role = formData.get("role");
 
-            if (await checkEmailUnique(email) && validateForm(email)) {
-                const newUser = {
-                    name,
-                    email,
-                    password,
-                    role,
-                };
+        if (await checkEmailUnique(email, currentEditUserId) && validateForm(email)) {
+            const userData = { name, email, password, role };
 
-                try {
-                    await addUser(newUser);
-                    users = await getUsers();
-                    customerOrSellerOrOtherAdmins = users.filter(user => user.role === "customer" || user.role === "seller" || user.id !== userAdmin.id);
-                    renderUsers(customerOrSellerOrOtherAdmins, usersContainer);
-
+            try {
+                if (currentEditUserId) {
+                    await updateUser(currentEditUserId, userData);
+                    Swal.fire("Success", "User updated successfully", "success");
+                } else {
+                    await addUser(userData);
                     Swal.fire("Success", "User added successfully", "success");
-                    formModal.style.display = "none";
-                    userManagmentContainer.style.display = "block";
-                } catch (error) {
-                    Swal.fire("Error", "Failed to add user: " + error.message, "error");
                 }
-            }
-        });
 
+                users = await getUsers();
+                customerOrSellerOrOtherAdmins = users.filter(user => user.role === "customer" || user.role === "seller" || user.id !== userAdmin.id);
+                renderUsers(customerOrSellerOrOtherAdmins, usersContainer);
+                formModal.style.display = "none";
+                userManagmentContainer.style.display = "block";
+            } catch (error) {
+                Swal.fire("Error", "Failed to save user: " + error.message, "error");
+            }
+        }
     });
 
     formClose.addEventListener("click", function () {
         formModal.style.display = "none";
         userManagmentContainer.style.display = "block";
+        currentEditUserId = null;
     });
 });
