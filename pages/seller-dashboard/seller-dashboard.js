@@ -85,7 +85,7 @@ window.addEventListener('load', function () {
         description: formData.get("description"),
         category: formData.get("category"),
         quantity: formData.get("quantity"),
-        approved: true,
+        approved: false,
         seller: user,
       };
 
@@ -213,13 +213,22 @@ window.addEventListener('load', function () {
         });
       });
     }
-
+    let emptarr=[];
     function listAllproducts() {
       fetch("http://localhost:3000/products")
         .then((res) => res.json())
         .then((data) => {
           productArr = data.filter((p) => p.seller.email === user.email);
-          displayProducts(productArr);
+          for (let i = 0; i < productArr.length; i++) {
+            if (productArr[i].approved== true) {
+              // productArr[i].approved = "Approved";
+              emptarr.push(productArr[i]);
+            }
+            else {
+              // productArr[i].approved = "Not Approved";
+            }
+          }
+          displayProducts(emptarr);
           bindEditEvents();
           bindDeleteEvents();
         })
