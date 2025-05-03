@@ -148,6 +148,11 @@ window.addEventListener('load', async function () {
         window.location.href = "./../../auth/auth.html";
     });
 
+    const goBack = document.querySelector(".go-back");
+    goBack.addEventListener("click", () => {
+        window.location.href = "./../../admin/admin.html";
+    });
+
     let users = await getUsers();
     let customerOrSellerOrOtherAdmins = users.filter(user => user.role === "customer" || user.role === "seller" || user.id !== userAdmin.id);
     const usersContainer = document.querySelector(".user-container");
