@@ -1,0 +1,153 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  width: 87%;
+  height: 20px;
+  padding: 20px;
+  margin-bottom:50px; ;
+  padding-inline: 100px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Inter", sans-serif;
+}
+
+.nav-links {
+  padding: 10px;
+  margin-inline: left;
+
+}
+
+.nav-links ul {
+  list-style: none;
+  margin-inline: left;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: blue;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0%;
+  height: 2px;
+  background-color: blue;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* orders.css */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.order-card {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.order-card h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #0d6efd;
+}
+
+.product {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  border-top: 1px solid #e9ecef;
+  padding-top: 15px;
+}
+
+.product img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.product-details {
+  flex: 1;
+}
+
+.seller {
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+}
+
+.empty-order{
+    text-align: center;
+    font-size: 18px;
+    color: #6c757d;
+    margin-top: 50px;
+    font-weight: 600;
+    
+}
+.empty-order img{
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+
+}
+.empty-order h1{
+    font-size: 30px;
+    color: #0d6efd;
+    margin-top: 20px;
+}
+.empty-order p{
+    font-size: 20px;
+    color: #6c757d;
+    margin-top: 10px;
+}
+.empty-order button{
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+.empty-order button:hover{
+    background-color: #0056b3;
+    transition: background-color 0.3s ease;
+}
