@@ -59,6 +59,13 @@ const deleteUser = async function (id) {
         await fetch(`http://localhost:3000/cart/${userCart.id}`, { method: "DELETE" });
     }
 
+    const ordersRes = await fetch(`http://localhost:3000/orders`);
+    const orders = await ordersRes.json();
+    const userOrders = orders.filter(o => o.user.id === id);
+    for (const order of userOrders) {
+        await fetch(`http://localhost:3000/orders/${order.id}`, { method: "DELETE" });
+    }
+
     const productsRes = await fetch(`http://localhost:3000/products`);
     const products = await productsRes.json();
     const userProducts = products.filter(p => p.seller.id === id);
@@ -78,6 +85,8 @@ const updateUser = async function (id, updatedData) {
     const products = await productsRes.json();
     const cartsRes = await fetch("http://localhost:3000/cart");
     const carts = await cartsRes.json();
+    const ordersRes = await fetch("http://localhost:3000/orders");
+    const orders = await ordersRes.json();
 
     if (updatedData.role === "customer") {
         const userProducts = products.filter(p => p.seller.id === id);
@@ -89,6 +98,11 @@ const updateUser = async function (id, updatedData) {
     if (updatedData.role === "seller") {
         const userCart = carts.find(cart => cart.user.id === id);
         if (userCart) await fetch(`http://localhost:3000/cart/${userCart.id}`, { method: "DELETE" });
+
+        const userOrders = orders.filter(o => o.user.id === id);
+        for (const order of userOrders) {
+            await fetch(`http://localhost:3000/orders/${order.id}`, { method: "DELETE" });
+        }
     }
 };
 
