@@ -1,0 +1,123 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f3f6fb;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  width: 87%;
+  height: 20px;
+  padding: 20px;
+  margin-bottom:50px; ;
+  padding-inline: 100px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Inter", sans-serif;
+}
+
+.nav-links {
+  padding: 10px;
+  margin-inline: left;
+
+}
+
+.nav-links ul {
+  list-style: none;
+  margin-inline: left;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: blue;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0%;
+  height: 2px;
+  background-color: blue;
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+.product-details-container {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.product-details-container img {
+  width: 400px;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-details-container img:hover {
+  transform: scale(1.05);
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-info h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #0156FF;
+}
+
+.product-info p {
+  font-size: 18px;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.product-info p strong {
+  color: #333;
+  font-weight: bold;
+}
+
+.product-info .price {
+  font-size: 22px;
+  color: #e91e63;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .product-details-container {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .product-details-container img {
+    width: 100%;
+  }
+}
