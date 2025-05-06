@@ -213,9 +213,205 @@
         "role": "seller",
         "password": "111111"
       }
+    },
+    {
+      "title": "Apple iPhone 14 Pro Max",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZR_Y397SgqefQ-Qqf4QciPiz3s3q4TQpJA&s",
+      "price": "45999",
+      "description": "6.7-inch Super Retina XDR display, A16 Bionic chip, 48MP camera system, Dynamic Island.",
+      "category": "smartphones",
+      "quantity": "12",
+      "approved": true,
+      "seller": {
+        "id": "78fa",
+        "name": "moaaz",
+        "email": "moaaz@gmail.com",
+        "role": "seller",
+        "password": "123456"
+      },
+      "id": "201"
+    },
+    {
+      "title": "Samsung Galaxy S23 Ultra",
+      "imageUrl": "https://images.samsung.com/is/image/samsung/assets/in/smartphones/galaxy-s23-ultra/images/galaxy-s23-ultra-share-image.jpg",
+      "price": "41999",
+      "description": "200MP camera, Snapdragon 8 Gen 2, 6.8-inch QHD+ AMOLED display, S Pen included.",
+      "category": "smartphones",
+      "quantity": "15",
+      "approved": true,
+      "seller": {
+        "id": "3379",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "kenacomb@gmail.com",
+        "role": "seller",
+        "password": "111111"
+      },
+      "id": "202"
+    },
+    {
+      "title": "Sony PlayStation 5",
+      "imageUrl": "https://m.media-amazon.com/images/I/619BkvKW35L._SL1500_.jpg",
+      "price": "28500",
+      "description": "Next-gen gaming console with ultra-fast SSD, ray tracing, and 4K gaming capabilities.",
+      "category": "gaming",
+      "quantity": "8",
+      "approved": true,
+      "seller": {
+        "id": "78fa",
+        "name": "moaaz",
+        "email": "moaaz@gmail.com",
+        "role": "seller",
+        "password": "123456"
+      },
+      "id": "203"
+    },
+    {
+      "title": "HP Spectre x360 Laptop",
+      "imageUrl": "https://www.raneen.com/media/catalog/product/1/1/110186-1_zjnirvnttu4kpafy.jpg?optimize=high&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:",
+      "price": "33999",
+      "description": "13th Gen Intel Core i7, 16GB RAM, 1TB SSD, 13.5-inch 3K OLED touchscreen.",
+      "category": "laptops",
+      "quantity": "5",
+      "approved": true,
+      "seller": {
+        "id": "3379",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "kenacomb@gmail.com",
+        "role": "seller",
+        "password": "111111"
+      },
+      "id": "204"
+    },
+    {
+      "title": "Nike Air Max 270",
+      "imageUrl": "https://image.goxip.com/0z9RYwqirZZwRDK_-DJH2qPCa4w=/fit-in/500x500/filters:format(jpg):quality(80):fill(white)/https:%2F%2Fimages.stockx.com%2Fimages%2FNike-Air-Max-270-React-Phantom-Multi-Color-GS-Product.jpg",
+      "price": "2999",
+      "description": "Breathable mesh upper, Max Air unit in the heel, lightweight and stylish.",
+      "category": "shoes",
+      "quantity": "25",
+      "approved": true,
+      "seller": {
+        "id": "78fa",
+        "name": "moaaz",
+        "email": "moaaz@gmail.com",
+        "role": "seller",
+        "password": "123456"
+      },
+      "id": "205"
+    },
+    {
+      "title": "Logitech MX Master 3S",
+      "imageUrl": "https://m.media-amazon.com/images/I/512V4kRs2iL.jpg",
+      "price": "1650",
+      "description": "Ergonomic wireless mouse with ultra-precise scrolling and 8000 DPI sensor.",
+      "category": "accessories",
+      "quantity": "40",
+      "approved": true,
+      "seller": {
+        "id": "3379",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "kenacomb@gmail.com",
+        "role": "seller",
+        "password": "111111"
+      },
+      "id": "206"
+    },
+    {
+      "title": "Amazon Kindle Paperwhite 11th Gen",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2hYlmRzGdypEYTtlPau6ZIIDuCAHT4rQFZw&s",
+      "price": "1999",
+      "description": "6.8” display, adjustable warm light, waterproof, and up to 10 weeks of battery life.",
+      "category": "electronics",
+      "quantity": "20",
+      "approved": true,
+      "seller": {
+        "id": "78fa",
+        "name": "moaaz",
+        "email": "moaaz@gmail.com",
+        "role": "seller",
+        "password": "123456"
+      },
+      "id": "207"
+    },
+    {
+      "title": "Bose QuietComfort 45",
+      "imageUrl": "https://i5.walmartimages.com/asr/a604118c-fa95-40be-ac7d-7f0f3ed44db0.6f6ff4776a188ba1e26a51211dd06e6e.jpeg",
+      "price": "5999",
+      "description": "Noise-cancelling over-ear headphones with 24-hour battery life and crystal clear calls.",
+      "category": "audio",
+      "quantity": "30",
+      "approved": true,
+      "seller": {
+        "id": "3379",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "kenacomb@gmail.com",
+        "role": "seller",
+        "password": "111111"
+      },
+      "id": "208"
+    },
+    {
+      "title": "Canon EOS R50 Mirrorless Camera",
+      "imageUrl": "https://m.media-amazon.com/images/I/71eCYxIBTcL.jpg",
+      "price": "26999",
+      "description": "24.2MP APS-C CMOS sensor, 4K video, Dual Pixel AF II, perfect for vloggers and creators.",
+      "category": "photography",
+      "quantity": "6",
+      "approved": true,
+      "seller": {
+        "id": "78fa",
+        "name": "moaaz",
+        "email": "moaaz@gmail.com",
+        "role": "seller",
+        "password": "123456"
+      },
+      "id": "209"
+    },
+    {
+      "title": "LG 55-Inch OLED Smart TV",
+      "imageUrl": "https://www.lg.com/content/dam/channel/wcms/eg_en/images/tvs/voucher-2025/new/OLED55A36LA-Z-2010.jpg/_jcr_content/renditions/thum-1600x1062.jpeg",
+      "price": "34999",
+      "description": "4K OLED display, Dolby Vision IQ, α9 Gen 5 AI Processor, webOS Smart platform.",
+      "category": "televisions",
+      "quantity": "10",
+      "approved": true,
+      "seller": {
+        "id": "3379",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "kenacomb@gmail.com",
+        "role": "seller",
+        "password": "111111"
+      },
+      "id": "210"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": "896a",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "1",
+          "title": "Sony WH-1000XM3 Bluetooth Wireless Over Ear Headphones with Mic (Silver)ssss",
+          "price": "773",
+          "imageUrl": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1692947383286-714WUJlhbLS._SL1500_.jpg",
+          "quantity": 1
+        },
+        {
+          "id": "c784",
+          "title": "Pantheon",
+          "price": "191",
+          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg",
+          "quantity": 1
+        }
+      ]
+    }
+  ],
   "orders": [
     {
       "id": "c2b2a3e0-4c32-445e-acc2-3536d0578902",

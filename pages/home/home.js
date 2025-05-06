@@ -77,15 +77,18 @@ window.onload = function () {
       approvedProducts.forEach((product) => {
         const card = document.createElement("div");
         card.classList.add("product-card");
-
         card.innerHTML = `
-        <img src="${product.imageUrl}" alt="${product.title}" />
-        <div class="product-content">
-          <h3>${product.title.slice(0, 20)}</h3>
-          <p><strong>Price:</strong> ${product.price} EGP</p>
-          <p>${product.description.substring(0, 60)}...</p>
-        </div>
-        <button type="button" class="add-to-cart">Add to Cart</button>
+        <div style="width: 100%; cursor: pointer;" data-id="${product.id}" class="product-contentt" >
+        <img  style="wi dth: 100%;" src="${product.imageUrl}" alt="${product.title}" />
+            <div class="product-content">
+    
+              <h3>${product.title.slice(0, 20)}</h3>
+              <p><strong>Price:</strong> ${product.price} EGP</p>
+              <p>${product.description.substring(0, 60)}...</p>
+            </div>
+            <button type="button" class="add-to-cart">Add to Cart</button>
+        
+    </div>
       `;
 
         const addToCartBtn = card.querySelector(".add-to-cart");
@@ -221,6 +224,18 @@ window.onload = function () {
       .catch((err) => console.error("Failed to fetch orders:", err));
   }
 
+document.querySelector(".products-container").addEventListener("click", (e) => {
+  const productCard = e.target.closest(".product-contentt");
+  if (productCard) {
+    const id = productCard.getAttribute("data-id");
+    console.log(id);
+    productDetails(id);
+  }
+});
+  function productDetails(id) {
+    localStorage.setItem("productId", id);
+    window.location.href = "./../details-product/details.html";
+  }
 
 
   orderDashboard.addEventListener("click", () => {
