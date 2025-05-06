@@ -312,23 +312,14 @@ function listSellerOrders() {
             .map(
               (prod) => `
               <div class="order-card">
-                        <img style="width: 100px; height: 100px;" src="${
-                          prod.imageUrl
-                        }" alt="">
+                        <img style="width: 100px; height: 100px;" src="${prod.imageUrl}" alt="">
                         <div class="order-details">
                             <h3>${prod.title}</h3>
-                            <div class="order-quantity">Quantity: ${
-                              prod.quantity
-                            }</div>
-                            <div class="order-total">Total: $${(
-                              prod.price * prod.quantity
-                            ).toFixed(2)}</div>
-                            <div class="order-date">customr: ${
-                              order.user.name
-                            }</div>
-                            <div class="order-date">customr email: ${
-                              order.user.email
-                            }</div>
+                            <div class="order-quantity">Quantity: ${prod.quantity}</div>
+                            <div class="order-total">Total: $${(prod.price * prod.quantity).toFixed(2)}</div>
+                            <div class="order-date">customr: ${order.user.name}</div>
+                            <div class="order-date">customr email: ${order.user.email}</div>
+                              
                             
 
                     </div>
@@ -336,11 +327,27 @@ function listSellerOrders() {
             `
             )
             .join("");
-
           orderDiv.innerHTML = `
             <h2>order #${orderCount}</h2>
             ${productsHTML}
             <h2>Total: $${order.total}</h2>
+
+
+            <div style="display: flex; gap: 20px; justify-content: center; align-items: center;">
+
+            <div style="margin: 20px 0; font-weight: bold; font-size: 20px;" class="order-date">order status: ${order.status}</div>
+             <select  name="status"  data-index="${orderCount - 1}" data-id="${order.id}" id="status">
+            <option value=""hidden>select status</option>
+            <option value="pending">pending</option>
+            <option value="delivered">delivered</option>
+            <option value="shipped">shipped</option>
+            </select>
+    
+</div>
+
+
+
+  
           `;
           orderDiv.style=`
             border: 1px solid #ccc;
@@ -353,6 +360,23 @@ function listSellerOrders() {
           
             `
           ordersContainer.appendChild(orderDiv);
+
+          const statusSelect = orderDiv.querySelector("#status");
+          statusSelect.addEventListener("change", function () {
+            const newStatus = statusSelect.value;
+            const orderId = statusSelect.getAttribute("data-id");
+            fetch(`http://localhost:3000/orders/${orderId}`, {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ status: newStatus }),
+            })
+              .then((res) => res.json())
+              .then((data) => console.log(data))
+              .catch((err) => console.error("Fetch error:", err));
+          });
+          
         }
         
         
