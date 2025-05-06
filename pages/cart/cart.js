@@ -146,6 +146,10 @@ window.onload = function () {
               id: crypto.randomUUID(),
               user: userCart.user,
               products: enrichedProducts,
+              total: userCart.products.reduce(
+                (acc, prod) => acc + prod.price * prod.quantity,
+                0
+              ),
             };
 
             //  POST order with full seller data

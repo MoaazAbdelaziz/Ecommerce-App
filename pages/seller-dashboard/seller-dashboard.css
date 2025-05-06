@@ -3,6 +3,76 @@
   padding: 0;
   box-sizing: border-box;
 }
+ .text2 {
+    text-align: center;
+    font-size: 41px;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 20px 0;
+}
+
+
+/* //////////////////////////////////////// */
+
+.orders-list {
+  margin: 70px auto;
+
+  width: 1000px;
+  padding: 20px;
+  text-align: center;
+}
+.orders-containers{
+  
+}
+
+.order-card {
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+  gap: 20px;
+  transition: transform 0.3s ease;
+}
+
+.order-card:hover {
+  transform: scale(1.01);
+}
+
+.order-card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+}
+
+.order-details {
+  text-align: left;
+  flex: 1;
+}
+
+.order-details h3 {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.order-details div {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #555;
+}
+/* ////////////////////////////////////////// */
+
+
+
 
 .sidebar {
   position: fixed;

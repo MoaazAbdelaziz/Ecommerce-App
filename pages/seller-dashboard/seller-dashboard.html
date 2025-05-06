@@ -37,7 +37,7 @@
                             <i class="fa-solid fa-chevron-left"></i>
                             <span>Product Management</span>
                         </div>
-                        <li class="item">
+                        <li style="cursor: pointer;" class="item">
                             <a id="new-product">Add New Product</a>
                         </li>
                     </ul>
@@ -49,11 +49,11 @@
                         <i class="fa-solid fa-chevron-right"></i>
                     </div>
                     <ul class="menu-items submenu">
-                        <div class="menu-title" style="padding: 20px;">
+                        <div class="menu-title Order-Management" style="padding: 20px;">
                             <i class="fa-solid fa-chevron-left"></i>
                             <span>Order Management</span>
                         </div>
-                        <li class="item">
+                        <li id="view-orders" style="cursor: pointer;" class="item">
                             <a>View Orders</a>
                         </li>
                     </ul>
@@ -65,10 +65,19 @@
 
 
     <main class="main">
+        <!-- Show Requested orders from customers  -->
+    <section style="display: none;" id="orders-section" class="orders-section">
+        <div id="orders-list" class="orders-list">
+            <div class="text2">Orders List</div>
+            <div class="orders-containers" id="ordersContainer"></div>
+        </div>
+    </section>
+
+
+
+
         <!-- Product-list -->
-        <div class="product-list">
-
-
+        <div id="product-list" class="product-list">
             <div style="display: block !important; position: relative; left:30%; width: 50%; " class="input-data">
                 <input type="search" name="search" id="search" required>
                 <div class="underline"></div>
@@ -147,6 +156,10 @@
 
             </form>
         </div>
+
+
+        
+        
 
     </main>
 
