@@ -34,6 +34,8 @@ fetch("http://localhost:3000/orders")
               <p>: ${prod.price} EGP</p>
 
               <p>Quantity: ${prod.quantity}</p>
+              <p style="font-weight: bold;">status: ${order.status}</p>
+
               <div class="seller">
                 seller: <strong>${
                   prod.seller?.name || "Unknown Seller"

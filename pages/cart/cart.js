@@ -150,6 +150,7 @@ window.onload = function () {
                 (acc, prod) => acc + prod.price * prod.quantity,
                 0
               ),
+              status: "pending",
             };
 
             //  POST order with full seller data
