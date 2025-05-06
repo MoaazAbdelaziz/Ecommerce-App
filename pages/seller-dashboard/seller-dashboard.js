@@ -2,7 +2,7 @@
 window.addEventListener("load", function () {
   let user = JSON.parse(localStorage.getItem("user"));
 
-  console.log(user);
+
   if (!user) {
     window.location.href = "./../home/home.html";
     console.log("User not logged in. Redirecting to login page.");
@@ -45,6 +45,11 @@ window.addEventListener("load", function () {
     const newProductBtn = document.getElementById("new-product");
     const productTable = document.querySelector(".product-table");
     const searchInput = document.querySelector("#search");
+    
+    
+
+
+
 
     let productArr = [];
     let currentEditProductId = null;
@@ -253,4 +258,118 @@ window.addEventListener("load", function () {
 
     listAllproducts();
   }
+
+  //list all orders 
+
+const seller = JSON.parse(localStorage.getItem("user")); 
+const viewOrdersBtn = document.querySelector("#view-orders");
+const OrderManagement = document.querySelector(".Order-Management");
+const ordersContainer = document.querySelector(".orders-containers");
+const ordersList = document.querySelector("section");
+
+
+
+ viewOrdersBtn.addEventListener("click", function () {
+  ordersList.style.display = "block";
+  
+    document.getElementById("new-product-form").style.display = "none";
+    document.getElementById("product-list").style.display = "none";
+    listSellerOrders(); 
+ })
+
+ OrderManagement.addEventListener("click", function () {
+  document.querySelector("#new-product-form").style.display = "none";
+  document.querySelector(".product-list").style.display = "flex";
+  ordersList.style.display = "none";
+  
+  
+  showProductList();
+ })
+
+
+
+function listSellerOrders() {
+  fetch("http://localhost:3000/orders")
+    .then((res) => res.json())
+    .then((orders) => {
+      ordersContainer.innerHTML = ""; 
+      let orderCount = 0;
+      
+
+      orders.forEach((order) => {
+        
+        const sellerProducts = order.products.filter(
+          (prod) => prod.seller?.email === seller.email
+        );
+        
+        if (sellerProducts.length > 0) {
+          orderCount++;
+          const orderDiv = document.createElement("div");
+          
+          
+          const productsHTML = sellerProducts
+
+            .map(
+              (prod) => `
+              <div class="order-card">
+                        <img style="width: 100px; height: 100px;" src="${
+                          prod.imageUrl
+                        }" alt="">
+                        <div class="order-details">
+                            <h3>${prod.title}</h3>
+                            <div class="order-quantity">Quantity: ${
+                              prod.quantity
+                            }</div>
+                            <div class="order-total">Total: $${(
+                              prod.price * prod.quantity
+                            ).toFixed(2)}</div>
+                            <div class="order-date">customr: ${
+                              order.user.name
+                            }</div>
+                            <div class="order-date">customr email: ${
+                              order.user.email
+                            }</div>
+                            
+
+                    </div>
+                 </div>
+            `
+            )
+            .join("");
+
+          orderDiv.innerHTML = `
+            <h2>order #${orderCount}</h2>
+            ${productsHTML}
+            <h2>Total: $${order.total}</h2>
+          `;
+          orderDiv.style=`
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 30px 0;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+          
+            `
+          ordersContainer.appendChild(orderDiv);
+        }
+        
+        
+        
+        
+      });
+
+      if (orderCount === 0) {
+        ordersContainer.innerHTML = "<p>No orders found for this seller.</p>";
+      }
+    })
+    .catch((err) => console.error("Fetch error:", err));
+}
+
+
+
+
+
+
 });
