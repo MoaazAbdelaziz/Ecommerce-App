@@ -9,6 +9,7 @@ const renderOrders = function (orderConstainer, orders) {
                     <p><strong>Total:</strong> $${order.total}</p>
                     <p><strong>Customer:</strong> ${order.user.name}</p>
                     <p><strong>Customer Email:</strong> ${order.user.email}</p>
+                    <p><strong>Customer Status:</strong> ${order.status}</p>
 
                     <div class="order-actions">
                         <button class="btn-cancel" data-id="${order.id}">Cancel Order</button>
@@ -55,7 +56,9 @@ window.addEventListener('load', async function () {
     const orderContainer = document.querySelector(".order-container");
     let orders = await getOrders();
 
-    renderOrders(orderContainer, orders);
+    const pendingOrders = orders.filter((order) => order.status === "pending");
+
+    renderOrders(orderContainer, pendingOrders);
 
 
     const cancelBtn = document.querySelectorAll(".btn-cancel");
