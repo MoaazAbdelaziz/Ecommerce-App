@@ -1,5 +1,5 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   background: #f3f6fb;
@@ -12,7 +12,7 @@ body {
   width: 87%;
   height: 20px;
   padding: 20px;
-  margin-bottom:50px; ;
+  margin-bottom: 50px;
   padding-inline: 100px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: "Inter", sans-serif;
@@ -21,7 +21,6 @@ body {
 .nav-links {
   padding: 10px;
   margin-inline: left;
-
 }
 
 .nav-links ul {
@@ -56,7 +55,6 @@ body {
   width: 100%;
 }
 
-
 .product-details-container {
   position: relative;
   max-width: 1000px;
@@ -68,7 +66,7 @@ body {
   display: flex;
   gap: 40px;
   align-items: center;
-  padding-bottom:60px ;
+  padding-bottom: 60px;
 }
 
 .product-details-container img {
@@ -76,7 +74,7 @@ body {
   height: auto;
   border-radius: 15px;
   object-fit: cover;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
@@ -91,7 +89,7 @@ body {
 .product-info h2 {
   font-size: 32px;
   margin-bottom: 20px;
-  color: #0156FF;
+  color: #0156ff;
 }
 
 .product-info p {
@@ -117,7 +115,7 @@ body {
   position: absolute;
   bottom: 0px;
   right: 50px;
-  width:50%;
+  width: 50%;
   align-items: center;
   margin-bottom: 10px;
   justify-content: center;
@@ -126,7 +124,7 @@ body {
 
 .add-to-cart-btn {
   width: 100%;
-  background-color: #0156FF;
+  background-color: #0156ff;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -134,13 +132,11 @@ body {
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
-
 }
 .add-to-cart-btn:hover {
-  background-color: #003D99; /* تغيير اللون عند الهوفر */
+  background-color: #003d99; /* تغيير اللون عند الهوفر */
   transform: scale(1.05); /* تكبير الزرار عند الهوفر */
 }
-
 
 @media screen and (max-width: 768px) {
   .product-details-container {
@@ -152,4 +148,50 @@ body {
   .product-details-container img {
     width: 100%;
   }
+}
+
+.review-container {
+  margin-top: 40px;
+}
+
+.review-section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.review-section h3 {
+  margin-bottom: 15px;
+  color: #0156ff;
+}
+
+#review-text {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+}
+
+#review-form button {
+  margin-top: 10px;
+  background-color: #0156ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#review-form button:hover {
+  background-color: #013ccc;
+}
+
+.review-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
 }

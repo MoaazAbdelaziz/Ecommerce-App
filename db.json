@@ -31,9 +31,9 @@
     {
       "id": "97a9",
       "name": "Ulric Vinson",
-      "email": "rehomox@mailinator.com",
+      "email": "moaaz500@gmail.com",
       "role": "customer",
-      "password": "111111"
+      "password": "123456"
     },
     {
       "id": "b067",
@@ -407,6 +407,24 @@
           "title": "github ay 7aga",
           "price": "682",
           "imageUrl": "https://www.bleepstatic.com/content/hl-images/2022/04/08/GitHub__headpic.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "55d6",
+      "user": {
+        "id": "97a9",
+        "name": "Ulric Vinson",
+        "email": "moaaz500@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "0ae2",
+          "title": "Yone",
+          "price": "1000000000",
+          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
           "quantity": 1
         }
       ]
@@ -786,6 +804,47 @@
       ],
       "total": 1000000000,
       "status": "pending"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "r1746660329190",
+      "productId": "0ae2",
+      "comment": "ok",
+      "date": "2025-05-07",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer",
+        "password": "11223344"
+      }
+    },
+    {
+      "id": "r1746660344530",
+      "productId": "0ae2",
+      "comment": "so broken",
+      "date": "2025-05-07",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer",
+        "password": "11223344"
+      }
+    },
+    {
+      "id": "r1746660482331",
+      "productId": "0ae2",
+      "comment": "7pp",
+      "date": "2025-05-07",
+      "user": {
+        "id": "97a9",
+        "name": "Ulric Vinson",
+        "email": "moaaz500@gmail.com",
+        "role": "customer",
+        "password": "123456"
+      }
     }
   ]
 }
