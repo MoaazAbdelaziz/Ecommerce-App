@@ -6,35 +6,31 @@ window.onload = function () {
   const hello = document.querySelector("h1");
   const logOut = document.querySelector(".logout");
   const logIn = document.querySelector(".login");
+  let searchInput = document.getElementById("searchInput");
+  let products = []; // Global declaration
 
   if (!user) {
     console.log("User not logged in. Redirecting to login page.");
     cart.style.display = "none";
     orderDashboard.style.display = "none";
     sellerDashboard.style.display = "none";
-    hello.textContent = "Please log in to access your dashboard.";
     logIn.style.display = "block";
     logOut.style.display = "none";
-
   } else {
     if (user.role == "seller") {
       sellerDashboard.style.display = "block";
       orderDashboard.style.display = "none";
       logIn.style.display = "none";
-      hello.textContent += `${user.name}!`;
       window.location.href = "./../seller-dashboard/seller-dashboard.html";
-
     } else if (user.role == "customer") {
       sellerDashboard.style.display = "none";
       orderDashboard.style.display = "block";
       cart.style.display = "block";
       logIn.style.display = "none";
 
-      hello.textContent += `${user.name}!`;
     } else if (user.role == "admin") {
       window.location.href = "./../admin/admin.html";
-    }
-    else {
+    } else {
       console.log("User role not recognized. Hiding seller dashboard.");
       sellerDashboard.style.display = "none";
       orderDashboard.style.display = "none";
@@ -64,45 +60,19 @@ window.onload = function () {
 
   ////////////////////
 
-
   // Fetch and display products
-  fetch("http://localhost:3000/products")
-    .then((res) => res.json())
-    .then((data) => {
-      const products = data;
-      const container = document.querySelector(".products-container");
+ fetch("http://localhost:3000/products")
+   .then((res) => res.json())
+   .then((data) => {
+     products = data; // store globally
+     const container = document.querySelector(".products-container");
 
-      const approvedProducts = products.filter((p) => p.approved);
-
-      approvedProducts.forEach((product) => {
-        const card = document.createElement("div");
-        card.classList.add("product-card");
-        card.innerHTML = `
-        <div style="width: 100%; cursor: pointer;" data-id="${product.id}" class="product-contentt" >
-        <img  style="wi dth: 100%;" src="${product.imageUrl}" alt="${product.title}" />
-            <div class="product-content">
-    
-              <h3>${product.title.slice(0, 20)}</h3>
-              <p><strong>Price:</strong> ${product.price} EGP</p>
-              <p>${product.description.substring(0, 60)}...</p>
-            </div>
-            <button type="button" class="add-to-cart">Add to Cart</button>
-        
-    </div>
-      `;
-
-        const addToCartBtn = card.querySelector(".add-to-cart");
-        addToCartBtn.addEventListener("click", (e) => {
-          e.stopPropagation(); // ✅ لو في حاجة بتوصل فوق
-          addToCart(product);
-        });
-
-        container.appendChild(card);
-      });
-    })
-    .catch((error) => {
-      console.error("Error fetching products:", error);
-    });
+     const approvedProducts = products.filter((p) => p.approved);
+     displayProducts(approvedProducts);
+   })
+   .catch((error) => {
+     console.error("Error fetching products:", error);
+   });
 
   // Function to handle adding to cart
 
@@ -131,7 +101,6 @@ window.onload = function () {
         const userOrder = orders.find((order) => order.user.id === user.id);
 
         if (userOrder) {
-          // شوف لو المنتج ده موجود بالفعل في الأوردر
           const existingProduct = userOrder.products.find(
             (p) => p.id === product.id
           );
@@ -139,7 +108,6 @@ window.onload = function () {
           let updatedProducts;
 
           if (existingProduct) {
-            // ✅ لو موجود: زود الـ quantity
             updatedProducts = userOrder.products.map((p) => {
               if (p.id === product.id) {
                 return { ...p, quantity: (p.quantity || 1) + 1 };
@@ -147,7 +115,6 @@ window.onload = function () {
               return p;
             });
           } else {
-            // ✅ لو مش موجود: ضيفه مع quantity = 1
             updatedProducts = [
               ...userOrder.products,
               {
@@ -182,7 +149,6 @@ window.onload = function () {
             })
             .catch((err) => console.error("Failed to update order:", err));
         } else {
-          // ✅ لو مفيش أوردر: نعمل أوردر جديد
           fetch("http://localhost:3000/cart", {
             method: "POST",
             headers: {
@@ -224,21 +190,78 @@ window.onload = function () {
       .catch((err) => console.error("Failed to fetch orders:", err));
   }
 
-document.querySelector(".products-container").addEventListener("click", (e) => {
-  const productCard = e.target.closest(".product-contentt");
-  if (productCard) {
-    const id = productCard.getAttribute("data-id");
-    console.log(id);
-    productDetails(id);
-  }
-});
+  document
+    .querySelector(".products-container")
+    .addEventListener("click", (e) => {
+      const productCard = e.target.closest(".product-contentt");
+      if (productCard) {
+        const id = productCard.getAttribute("data-id");
+        console.log(id);
+        productDetails(id);
+      }
+    });
   function productDetails(id) {
     localStorage.setItem("productId", id);
     window.location.href = "./../details-product/details.html";
   }
+  function displayProducts(productList) {
+    const container = document.querySelector(".products-container");
+    container.innerHTML = ""; // clear old products
 
+    productList.forEach((product) => {
+      const card = document.createElement("div");
+      card.classList.add("product-card");
+      card.innerHTML = `
+      <div style="width: 100%; cursor: pointer;" data-id="${
+        product.id
+      }" class="product-contentt" >
+        <img style="width: 100%;" src="${product.imageUrl}" alt="${
+        product.title
+      }" />
+        <div class="product-content">
+          <h3>${product.title.slice(0, 20)}</h3>
+          <p><strong>Price:</strong> ${product.price} EGP</p>
+          <p>${product.description.substring(0, 60)}...</p>
+        </div>
+        <button type="button" class="add-to-cart">Add to Cart</button>
+      </div>
+    `;
+
+      const addToCartBtn = card.querySelector(".add-to-cart");
+      addToCartBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        addToCart(product);
+      });
+
+      container.appendChild(card);
+    });
+  }
+
+
+  searchInput.addEventListener("input", function () {
+    const searchValue = searchInput.value.toLowerCase();
+    const filtered = products
+      .filter((p) => p.approved === true)
+      .filter((p) => p.title.toLowerCase().includes(searchValue));
+    displayProducts(filtered);
+  });
 
   orderDashboard.addEventListener("click", () => {
     window.location.href = "../details-product/details.html";
   });
+
+  $(".custom-carousel").owlCarousel({
+    autoWidth: true,
+    loop: true,
+  });
+
+  $(document).ready(function () {
+    $(".custom-carousel .item").click(function () {
+      $(".custom-carousel .item").not($(this)).removeClass("active");
+      $(this).toggleClass("active");
+    });
+  });
+
+
+
 }
