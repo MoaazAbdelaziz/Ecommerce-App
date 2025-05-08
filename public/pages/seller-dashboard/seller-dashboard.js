@@ -181,17 +181,29 @@ window.addEventListener("load", function () {
         icon.addEventListener("click", () => {
           const id = icon.getAttribute("data-id");
           const product = productArr.find((p) => p.id == id);
-
+    
           if (product && product.seller.email !== user.email) {
             alert("You are not authorized to delete this product.");
             return;
           }
-
+    
           fetch(`http://localhost:3000/products/${id}`, {
             method: "DELETE",
           })
             .then((res) => {
               if (!res.ok) throw new Error("Delete failed");
+              return fetch(`http://localhost:3000/reviews?productId=${id}`);
+            })
+            .then((res) => res.json())
+            .then((reviews) => {
+              const deletePromises = reviews.map((review) =>
+                fetch(`http://localhost:3000/reviews/${review.id}`, {
+                  method: "DELETE",
+                })
+              );
+              return Promise.all(deletePromises);
+            })
+            .then(() => {
               productArr = productArr.filter((p) => p.id != id);
               displayProducts(productArr.filter((p) => p.approved === true));
               bindEditEvents();
@@ -201,6 +213,7 @@ window.addEventListener("load", function () {
         });
       });
     }
+    
 
 
    function bindEditEvents() {
