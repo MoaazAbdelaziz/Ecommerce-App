@@ -23,17 +23,10 @@
     },
     {
       "id": "3379",
-      "name": "Hisham Fawzy Ali Hassan",
+      "name": "kenacomb is the best ",
       "email": "kenacomb@gmail.com",
       "role": "seller",
       "password": "111111"
-    },
-    {
-      "id": "97a9",
-      "name": "Ulric Vinson",
-      "email": "moaaz500@gmail.com",
-      "role": "customer",
-      "password": "123456"
     }
   ],
   "products": [
@@ -123,23 +116,6 @@
       "id": "6340"
     },
     {
-      "id": "2cb4",
-      "title": "a7a b2a",
-      "imageUrl": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1692947383286-714WUJlhbLS._SL1500_.jpg",
-      "price": "497",
-      "description": "Dolor et veniam quo",
-      "category": "959",
-      "quantity": "143",
-      "approved": false,
-      "seller": {
-        "id": "78fa",
-        "name": "moaaz",
-        "email": "moaaz@gmail.com",
-        "role": "seller",
-        "password": "123456"
-      }
-    },
-    {
       "title": "github ay 7aga",
       "imageUrl": "https://www.bleepstatic.com/content/hl-images/2022/04/08/GitHub__headpic.jpg",
       "price": "682",
@@ -155,40 +131,6 @@
         "password": "111111"
       },
       "id": "94c8"
-    },
-    {
-      "id": "f80b",
-      "title": "",
-      "imageUrl": "",
-      "price": "",
-      "description": "",
-      "category": "",
-      "quantity": "",
-      "approved": false,
-      "seller": {
-        "id": "3379",
-        "name": "Hisham Fawzy Ali Hassan",
-        "email": "kenacomb@gmail.com",
-        "role": "seller",
-        "password": "111111"
-      }
-    },
-    {
-      "id": "efb5",
-      "title": "25",
-      "imageUrl": "629",
-      "price": "485",
-      "description": "Ipsum quia itaque m",
-      "category": "72",
-      "quantity": "106",
-      "approved": false,
-      "seller": {
-        "id": "3379",
-        "name": "Hisham Fawzy Ali Hassan",
-        "email": "kenacomb@gmail.com",
-        "role": "seller",
-        "password": "111111"
-      }
     },
     {
       "title": "Apple iPhone 14 Pro Max",
@@ -359,41 +301,40 @@
         "password": "111111"
       },
       "id": "210"
+    },
+    {
+      "id": "9ce3",
+      "title": "btngan m5lel",
+      "imageUrl": "https://static.webteb.net/images/content/ramadanrecipe_recipe_1344_61002e1965e-855f-417c-a421-f2f7f2156e1f.jpg",
+      "price": "334",
+      "description": "by 3m she7ata",
+      "category": "237",
+      "quantity": "378",
+      "approved": true,
+      "seller": {
+        "id": "78fa",
+        "name": "moaaz",
+        "email": "moaaz@gmail.com",
+        "role": "seller",
+        "password": "123456"
+      }
     }
   ],
   "cart": [
     {
-      "id": "55d6",
+      "id": "4264",
       "user": {
-        "id": "97a9",
-        "name": "Ulric Vinson",
-        "email": "moaaz500@gmail.com",
-        "role": "customer"
+        "id": "e8a8",
+        "name": "admin",
+        "email": "admin@gmail.com",
+        "role": "admin"
       },
       "products": [
         {
-          "id": "0ae2",
-          "title": "Yone",
-          "price": "1000000000",
-          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
-          "quantity": 1
-        }
-      ]
-    },
-    {
-      "id": "36e5",
-      "user": {
-        "id": "3a01",
-        "name": "Hisham Fawzy",
-        "email": "hishamfawzy16@gmail.com",
-        "role": "customer"
-      },
-      "products": [
-        {
-          "id": "202",
-          "title": "Samsung Galaxy S23 Ultra",
-          "price": "41999",
-          "imageUrl": "https://images.samsung.com/is/image/samsung/assets/in/smartphones/galaxy-s23-ultra/images/galaxy-s23-ultra-share-image.jpg",
+          "id": "c784",
+          "title": "Pantheon",
+          "price": "191",
+          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg",
           "quantity": 1
         }
       ]
@@ -454,103 +395,6 @@
       ],
       "total": 1000001173,
       "status": "delivered"
-    },
-    {
-      "id": "6f6b12a1-f2b1-4786-8509-75921d49cf03",
-      "user": {
-        "id": "3a01",
-        "name": "Hisham Fawzy",
-        "email": "hishamfawzy16@gmail.com",
-        "role": "customer"
-      },
-      "products": [
-        {
-          "id": "6340",
-          "title": "3123123123123",
-          "price": "55",
-          "imageUrl": "https://helloaugust.in/wp-content/uploads/2020/09/stretched-canvas.jpg",
-          "quantity": 3,
-          "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
-            "role": "seller",
-            "password": "111111"
-          }
-        },
-        {
-          "id": "1",
-          "title": "Sony WH-1000XM3 Bluetooth Wireless Over Ear Headphones with Mic (Silver)ssss",
-          "price": "773",
-          "imageUrl": "https://storage.googleapis.com/fir-auth-1c3bc.appspot.com/1692947383286-714WUJlhbLS._SL1500_.jpg",
-          "quantity": 1,
-          "seller": {
-            "id": "78fa",
-            "name": "moaaz",
-            "email": "moaaz@gmail.com",
-            "role": "seller",
-            "password": "123456"
-          }
-        },
-        {
-          "id": "51f3",
-          "title": "chocolate",
-          "price": "200",
-          "imageUrl": "https://cdn.mafrservices.com/pim-content/EGY/media/product/427911/1742110203/427911_main.jpg?im=Resize=480",
-          "quantity": 1,
-          "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
-            "role": "seller",
-            "password": "111111"
-          }
-        },
-        {
-          "id": "94c8",
-          "title": "github ay 7aga",
-          "price": "682",
-          "imageUrl": "https://www.bleepstatic.com/content/hl-images/2022/04/08/GitHub__headpic.jpg",
-          "quantity": 1,
-          "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
-            "role": "seller",
-            "password": "111111"
-          }
-        },
-        {
-          "id": "c784",
-          "title": "Pantheon",
-          "price": "191",
-          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg",
-          "quantity": 1,
-          "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
-            "role": "seller",
-            "password": "111111"
-          }
-        },
-        {
-          "id": "fa0b",
-          "title": "Aurther Morgan",
-          "price": "159",
-          "imageUrl": "https://static.wikitide.net/greatcharacterswiki/2/2f/Arthur_Morgan.jpg",
-          "quantity": 1,
-          "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
-            "role": "seller",
-            "password": "111111"
-          }
-        }
-      ],
-      "total": 2170,
-      "status": "pending"
     },
     {
       "id": "f09f7675-cc71-4b3a-b6fe-e688ecca9082",
@@ -748,170 +592,7 @@
       "status": "rejected"
     },
     {
-      "id": "64b4b60c-e1a4-4a31-abc1-c773884f5cb2",
-      "user": {
-        "id": "3a01",
-        "name": "Hisham Fawzy",
-        "email": "hishamfawzy16@gmail.com",
-        "role": "customer"
-      },
-      "products": [
-        {
-          "id": "0ae2",
-          "title": "Yone",
-          "price": "1000000000",
-          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
-          "quantity": 1,
-          "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
-            "role": "seller",
-            "password": "111111"
-          }
-        }
-      ],
-      "total": 1000000000,
-      "status": "pending"
-    },
-    {
-      "id": "ea3e097e-0067-4634-b753-b7f1ae0b1e2a",
-      "user": {
-        "id": "3a01",
-        "name": "Hisham Fawzy",
-        "email": "hishamfawzy16@gmail.com",
-        "role": "customer"
-      },
-      "products": [
-        {
-          "id": "fa0b",
-          "title": "Aurther Morgan",
-          "price": "159",
-          "imageUrl": "https://static.wikitide.net/greatcharacterswiki/2/2f/Arthur_Morgan.jpg",
-          "quantity": 1,
-          "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
-            "role": "seller",
-            "password": "111111"
-          }
-        },
-        {
-          "id": "94c8",
-          "title": "github ay 7aga",
-          "price": "682",
-          "imageUrl": "https://www.bleepstatic.com/content/hl-images/2022/04/08/GitHub__headpic.jpg",
-          "quantity": 1,
-          "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
-            "role": "seller",
-            "password": "111111"
-          }
-        },
-        {
-          "id": "51f3",
-          "title": "chocolate",
-          "price": "200",
-          "imageUrl": "https://cdn.mafrservices.com/pim-content/EGY/media/product/427911/1742110203/427911_main.jpg?im=Resize=480",
-          "quantity": 2,
-          "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
-            "role": "seller",
-            "password": "111111"
-          }
-        }
-      ],
-      "total": 1241,
-      "status": "pending"
-    },
-    {
-      "id": "6e0a18b0-043d-4806-9c5a-77d9fd34362c",
-      "user": {
-        "id": "3a01",
-        "name": "Hisham Fawzy",
-        "email": "hishamfawzy16@gmail.com",
-        "role": "customer"
-      },
-      "products": [
-        {
-          "id": "51f3",
-          "title": "chocolate",
-          "price": "200",
-          "imageUrl": "https://cdn.mafrservices.com/pim-content/EGY/media/product/427911/1742110203/427911_main.jpg?im=Resize=480",
-          "quantity": 20,
-          "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
-            "role": "seller",
-            "password": "111111"
-          }
-        }
-      ],
-      "total": 4000,
-      "status": "pending"
-    },
-    {
-      "id": "a241eb97-49ab-4eae-a624-2437eda111cd",
-      "user": {
-        "id": "3a01",
-        "name": "Hisham Fawzy",
-        "email": "hishamfawzy16@gmail.com",
-        "role": "customer"
-      },
-      "products": [
-        {
-          "id": "207",
-          "title": "Amazon Kindle Paperwhite 11th Gen",
-          "price": "1999",
-          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2hYlmRzGdypEYTtlPau6ZIIDuCAHT4rQFZw&s",
-          "quantity": 1,
-          "seller": {
-            "id": "78fa",
-            "name": "moaaz",
-            "email": "moaaz@gmail.com",
-            "role": "seller",
-            "password": "123456"
-          }
-        }
-      ],
-      "total": 1999,
-      "status": "pending"
-    },
-    {
-      "id": "cdc482e3-8f93-4bf2-9f0d-bc3281e177c7",
-      "user": {
-        "id": "3a01",
-        "name": "Hisham Fawzy",
-        "email": "hishamfawzy16@gmail.com",
-        "role": "customer"
-      },
-      "products": [
-        {
-          "id": "51f3",
-          "title": "chocolate",
-          "price": "200",
-          "imageUrl": "https://cdn.mafrservices.com/pim-content/EGY/media/product/427911/1742110203/427911_main.jpg?im=Resize=480",
-          "quantity": 1,
-          "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
-            "role": "seller",
-            "password": "111111"
-          }
-        }
-      ],
-      "total": 200,
-      "status": "pending"
-    },
-    {
-      "id": "926a6bcf-5a27-4bca-8e05-1b619ffc492f",
+      "id": "5686d2c6-24a4-46d1-9342-da10b99470a8",
       "user": {
         "id": "3a01",
         "name": "Hisham Fawzy",
@@ -932,9 +613,23 @@
             "role": "seller",
             "password": "111111"
           }
+        },
+        {
+          "id": "203",
+          "title": "Sony PlayStation 5",
+          "price": "28500",
+          "imageUrl": "https://m.media-amazon.com/images/I/619BkvKW35L._SL1500_.jpg",
+          "quantity": 1,
+          "seller": {
+            "id": "78fa",
+            "name": "moaaz",
+            "email": "moaaz@gmail.com",
+            "role": "seller",
+            "password": "123456"
+          }
         }
       ],
-      "total": 41999,
+      "total": 70499,
       "status": "pending"
     }
   ],
@@ -979,9 +674,22 @@
       }
     },
     {
-      "id": "r1746664758395",
-      "productId": null,
-      "comment": "2ehhhhhhhhh el 3zma deh yad ya ashraf",
+      "id": "r1746667860954",
+      "productId": "1",
+      "comment": "iam hangry",
+      "date": "2025-05-08",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer",
+        "password": "11223344"
+      }
+    },
+    {
+      "id": "r1746668019298",
+      "productId": "209",
+      "comment": "love this cam",
       "date": "2025-05-08",
       "user": {
         "id": "3a01",

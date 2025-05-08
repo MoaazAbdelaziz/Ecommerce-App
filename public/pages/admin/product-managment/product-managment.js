@@ -251,7 +251,9 @@ const editProduct = async function (id, updatedProduct) {
 };
 
 let products = [];
-
+let currentFilter = "not approved";
+let productContainer;
+let searchInput;
 window.addEventListener('load', async function () {
     const updateModal = document.getElementById("update-modal");
     updateModal.style.display = "none";
@@ -275,11 +277,11 @@ window.addEventListener('load', async function () {
     });
 
     products = await getAllProducts();
-    const productContainer = document.querySelector(".product-container");
+     productContainer = document.querySelector(".product-container");
     renderProducts(products.filter(product => product.approved === false), productContainer);
 
-    const searchInput = document.querySelector(".search-input");
-    let currentFilter = "not approved";
+     searchInput = document.querySelector(".search-input");
+ 
     const filterSelect = document.querySelector(".filter-select");
     filterSelect.addEventListener("change", async function () {
         currentFilter = this.value;
