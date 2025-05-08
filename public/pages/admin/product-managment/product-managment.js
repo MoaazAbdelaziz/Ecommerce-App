@@ -239,6 +239,12 @@ const deleteProduct = async function (id) {
         method: "DELETE"
     });
     if (!response.ok) throw new Error("Network response was not ok " + response.statusText);
+
+    const productReviewsRes = await fetch(`http://localhost:3000/reviews?productId=${id}`);
+    const productReviews = await productReviewsRes.json();
+    for (const review of productReviews) {
+        await fetch(`http://localhost:3000/reviews/${review.id}`, { method: "DELETE" });
+    }
 };
 
 const editProduct = async function (id, updatedProduct) {
@@ -277,11 +283,11 @@ window.addEventListener('load', async function () {
     });
 
     products = await getAllProducts();
-     productContainer = document.querySelector(".product-container");
+    productContainer = document.querySelector(".product-container");
     renderProducts(products.filter(product => product.approved === false), productContainer);
 
-     searchInput = document.querySelector(".search-input");
- 
+    searchInput = document.querySelector(".search-input");
+
     const filterSelect = document.querySelector(".filter-select");
     filterSelect.addEventListener("change", async function () {
         currentFilter = this.value;
