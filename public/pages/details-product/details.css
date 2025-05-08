@@ -9,7 +9,7 @@ body {
   justify-content: space-between;
   align-items: center;
   background-color: #ffffff;
-  width: 87%;
+  width: 86.7%;
   height: 20px;
   padding: 20px;
   margin-bottom: 50px;
@@ -152,10 +152,12 @@ body {
 
 .review-container {
   margin-top: 40px;
+  width: 100%;
 }
 
 .review-section {
   max-width: 1000px;
+  width: 50%;
   margin: auto;
   padding: 20px;
   background: #fff;
@@ -164,17 +166,18 @@ body {
 }
 
 .review-section h3 {
+  
   margin-bottom: 15px;
   color: #0156ff;
 }
 
 #review-text {
-  width: 100%;
+  width: 98%;
   height: 80px;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  resize: vertical;
+  /* resize: vertical; */
 }
 
 #review-form button {
