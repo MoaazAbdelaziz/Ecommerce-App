@@ -138,8 +138,8 @@ window.onload = function () {
               Swal.fire({
                 icon: "success",
                 imageUrl: `${product.imageUrl}`,
-                imageWidth: 100,
-                imageHeight: 100,
+                imageWidth: 200,
+                // imageHeight: 100,
                 imageAlt: "Custom image",
                 title: "Added to Cart",
                 text: `"${product.title}" has been added to your cart!`,

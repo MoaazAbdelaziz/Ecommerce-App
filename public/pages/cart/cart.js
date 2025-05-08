@@ -106,10 +106,10 @@ window.onload = function () {
       title: "Are you sure?",
       text: "This product will be removed from the cart.",
       imageUrl: `${userCart.products[index].imageUrl}`,
-      imageWidth: 100,
-      imageHeight: 100,
+      imageWidth: 200,
+      
       showCancelButton: true,
-      confirmButtonText: "Yes, delete it!",
+     
     }).then((result) => {
       if (result.isConfirmed) {
         fetch("http://localhost:3000/cart")
@@ -117,68 +117,91 @@ window.onload = function () {
           .then((carts) => {
             const userCart = carts.find((c) => c.user.id === user.id);
             userCart.products.splice(index, 1);
+            Swal.fire("Deleted!", "The product has been removed from the cart.", "success");
             updateCart(userCart);
           });
       }
     });
   }
 
+
+
   document.getElementById("confirmBtn").addEventListener("click", function () {
     fetch("http://localhost:3000/cart")
       .then((res) => res.json())
       .then((carts) => {
         const userCart = carts.find((c) => c.user.id === user.id);
-        if (!userCart || userCart.products.length === 0) return;
+        if (!userCart || userCart.products.length === 0) {
+          Swal.fire("Oops!", "Your cart is empty!", "info");
+          return;
+        }
 
-        //get all products to post the order data
-        fetch("http://localhost:3000/products")
-          .then((res) => res.json())
-          .then((allProducts) => {
-            const enrichedProducts = userCart.products.map((prod) => {
-              const fullProduct = allProducts.find((p) => p.id === prod.id);
-              return {
-                ...prod,
-                seller: fullProduct?.seller || {},
-              };
-            });
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, confirm order!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Get all products to enrich with seller data
+            fetch("http://localhost:3000/products")
+              .then((res) => res.json())
+              .then((allProducts) => {
+                const enrichedProducts = userCart.products.map((prod) => {
+                  const fullProduct = allProducts.find((p) => p.id === prod.id);
+                  return {
+                    ...prod,
+                    seller: fullProduct?.seller || {},
+                  };
+                });
 
-            const orderData = {
-              id: crypto.randomUUID(),
-              user: userCart.user,
-              products: enrichedProducts,
-              total: userCart.products.reduce(
-                (acc, prod) => acc + prod.price * prod.quantity,
-                0
-              ),
-              status: "pending",
-            };
+                const orderData = {
+                  id: crypto.randomUUID(),
+                  user: userCart.user,
+                  products: enrichedProducts,
+                  total: userCart.products.reduce(
+                    (acc, prod) => acc + prod.price * prod.quantity,
+                    0
+                  ),
+                  status: "pending",
+                };
 
-            //  POST order with full seller data
-            fetch("http://localhost:3000/orders", {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(orderData),
-            })
-              .then((res) => {
-                if (!res.ok) throw new Error("Failed to confirm order.");
-                return res.json();
-              })
-              .then(() => {
-                // 🧹 Clear the cart
-                fetch(`http://localhost:3000/cart/${userCart.id}`, {
-                  method: "DELETE",
-                }).then(loadCart);
-              })
-              .catch((err) => {
-                console.error("Error confirming order:", err);
+                // Post order
+                fetch("http://localhost:3000/orders", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(orderData),
+                })
+                  .then((res) => {
+                    if (!res.ok) throw new Error("Failed to confirm order.");
+                    return res.json();
+                  })
+                  .then(() => {
+                    // Clear cart
+                    fetch(`http://localhost:3000/cart/${userCart.id}`, {
+                      method: "DELETE",
+                    }).then(loadCart);
+
+                    Swal.fire(
+                      "Order Confirmed!",
+                      "Your order has been placed successfully.",
+                      "success"
+                    );
+                  })
+                  .catch((err) => {
+                    console.error("Error confirming order:", err);
+                    Swal.fire("Error", "Something went wrong!", "error");
+                  });
               });
-          });
+          }
+        });
       });
   });
 
-  const clearCartBtn = document.getElementById("clearCartBtn");
-
-  clearCartBtn.addEventListener("click", () => {
+  document.getElementById("clearCartBtn").addEventListener("click", () => {
     Swal.fire({
       title: "Are you sure?",
       text: "This will remove all items from your cart.",
@@ -191,10 +214,17 @@ window.onload = function () {
           .then((res) => res.json())
           .then((carts) => {
             const userCart = carts.find((c) => c.user.id === user.id);
-            if (!userCart) return;
+            if (!userCart) {
+              Swal.fire("Oops!", "Cart not found.", "info");
+              return;
+            }
+
             fetch(`http://localhost:3000/cart/${userCart.id}`, {
               method: "DELETE",
-            }).then(loadCart);
+            }).then(() => {
+              Swal.fire("Deleted!", "Your cart has been cleared.", "success");
+              loadCart();
+            });
           });
       }
     });

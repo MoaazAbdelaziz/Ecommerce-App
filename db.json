@@ -34,13 +34,6 @@
       "email": "moaaz500@gmail.com",
       "role": "customer",
       "password": "123456"
-    },
-    {
-      "id": "b067",
-      "name": "Josephine Swanson",
-      "email": "sss@sss.com",
-      "role": "customer",
-      "password": "123456"
     }
   ],
   "products": [
@@ -77,23 +70,6 @@
         "password": "111111"
       },
       "id": "0ae2"
-    },
-    {
-      "title": "chocolate",
-      "imageUrl": "https://cdn.mafrservices.com/pim-content/EGY/media/product/427911/1742110203/427911_main.jpg?im=Resize=480",
-      "price": "200",
-      "description": "Accusantium nobis et",
-      "category": "631",
-      "quantity": "10",
-      "approved": true,
-      "seller": {
-        "id": "3379",
-        "name": "Hisham Fawzy Ali Hassan",
-        "email": "kenacomb@gmail.com",
-        "role": "seller",
-        "password": "111111"
-      },
-      "id": "51f3"
     },
     {
       "title": "Pantheon",
@@ -387,31 +363,6 @@
   ],
   "cart": [
     {
-      "id": "8b96",
-      "user": {
-        "id": "3a01",
-        "name": "Hisham Fawzy",
-        "email": "hishamfawzy16@gmail.com",
-        "role": "customer"
-      },
-      "products": [
-        {
-          "id": "fa0b",
-          "title": "Aurther Morgan",
-          "price": "159",
-          "imageUrl": "https://static.wikitide.net/greatcharacterswiki/2/2f/Arthur_Morgan.jpg",
-          "quantity": 1
-        },
-        {
-          "id": "94c8",
-          "title": "github ay 7aga",
-          "price": "682",
-          "imageUrl": "https://www.bleepstatic.com/content/hl-images/2022/04/08/GitHub__headpic.jpg",
-          "quantity": 1
-        }
-      ]
-    },
-    {
       "id": "55d6",
       "user": {
         "id": "97a9",
@@ -425,6 +376,24 @@
           "title": "Yone",
           "price": "1000000000",
           "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "id": "36e5",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "202",
+          "title": "Samsung Galaxy S23 Ultra",
+          "price": "41999",
+          "imageUrl": "https://images.samsung.com/is/image/samsung/assets/in/smartphones/galaxy-s23-ultra/images/galaxy-s23-ultra-share-image.jpg",
           "quantity": 1
         }
       ]
@@ -804,6 +773,169 @@
       ],
       "total": 1000000000,
       "status": "pending"
+    },
+    {
+      "id": "ea3e097e-0067-4634-b753-b7f1ae0b1e2a",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "fa0b",
+          "title": "Aurther Morgan",
+          "price": "159",
+          "imageUrl": "https://static.wikitide.net/greatcharacterswiki/2/2f/Arthur_Morgan.jpg",
+          "quantity": 1,
+          "seller": {
+            "id": "3379",
+            "name": "Hisham Fawzy Ali Hassan",
+            "email": "kenacomb@gmail.com",
+            "role": "seller",
+            "password": "111111"
+          }
+        },
+        {
+          "id": "94c8",
+          "title": "github ay 7aga",
+          "price": "682",
+          "imageUrl": "https://www.bleepstatic.com/content/hl-images/2022/04/08/GitHub__headpic.jpg",
+          "quantity": 1,
+          "seller": {
+            "id": "3379",
+            "name": "Hisham Fawzy Ali Hassan",
+            "email": "kenacomb@gmail.com",
+            "role": "seller",
+            "password": "111111"
+          }
+        },
+        {
+          "id": "51f3",
+          "title": "chocolate",
+          "price": "200",
+          "imageUrl": "https://cdn.mafrservices.com/pim-content/EGY/media/product/427911/1742110203/427911_main.jpg?im=Resize=480",
+          "quantity": 2,
+          "seller": {
+            "id": "3379",
+            "name": "Hisham Fawzy Ali Hassan",
+            "email": "kenacomb@gmail.com",
+            "role": "seller",
+            "password": "111111"
+          }
+        }
+      ],
+      "total": 1241,
+      "status": "pending"
+    },
+    {
+      "id": "6e0a18b0-043d-4806-9c5a-77d9fd34362c",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "51f3",
+          "title": "chocolate",
+          "price": "200",
+          "imageUrl": "https://cdn.mafrservices.com/pim-content/EGY/media/product/427911/1742110203/427911_main.jpg?im=Resize=480",
+          "quantity": 20,
+          "seller": {
+            "id": "3379",
+            "name": "Hisham Fawzy Ali Hassan",
+            "email": "kenacomb@gmail.com",
+            "role": "seller",
+            "password": "111111"
+          }
+        }
+      ],
+      "total": 4000,
+      "status": "pending"
+    },
+    {
+      "id": "a241eb97-49ab-4eae-a624-2437eda111cd",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "207",
+          "title": "Amazon Kindle Paperwhite 11th Gen",
+          "price": "1999",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2hYlmRzGdypEYTtlPau6ZIIDuCAHT4rQFZw&s",
+          "quantity": 1,
+          "seller": {
+            "id": "78fa",
+            "name": "moaaz",
+            "email": "moaaz@gmail.com",
+            "role": "seller",
+            "password": "123456"
+          }
+        }
+      ],
+      "total": 1999,
+      "status": "pending"
+    },
+    {
+      "id": "cdc482e3-8f93-4bf2-9f0d-bc3281e177c7",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "51f3",
+          "title": "chocolate",
+          "price": "200",
+          "imageUrl": "https://cdn.mafrservices.com/pim-content/EGY/media/product/427911/1742110203/427911_main.jpg?im=Resize=480",
+          "quantity": 1,
+          "seller": {
+            "id": "3379",
+            "name": "Hisham Fawzy Ali Hassan",
+            "email": "kenacomb@gmail.com",
+            "role": "seller",
+            "password": "111111"
+          }
+        }
+      ],
+      "total": 200,
+      "status": "pending"
+    },
+    {
+      "id": "926a6bcf-5a27-4bca-8e05-1b619ffc492f",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "202",
+          "title": "Samsung Galaxy S23 Ultra",
+          "price": "41999",
+          "imageUrl": "https://images.samsung.com/is/image/samsung/assets/in/smartphones/galaxy-s23-ultra/images/galaxy-s23-ultra-share-image.jpg",
+          "quantity": 1,
+          "seller": {
+            "id": "3379",
+            "name": "Hisham Fawzy Ali Hassan",
+            "email": "kenacomb@gmail.com",
+            "role": "seller",
+            "password": "111111"
+          }
+        }
+      ],
+      "total": 41999,
+      "status": "pending"
     }
   ],
   "reviews": [
@@ -844,6 +976,19 @@
         "email": "moaaz500@gmail.com",
         "role": "customer",
         "password": "123456"
+      }
+    },
+    {
+      "id": "r1746664758395",
+      "productId": null,
+      "comment": "2ehhhhhhhhh el 3zma deh yad ya ashraf",
+      "date": "2025-05-08",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer",
+        "password": "11223344"
       }
     }
   ]
