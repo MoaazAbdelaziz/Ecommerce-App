@@ -4,163 +4,331 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seller Dashboard</title>
-    <link rel="stylesheet" href="../../all.css">
+    <title>Seller Dashboard | TechStore</title>
     <link rel="stylesheet" href="seller-dashboard.css" />
-    <link rel="stylesheet" href="./new-product-form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul>
-            <li>
-                <a class="home-link">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span class="home-link">Logout</span>
-                </a>
-            </li>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <svg width="34" height="41" viewBox="0 0 34 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M17.0333 0.945374L0.297119 10.8637V23.0708L17.0333 32.9891L30.459 25.3596V28.9836L17.0333 36.9946L0.297119 26.8855V31.2725L17.0333 41L33.7695 31.2725V19.0653L20.3438 26.8855V23.0708L33.7695 15.0599V10.8637L17.0333 0.945374Z"
+                        fill="#0156FF" />
+                </svg>
+                <span>TechStore</span>
+            </div>
+            <p class="sidebar-title">Seller Dashboard</p>
+        </div>
 
-        </ul>
-    </nav>
-
-    <nav class="sidebar">
-        <p class="sidebar-title">Seller Panel</p>
         <div class="menu-content">
             <ul class="menu-items">
-                <li class="item">
+                <!-- <li class="menu-item">
+                    <a href="#" class="menu-link active" id="dashboard-link">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li> -->
+
+                <li class="menu-item">
                     <div class="submenu-item">
-                        <span>Product Management</span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                    <ul class="menu-items submenu">
-                        <div class="menu-title remove-form" style="padding: 20px;">
-                            <i class="fa-solid fa-chevron-left"></i>
+                        <div class="menu-link">
+                            <i class="fas fa-box"></i>
                             <span>Product Management</span>
                         </div>
-                        <li style="cursor: pointer;" class="item">
-                            <a id="new-product">Add New Product</a>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li class="menu-item">
+                            <div class="menu-title back-link">
+                                <i class="fas fa-chevron-left"></i>
+                                <span>Back to Menu</span>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" id="product-list-link">
+                                <i class="fas fa-list"></i>
+                                <span>Product List</span>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" id="new-product-link">
+                                <i class="fas fa-plus-circle"></i>
+                                <span>Add New Product</span>
+                            </a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="item">
+                <li class="menu-item">
                     <div class="submenu-item">
-                        <span>Order Management</span>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                    <ul class="menu-items submenu">
-                        <div class="menu-title Order-Management" style="padding: 20px;">
-                            <i class="fa-solid fa-chevron-left"></i>
+                        <div class="menu-link">
+                            <i class="fas fa-shopping-cart"></i>
                             <span>Order Management</span>
                         </div>
-                        <li id="view-orders" style="cursor: pointer;" class="item">
-                            <a>View Orders</a>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li class="menu-item">
+                            <div class="menu-title back-link">
+                                <i class="fas fa-chevron-left"></i>
+                                <span>Back to Menu</span>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link" id="view-orders-link">
+                                <i class="fas fa-clipboard-list"></i>
+                                <span>View Orders</span>
+                            </a>
                         </li>
                     </ul>
                 </li>
+
+                <!-- <li class="menu-item">
+                    <a href="#" class="menu-link" id="analytics-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li> -->
+
+                <!-- <li class="menu-item">
+                    <a href="#" class="menu-link" id="settings-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li> -->
             </ul>
         </div>
-    </nav>
 
+        <div class="sidebar-footer">
+            <a href="#" class="logout-btn" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
 
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Navigation Bar -->
+        <nav class="top-navbar">
+            <div class="navbar-left">
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h2 class="page-title">Dashboard</h2>
+            </div>
 
-    <main class="main">
-        <!-- Show Requested orders from customers  -->
-        <section style="display: none;" id="orders-section" class="orders-section">
-            <div id="orders-list" class="orders-list">
-                <div class="text2">Orders List</div>
-                <div class="orders-containers" id="ordersContainer"></div>
+            <div class="navbar-right">
+                <div class="navbar-actions">
+                    <button class="navbar-action-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </button>
+
+                    <div class="user-profile">
+                        <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="User Profile" class="profile-img">
+                        <span class="user-name" id="user-name">John Doe</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Product List Section -->
+        <section class="product-list-section" id="product-list-section">
+            <div class="section-header">
+                <h1>Product Management</h1>
+                <button class="primary-btn" id="add-product-btn">
+                    <i class="fas fa-plus"></i> Add New Product
+                </button>
+            </div>
+
+            <div class="filter-bar">
+                <div class="search-container">
+                    <input type="search" id="product-search" placeholder="Search products...">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <div class="filter-options">
+                    <select id="category-filter" class="filter-select">
+                        <option value="">All Categories</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="computers">Computers</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+
+                    <select id="status-filter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="true">Approved</option>
+                        <option value="false">Pending</option>
+                    </select>
+
+                    <select id="sort-filter" class="filter-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="price-low">Price: Low to High</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="product-grid" id="product-grid">
+                <!-- Products will be loaded here via JavaScript -->
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Loading products...</span>
+                </div>
             </div>
         </section>
 
-        <!-- Product-list -->
-        <div id="product-list" class="product-list">
-            <div style="display: block !important; position: relative; left:30%; width: 50%; " class="input-data">
-                <input type="search" name="search" id="search" required>
-                <div class="underline"></div>
-                <label for="">search for product</label>
+        <!-- Add/Edit Product Section -->
+        <section class="product-form-section" id="product-form-section">
+            <div class="section-header">
+                <h1 id="form-title">Add New Product</h1>
+                <button class="secondary-btn" id="back-to-products-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Products
+                </button>
             </div>
 
-
-
-
-            <div style="padding: 20px;  display: flex; flex-wrap: wrap; flex-direction: row; gap: 40px;"
-                class="product-table">
-            </div>
-
-
-        </div>
-
-
-        <!-- Add-new-Product -->
-        <div id="new-product-form" class="container" style="padding-top: 100px;">
-            <div class="text">
-                Add New Product
-            </div>
-            <form id="newProductForm" action="#">
-                <div class="form-row">
-                    <div style="display: block !important;" class="input-data">
-                        <input type="text" name="title" required>
-                        <div class="underline"></div>
-                        <label for="">Title</label>
-                    </div>
-                    <div style="display: flex; ">
-                        <div style="display: block !important;" class="input-data">
-                            <input type="text" name="imageUrl" required>
-                            <div class="underline"></div>
-                            <label for="">Image Url</label>
+            <div class="product-form-container">
+                <form id="product-form" class="product-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="title">Product Title</label>
+                            <input type="text" id="title" name="title" placeholder="Enter product title" required>
                         </div>
-                        <!-- <div style="width: 5%;">
-                            <button style="padding: 10px; border-radius: 50%; cursor: pointer;" ><i class="fa-solid fa-plus"></i></button>
-                        </div> -->
-                    </div>
 
-                    <div style="display: block !important;" class="input-data">
-                        <input type="text" name="price" required>
-                        <div class="underline"></div>
-                        <label for="">Enter Your Price</label>
-                    </div>
+                        <div class="form-group">
+                            <label for="price">Price (EGP)</label>
+                            <input type="number" id="price" name="price" placeholder="Enter price" min="0" step="0.01"
+                                required>
+                        </div>
 
-                    <div style="display: block !important;" class="input-data">
-                        <input type="text" name="category" required>
-                        <div class="underline"></div>
-                        <label for="">Category</label>
-                    </div>
+                        <div class="form-group">
+                            <label for="category">Category</label>
+                            <input type="text" id="category" name="category" placeholder="Enter category" required>
+                        </div>
 
-                    <div style="display: block !important;" class="form-row">
-                        <div style="width: 95%;" class="input-data textarea">
-                            <textarea rows="8" name="description" cols="20" required></textarea>
-                            <br />
-                            <div class="underline"></div>
-                            <label for="">Write your Descreption here</label>
-                            <br />
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" min="0"
+                                required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="imageUrl">Image URL</label>
+                            <div class="image-url-container">
+                                <input type="text" id="imageUrl" name="imageUrl" placeholder="Enter image URL" required>
+                                <button type="button" class="image-preview-btn" id="image-preview-btn">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" rows="6"
+                                placeholder="Enter product description" required></textarea>
                         </div>
                     </div>
-                    <div style="display: flex; ">
-                        <div style="display: block !important;" class="input-data">
-                            <input type="number" name="quantity" required>
-                            <div class="underline"></div>
-                            <label for="">Quantity</label>
+
+                    <div class="form-preview">
+                        <div class="preview-header">
+                            <h3>Product Preview</h3>
                         </div>
-                        <div style="border-radius: 5px !important;" class="form-row submit-btn">
-                            <div class="input-data">
-                                <div class="inner"></div>
-                                <input id="submitBtn" type="submit" value="submit">
-                                <input id="updateBtn" type="submit" value="update">
+                        <div class="preview-content">
+                            <div class="preview-image">
+                                <img id="preview-img" src="https://placehold.co/300x300?text=Product+Image"
+                                    alt="Product Preview">
+                            </div>
+                            <div class="preview-details">
+                                <h4 id="preview-title">Product Title</h4>
+                                <p id="preview-price">$0.00</p>
+                                <p id="preview-category">Category</p>
+                                <p id="preview-description">Product description will appear here...</p>
                             </div>
                         </div>
                     </div>
 
-            </form>
-        </div>
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn" id="cancel-btn">Cancel</button>
+                        <button type="submit" class="primary-btn" id="submit-btn">Add Product</button>
+                        <button type="button" class="primary-btn" id="update-btn" style="display: none;">Update
+                            Product</button>
+                    </div>
+                </form>
+            </div>
+        </section>
 
+        <!-- Orders Section -->
+        <section class="orders-section" id="orders-section">
+            <div class="section-header">
+                <h1>Order Management</h1>
+                <div class="order-filters">
+                    <select id="order-status-filter" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
 
+                    <select id="order-date-filter" class="filter-select">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                    </select>
+                </div>
+            </div>
 
+            <div class="orders-container" id="orders-container">
+                <!-- Orders will be loaded here via JavaScript -->
+                <div class="loading-spinner">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <span>Loading orders...</span>
+                </div>
+            </div>
+        </section>
 
+        <!-- Analytics Section (Placeholder) -->
+        <section class="analytics-section" id="analytics-section">
+            <div class="section-header">
+                <h1>Analytics & Reports</h1>
+            </div>
 
+            <div class="analytics-content">
+                <div class="analytics-card">
+                    <h3>Coming Soon</h3>
+                    <p>Analytics and reporting features will be available in the next update.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Section (Placeholder) -->
+        <section class="settings-section" id="settings-section">
+            <div class="section-header">
+                <h1>Account Settings</h1>
+            </div>
+
+            <div class="settings-content">
+                <div class="settings-card">
+                    <h3>Coming Soon</h3>
+                    <p>Account settings and preferences will be available in the next update.</p>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./seller-dashboard.js"></script>
+    <script src="seller-dashboard.js"></script>
 </body>
 
 </html>

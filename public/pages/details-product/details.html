@@ -4,34 +4,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | TechStore</title>
     <link rel="stylesheet" href="./details.css">
-    <title>Product Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="nav-icon">
-            <svg width="34" height="41" viewBox="0 0 34 41" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M17.0333 0.945374L0.297119 10.8637V23.0708L17.0333 32.9891L30.459 25.3596V28.9836L17.0333 36.9946L0.297119 26.8855V31.2725L17.0333 41L33.7695 31.2725V19.0653L20.3438 26.8855V23.0708L33.7695 15.0599V10.8637L17.0333 0.945374Z"
-                    fill="#0156FF" />
-            </svg>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-wrapper">
+                <div class="logo">
+                    <a href="./../home/home.html">
+                        <svg width="34" height="41" viewBox="0 0 34 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M17.0333 0.945374L0.297119 10.8637V23.0708L17.0333 32.9891L30.459 25.3596V28.9836L17.0333 36.9946L0.297119 26.8855V31.2725L17.0333 41L33.7695 31.2725V19.0653L20.3438 26.8855V23.0708L33.7695 15.0599V10.8637L17.0333 0.945374Z"
+                                fill="#0156FF" />
+                        </svg>
+                        <span>TechStore</span>
+                    </a>
+                </div>
+
+                <nav class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="./../home/home.html" class="nav-link">Home</a></li>
+                        <li><a href="#" class="nav-link">Products</a></li>
+                        <li><a href="#" class="nav-link">Categories</a></li>
+                        <li><a href="#" class="nav-link">Deals</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="#" class="header-action-btn">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    <a href="./../cart/cart.html" class="header-action-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <a href="#" class="header-action-btn">
+                        <i class="fas fa-user"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="nav-links">
-            <ul style="gap: 20px; display: flex; justify-content: space-between; align-items: center;">
-                <li><a class="home" href="./../home/home.html" style="cursor: pointer;">Home</a></li>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="./../home/home.html">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li class="active" id="product-breadcrumb">Product Details</li>
             </ul>
         </div>
+    </div>
 
-    </nav>
+    <!-- Product Details Section -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-details-container">
+                <!-- Product details will be loaded here via JavaScript -->
+            </div>
+        </div>
+    </section>
 
+    <!-- Product Tabs Section -->
+    <section class="product-tabs-section">
+        <div class="container">
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="description">Description</button>
+                    <button class="tab-btn" data-tab="specifications">Specifications</button>
+                    <button class="tab-btn" data-tab="reviews">Reviews</button>
+                </div>
+                <div class="tabs-content">
+                    <div class="tab-panel active" id="description-panel">
+                        <!-- Description content will be loaded here -->
+                    </div>
+                    <div class="tab-panel" id="specifications-panel">
+                        <!-- Specifications will be loaded here -->
+                    </div>
+                    <div class="tab-panel" id="reviews-panel">
+                        <div class="review-container">
+                            <!-- Reviews will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Related Products Section -->
+    <section class="related-products-section">
+        <div class="container">
+            <h2 class="section-title">You May Also Like</h2>
+            <div class="related-products-container">
+                <!-- Related products will be loaded here -->
+            </div>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <svg width="34" height="41" viewBox="0 0 34 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M17.0333 0.945374L0.297119 10.8637V23.0708L17.0333 32.9891L30.459 25.3596V28.9836L17.0333 36.9946L0.297119 26.8855V31.2725L17.0333 41L33.7695 31.2725V19.0653L20.3438 26.8855V23.0708L33.7695 15.0599V10.8637L17.0333 0.945374Z"
+                                fill="#0156FF" />
+                        </svg>
+                        <span>TechStore</span>
+                    </div>
+                    <p>Your one-stop shop for all gaming hardware and accessories.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Digital City</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> info@techstore.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 TechStore. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-amex"></i>
+                </div>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <div class="product-details-container"></div>
-    <div class="review-container"></div>
     <script src="./details.js"></script>
 </body>
-
 </html>

@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "3a01",
-      "name": "Hisham Fawzy",
+      "name": "Hisham Fawzy Ali Hassan",
       "email": "hishamfawzy16@gmail.com",
       "role": "customer",
       "password": "11223344"
@@ -51,13 +51,13 @@
       "title": "Yone",
       "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
       "price": "1000000000",
-      "description": "Sunt sit modi neque",
-      "category": "377",
+      "description": "So broken one",
+      "category": "Champions",
       "quantity": "1",
       "approved": true,
       "seller": {
         "id": "3379",
-        "name": "Hisham Fawzy Ali Hassan",
+        "name": "kenacomb is the best ",
         "email": "kenacomb@gmail.com",
         "role": "seller",
         "password": "111111"
@@ -66,15 +66,15 @@
     },
     {
       "title": "Pantheon",
-      "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg",
-      "price": "191",
-      "description": "Laboris minim possim",
+      "price": 191,
       "category": "575",
-      "quantity": "567",
+      "description": "Laboris minim possim",
+      "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg",
+      "quantity": 567,
       "approved": true,
       "seller": {
         "id": "3379",
-        "name": "Hisham Fawzy Ali Hassan",
+        "name": "kenacomb is the best ",
         "email": "kenacomb@gmail.com",
         "role": "seller",
         "password": "111111"
@@ -318,6 +318,57 @@
         "role": "seller",
         "password": "123456"
       }
+    },
+    {
+      "id": "ab8e",
+      "title": "fdasdas",
+      "imageUrl": "https://img.freepik.com/free-vector/simple-isolated-banana_1308-125007.jpg",
+      "price": "323",
+      "description": "Impedit quibusdam a",
+      "category": "360",
+      "quantity": "363",
+      "approved": true,
+      "seller": {
+        "id": "78fa",
+        "name": "moaaz",
+        "email": "moaaz@gmail.com",
+        "role": "seller",
+        "password": "123456"
+      }
+    },
+    {
+      "id": "7b3c",
+      "title": "Corporis eligendi id",
+      "price": 577,
+      "category": "Quis ullam voluptate",
+      "description": "Eum sed inventore in",
+      "imageUrl": "https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fcontentful%2Fimage%2Fe5382hct74si%2F4ivWBf1RT18864X9FyViLh%2F6561b715a956ce6100af01f4399fa001%2F600x300__1_.png&w=1920&q=75",
+      "quantity": 755,
+      "approved": true,
+      "seller": {
+        "id": "3379",
+        "name": "kenacomb is the best ",
+        "email": "kenacomb@gmail.com",
+        "role": "seller",
+        "password": "111111"
+      }
+    },
+    {
+      "id": "9b32",
+      "title": "Redragon K622 Horus",
+      "price": 2699,
+      "category": "Keyboards",
+      "description": "Redragon K622 Horus TKL RGB Mechanical Keyboard, Ultra-Thin Designed Wired Gaming Keyboard w/Low Profile Keycaps, Dedicated Media Control & Linear Red Switch, Pro Software Supported",
+      "imageUrl": "https://www.redragonzone.com/cdn/shop/products/K622-RGB-1.png?v=1637142926",
+      "quantity": 10,
+      "approved": true,
+      "seller": {
+        "id": "3379",
+        "name": "kenacomb is the best ",
+        "email": "kenacomb@gmail.com",
+        "role": "seller",
+        "password": "111111"
+      }
     }
   ],
   "cart": [
@@ -490,7 +541,7 @@
         }
       ],
       "total": 973,
-      "status": "approved"
+      "status": "delivered"
     },
     {
       "id": "d8d22563-5fb6-4fe3-ad4a-739f2de80b34",
@@ -592,7 +643,7 @@
       "status": "rejected"
     },
     {
-      "id": "5686d2c6-24a4-46d1-9342-da10b99470a8",
+      "id": "62279557-b973-4b0b-b91b-b68e015646cf",
       "user": {
         "id": "3a01",
         "name": "Hisham Fawzy",
@@ -601,17 +652,131 @@
       },
       "products": [
         {
-          "id": "202",
-          "title": "Samsung Galaxy S23 Ultra",
-          "price": "41999",
-          "imageUrl": "https://images.samsung.com/is/image/samsung/assets/in/smartphones/galaxy-s23-ultra/images/galaxy-s23-ultra-share-image.jpg",
+          "id": "201",
+          "title": "Apple iPhone 14 Pro Max",
+          "price": "45999",
+          "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZR_Y397SgqefQ-Qqf4QciPiz3s3q4TQpJA&s",
+          "quantity": 2,
+          "seller": {
+            "id": "78fa",
+            "name": "moaaz",
+            "email": "moaaz@gmail.com",
+            "role": "seller",
+            "password": "123456"
+          }
+        }
+      ],
+      "total": 91998,
+      "status": "shipped"
+    },
+    {
+      "id": "94721115-a29e-4442-802b-ab26c89b93a9",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "1",
+          "title": "Sony WH-1000XM3 Bluetooth Wireless Over Ear Headphones with Mic (Silver)ssss",
+          "price": "773",
+          "imageUrl": "https://i.gadgets360cdn.com/products/headphones-and-headsets/large/sony-wh-1000xm3-wireless-headphone-832X558-1598367921.jpg",
           "quantity": 1,
           "seller": {
-            "id": "3379",
-            "name": "Hisham Fawzy Ali Hassan",
-            "email": "kenacomb@gmail.com",
+            "id": "78fa",
+            "name": "moaaz",
+            "email": "moaaz@gmail.com",
             "role": "seller",
-            "password": "111111"
+            "password": "123456"
+          }
+        }
+      ],
+      "total": 773,
+      "status": "pending"
+    },
+    {
+      "id": "d0431148-859e-4e4a-929a-31b0ac0b931b",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "1",
+          "title": "Sony WH-1000XM3 Bluetooth Wireless Over Ear Headphones with Mic (Silver)ssss",
+          "price": "773",
+          "imageUrl": "https://i.gadgets360cdn.com/products/headphones-and-headsets/large/sony-wh-1000xm3-wireless-headphone-832X558-1598367921.jpg",
+          "quantity": 1,
+          "seller": {
+            "id": "78fa",
+            "name": "moaaz",
+            "email": "moaaz@gmail.com",
+            "role": "seller",
+            "password": "123456"
+          }
+        }
+      ],
+      "subtotal": 773,
+      "tax": 108.22000000000001,
+      "total": 881.22,
+      "status": "pending",
+      "date": "2025-05-09T03:47:16.340Z"
+    },
+    {
+      "id": "62cdf967-d22c-4128-a9ae-6d31344e8b00",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "ab8e",
+          "title": "fdasdas",
+          "price": "323",
+          "imageUrl": "https://img.freepik.com/free-vector/simple-isolated-banana_1308-125007.jpg",
+          "quantity": 2,
+          "seller": {
+            "id": "78fa",
+            "name": "moaaz",
+            "email": "moaaz@gmail.com",
+            "role": "seller",
+            "password": "123456"
+          }
+        }
+      ],
+      "subtotal": 646,
+      "tax": 90.44000000000001,
+      "total": 736.44,
+      "status": "pending",
+      "date": "2025-05-09T04:03:21.444Z"
+    },
+    {
+      "id": "0f3f7805-741b-45dd-9f7e-a2864eedff89",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "205",
+          "title": "Nike Air Max 270",
+          "price": "2999",
+          "imageUrl": "https://image.goxip.com/0z9RYwqirZZwRDK_-DJH2qPCa4w=/fit-in/500x500/filters:format(jpg):quality(80):fill(white)/https:%2F%2Fimages.stockx.com%2Fimages%2FNike-Air-Max-270-React-Phantom-Multi-Color-GS-Product.jpg",
+          "quantity": 4,
+          "seller": {
+            "id": "78fa",
+            "name": "moaaz",
+            "email": "moaaz@gmail.com",
+            "role": "seller",
+            "password": "123456"
           }
         },
         {
@@ -627,10 +792,175 @@
             "role": "seller",
             "password": "123456"
           }
+        },
+        {
+          "id": "9ce3",
+          "title": "btngan m5lel",
+          "price": "334",
+          "imageUrl": "https://static.webteb.net/images/content/ramadanrecipe_recipe_1344_61002e1965e-855f-417c-a421-f2f7f2156e1f.jpg",
+          "quantity": 1,
+          "seller": {
+            "id": "78fa",
+            "name": "moaaz",
+            "email": "moaaz@gmail.com",
+            "role": "seller",
+            "password": "123456"
+          }
         }
       ],
-      "total": 70499,
-      "status": "pending"
+      "subtotal": 40830,
+      "tax": 5716.200000000001,
+      "total": 46546.2,
+      "status": "pending",
+      "date": "2025-05-09T04:27:32.597Z"
+    },
+    {
+      "id": "f4ffd296-0e47-4ad2-9b69-eded904ab42d",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "9b32",
+          "title": "Redragon K622 Horus",
+          "price": 2699,
+          "imageUrl": "https://www.redragonzone.com/cdn/shop/products/K622-RGB-1.png?v=1637142926",
+          "quantity": 25,
+          "seller": {
+            "id": "3379",
+            "name": "kenacomb is the best ",
+            "email": "kenacomb@gmail.com",
+            "role": "seller",
+            "password": "111111"
+          }
+        }
+      ],
+      "subtotal": 67475,
+      "tax": 9446.5,
+      "total": 76921.5,
+      "status": "pending",
+      "date": "2025-05-09T05:21:51.650Z"
+    },
+    {
+      "id": "859be369-a0cf-4098-ac9c-b68f0110904f",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "9b32",
+          "title": "Redragon K622 Horus",
+          "price": 2699,
+          "imageUrl": "https://www.redragonzone.com/cdn/shop/products/K622-RGB-1.png?v=1637142926",
+          "quantity": 1,
+          "seller": {
+            "id": "3379",
+            "name": "kenacomb is the best ",
+            "email": "kenacomb@gmail.com",
+            "role": "seller",
+            "password": "111111"
+          }
+        }
+      ],
+      "subtotal": 2699,
+      "tax": 377.86,
+      "total": 3076.86,
+      "status": "pending",
+      "date": "2025-05-09T05:22:03.097Z"
+    },
+    {
+      "id": "f0c6c465-0cfe-4f01-8fd2-8fb980b12bb9",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "1",
+          "title": "Sony WH-1000XM3 Bluetooth Wireless Over Ear Headphones with Mic (Silver)ssss",
+          "price": "773",
+          "imageUrl": "https://i.gadgets360cdn.com/products/headphones-and-headsets/large/sony-wh-1000xm3-wireless-headphone-832X558-1598367921.jpg",
+          "quantity": 1,
+          "seller": {
+            "id": "78fa",
+            "name": "moaaz",
+            "email": "moaaz@gmail.com",
+            "role": "seller",
+            "password": "123456"
+          }
+        },
+        {
+          "id": "0ae2",
+          "title": "Yone",
+          "price": "1000000000",
+          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
+          "quantity": 1,
+          "seller": {
+            "id": "3379",
+            "name": "kenacomb is the best ",
+            "email": "kenacomb@gmail.com",
+            "role": "seller",
+            "password": "111111"
+          }
+        }
+      ],
+      "subtotal": 1000000773,
+      "tax": 140000108.22,
+      "total": 1140000881.22,
+      "status": "shipped",
+      "date": "2025-05-09T05:22:38.480Z"
+    },
+    {
+      "id": "58d3987e-e2b1-444a-bbfd-ef96cdfc90d0",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer"
+      },
+      "products": [
+        {
+          "id": "fa0b",
+          "title": "Aurther Morgan",
+          "price": "159",
+          "imageUrl": "https://static.wikitide.net/greatcharacterswiki/2/2f/Arthur_Morgan.jpg",
+          "quantity": 3,
+          "seller": {
+            "id": "3379",
+            "name": "Hisham Fawzy Ali Hassan",
+            "email": "kenacomb@gmail.com",
+            "role": "seller",
+            "password": "111111"
+          }
+        },
+        {
+          "id": "c784",
+          "title": "Pantheon",
+          "price": 191,
+          "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pantheon_0.jpg",
+          "quantity": 1,
+          "seller": {
+            "id": "3379",
+            "name": "kenacomb is the best ",
+            "email": "kenacomb@gmail.com",
+            "role": "seller",
+            "password": "111111"
+          }
+        }
+      ],
+      "subtotal": 668,
+      "tax": 93.52000000000001,
+      "total": 761.52,
+      "status": "pending",
+      "date": "2025-05-09T05:51:41.844Z"
     }
   ],
   "reviews": [
@@ -694,6 +1024,71 @@
       "user": {
         "id": "3a01",
         "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer",
+        "password": "11223344"
+      }
+    },
+    {
+      "id": "r1746721619323",
+      "productId": "205",
+      "comment": "nice",
+      "date": "2025-05-08",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer",
+        "password": "11223344"
+      }
+    },
+    {
+      "id": "r1746725000755",
+      "productId": "fa0b",
+      "comment": "aewrawesraesdrf",
+      "date": "2025-05-08",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer",
+        "password": "11223344"
+      }
+    },
+    {
+      "id": "r1746725021067",
+      "productId": "6340",
+      "comment": "rqwerqwe",
+      "date": "2025-05-08",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer",
+        "password": "11223344"
+      }
+    },
+    {
+      "id": "r1746761679882",
+      "productId": "fa0b",
+      "comment": "rewr",
+      "date": "2025-05-09",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy Ali Hassan",
+        "email": "hishamfawzy16@gmail.com",
+        "role": "customer",
+        "password": "11223344"
+      }
+    },
+    {
+      "id": "r1746769201231",
+      "productId": "9ce3",
+      "comment": "Ty 3m seh7ata for that amazing btngan <3 <3",
+      "date": "2025-05-09",
+      "user": {
+        "id": "3a01",
+        "name": "Hisham Fawzy Ali Hassan",
         "email": "hishamfawzy16@gmail.com",
         "role": "customer",
         "password": "11223344"
