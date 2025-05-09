@@ -35,6 +35,13 @@ const validateAddForm = function ({ title, imageUrl, price, description, categor
       text: "Quantity must be a positive integer.",
     });
     return false;
+  } else if (quantity >= 100) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Quantity",
+      text: "Quantity must be less than or equal to 100.",
+    });
+    return false;
   }
 
   if (description.length < 10) {
@@ -102,6 +109,13 @@ const validateEditForm = function ({ title, imageUrl, price, description, catego
       icon: "error",
       title: "Invalid Quantity",
       text: "Quantity must be a positive integer.",
+    });
+    return false;
+  } else if (quantity >= 100) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Quantity",
+      text: "Quantity must be less than or equal to 100.",
     });
     return false;
   }
@@ -243,9 +257,9 @@ window.addEventListener("load", function () {
           bindDeleteEvents();
 
           Swal.fire({
-            icon: "success",
+            icon: "warning",
             title: "Product Added",
-            text: "Your product has been successfully added!",
+            text: "Your product is waiting for approval.",
           });
         })
         .catch((error) => console.error("Error:", error));
