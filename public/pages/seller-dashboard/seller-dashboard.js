@@ -1,3 +1,141 @@
+const validateAddForm = function ({ title, imageUrl, price, description, category, quantity }) {
+  const urlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp|svg))/i;
+
+  if (!title || !imageUrl || !price || !description || !category || quantity === "") {
+    Swal.fire({
+      icon: "warning",
+      title: "Missing Fields",
+      text: "Please fill in all fields.",
+    });
+    return false;
+  }
+
+  if (!urlPattern.test(imageUrl)) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Image URL",
+      text: "Please enter a valid image link (e.g., ending with .jpg, .png, etc.).",
+    });
+    return false;
+  }
+
+  if (isNaN(price) || price <= 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Price",
+      text: "Price must be a positive number.",
+    });
+    return false;
+  }
+
+  if (isNaN(quantity) || quantity <= 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Quantity",
+      text: "Quantity must be a positive integer.",
+    });
+    return false;
+  }
+
+  if (description.length < 10) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Description",
+      text: "Description must be at least 10 characters long.",
+    });
+    return false;
+  }
+
+  if (category.length < 3) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Category",
+      text: "Category must be at least 3 characters long.",
+    });
+    return false;
+  }
+
+  if (title.length < 3) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Title",
+      text: "Title must be at least 3 characters long.",
+    });
+    return false;
+  }
+
+  return true;
+}
+
+const validateEditForm = function ({ title, imageUrl, price, description, category, quantity }) {
+  const urlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp|svg))/i;
+
+  if (!title || !imageUrl || !price || !description || !category || quantity === "") {
+    Swal.fire({
+      icon: "warning",
+      title: "Missing Fields",
+      text: "Please fill in all fields.",
+    });
+    return false;
+  }
+
+  if (!urlPattern.test(imageUrl)) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Image URL",
+      text: "Please enter a valid image link (e.g., ending with .jpg, .png, etc.).",
+    });
+    return false;
+  }
+
+  if (isNaN(price) || price <= 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Price",
+      text: "Price must be a positive number.",
+    });
+    return false;
+  }
+
+  if (isNaN(quantity) || quantity <= 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Quantity",
+      text: "Quantity must be a positive integer.",
+    });
+    return false;
+  }
+
+  if (description.length < 10) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Description",
+      text: "Description must be at least 10 characters long.",
+    });
+    return false;
+  }
+
+  if (category.length < 3) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Category",
+      text: "Category must be at least 3 characters long.",
+    });
+    return false;
+  }
+
+  if (title.length < 3) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Title",
+      text: "Title must be at least 3 characters long.",
+    });
+    return false;
+  }
+
+  return true;
+}
+
 
 window.addEventListener("load", function () {
   let user = JSON.parse(localStorage.getItem("user"));
@@ -88,6 +226,8 @@ window.addEventListener("load", function () {
         seller: user,
       };
 
+      if (!validateAddForm(newProduct)) return;
+
       fetch("http://localhost:3000/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -101,6 +241,12 @@ window.addEventListener("load", function () {
           displayProducts(productArr.filter((p) => p.approved === true));
           bindEditEvents();
           bindDeleteEvents();
+
+          Swal.fire({
+            icon: "success",
+            title: "Product Added",
+            text: "Your product has been successfully added!",
+          });
         })
         .catch((error) => console.error("Error:", error));
     });
@@ -121,6 +267,8 @@ window.addEventListener("load", function () {
         seller: user,
       };
 
+      if (!validateEditForm(updatedProduct)) return;
+
       fetch(`http://localhost:3000/products/${currentEditProductId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -138,6 +286,13 @@ window.addEventListener("load", function () {
             bindEditEvents();
             bindDeleteEvents();
             showProductList();
+
+            Swal.fire({
+              icon: "success",
+              title: "Product Updated",
+              text: "Your product has been successfully updated!",
+            });
+
           }
         })
         .catch((err) => console.error("Update error:", err));
@@ -180,33 +335,49 @@ window.addEventListener("load", function () {
           const product = productArr.find((p) => p.id == id);
 
           if (product && product.seller.email !== user.email) {
-            alert("You are not authorized to delete this product.");
+            Swal.fire("Unauthorized", "You are not authorized to delete this product.", "error");
             return;
           }
 
-          fetch(`http://localhost:3000/products/${id}`, {
-            method: "DELETE",
-          })
-            .then((res) => {
-              if (!res.ok) throw new Error("Delete failed");
-              return fetch(`http://localhost:3000/reviews?productId=${id}`);
-            })
-            .then((res) => res.json())
-            .then((reviews) => {
-              const deletePromises = reviews.map((review) =>
-                fetch(`http://localhost:3000/reviews/${review.id}`, {
-                  method: "DELETE",
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to undo this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              fetch(`http://localhost:3000/products/${id}`, {
+                method: "DELETE",
+              })
+                .then((res) => {
+                  if (!res.ok) throw new Error("Delete failed");
+                  return fetch(`http://localhost:3000/reviews?productId=${id}`);
                 })
-              );
-              return Promise.all(deletePromises);
-            })
-            .then(() => {
-              productArr = productArr.filter((p) => p.id != id);
-              displayProducts(productArr.filter((p) => p.approved === true));
-              bindEditEvents();
-              bindDeleteEvents();
-            })
-            .catch((err) => console.error("Delete error:", err));
+                .then((res) => res.json())
+                .then((reviews) => {
+                  const deletePromises = reviews.map((review) =>
+                    fetch(`http://localhost:3000/reviews/${review.id}`, {
+                      method: "DELETE",
+                    })
+                  );
+                  return Promise.all(deletePromises);
+                })
+                .then(() => {
+                  productArr = productArr.filter((p) => p.id != id);
+                  displayProducts(productArr.filter((p) => p.approved === true));
+                  bindEditEvents();
+                  bindDeleteEvents();
+                  Swal.fire("Deleted!", "The product has been deleted.", "success");
+                })
+                .catch((err) => {
+                  console.error("Delete error:", err);
+                  Swal.fire("Error", "Failed to delete the product.", "error");
+                });
+            }
+          });
         });
       });
     }
@@ -269,7 +440,6 @@ window.addEventListener("load", function () {
     listAllproducts();
   }
 
-  //list all orders 
 
   const seller = JSON.parse(localStorage.getItem("user"));
   const viewOrdersBtn = document.querySelector("#view-orders");
