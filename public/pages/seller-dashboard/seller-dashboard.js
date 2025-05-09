@@ -1,3 +1,155 @@
+const validateAddForm = function ({ title, imageUrl, price, description, category, quantity }) {
+  const urlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp|svg))/i;
+
+  if (!title || !imageUrl || !price || !description || !category || quantity === "") {
+    Swal.fire({
+      icon: "warning",
+      title: "Missing Fields",
+      text: "Please fill in all fields.",
+    });
+    return false;
+  }
+
+  if (!urlPattern.test(imageUrl)) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Image URL",
+      text: "Please enter a valid image link (e.g., ending with .jpg, .png, etc.).",
+    });
+    return false;
+  }
+
+  if (isNaN(price) || price <= 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Price",
+      text: "Price must be a positive number.",
+    });
+    return false;
+  }
+
+  if (isNaN(quantity) || quantity <= 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Quantity",
+      text: "Quantity must be a positive integer.",
+    });
+    return false;
+  } else if (quantity >= 100) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Quantity",
+      text: "Quantity must be less than or equal to 100.",
+    });
+    return false;
+  }
+
+  if (description.length < 10) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Description",
+      text: "Description must be at least 10 characters long.",
+    });
+    return false;
+  }
+
+  if (category.length < 3) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Category",
+      text: "Category must be at least 3 characters long.",
+    });
+    return false;
+  }
+
+  if (title.length < 3) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Title",
+      text: "Title must be at least 3 characters long.",
+    });
+    return false;
+  }
+
+  return true;
+}
+
+const validateEditForm = function ({ title, imageUrl, price, description, category, quantity }) {
+  const urlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp|svg))/i;
+
+  if (!title || !imageUrl || !price || !description || !category || quantity === "") {
+    Swal.fire({
+      icon: "warning",
+      title: "Missing Fields",
+      text: "Please fill in all fields.",
+    });
+    return false;
+  }
+
+  if (!urlPattern.test(imageUrl)) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Image URL",
+      text: "Please enter a valid image link (e.g., ending with .jpg, .png, etc.).",
+    });
+    return false;
+  }
+
+  if (isNaN(price) || price <= 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Price",
+      text: "Price must be a positive number.",
+    });
+    return false;
+  }
+
+  if (isNaN(quantity) || quantity <= 0) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Quantity",
+      text: "Quantity must be a positive integer.",
+    });
+    return false;
+  } else if (quantity >= 100) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Quantity",
+      text: "Quantity must be less than or equal to 100.",
+    });
+    return false;
+  }
+
+  if (description.length < 10) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Description",
+      text: "Description must be at least 10 characters long.",
+    });
+    return false;
+  }
+
+  if (category.length < 3) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Category",
+      text: "Category must be at least 3 characters long.",
+    });
+    return false;
+  }
+
+  if (title.length < 3) {
+    Swal.fire({
+      icon: "error",
+      title: "Invalid Title",
+      text: "Title must be at least 3 characters long.",
+    });
+    return false;
+  }
+
+  return true;
+}
+
 
 window.addEventListener("load", function () {
   let user = JSON.parse(localStorage.getItem("user"));
@@ -5,10 +157,8 @@ window.addEventListener("load", function () {
 
   if (!user) {
     window.location.href = "./../home/home.html";
-    console.log("User not logged in. Redirecting to login page.");
   } else if (user.role == "customer") {
     window.location.href = "./../home/home.html";
-    console.log("User logged in. Welcome back!");
   } else {
     const menu = document.querySelector(".menu-content");
     const menuItems = document.querySelectorAll(".submenu-item");
@@ -45,8 +195,8 @@ window.addEventListener("load", function () {
     const newProductBtn = document.getElementById("new-product");
     const productTable = document.querySelector(".product-table");
     const searchInput = document.querySelector("#search");
-    
-    
+
+
 
 
 
@@ -90,6 +240,8 @@ window.addEventListener("load", function () {
         seller: user,
       };
 
+      if (!validateAddForm(newProduct)) return;
+
       fetch("http://localhost:3000/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -103,6 +255,12 @@ window.addEventListener("load", function () {
           displayProducts(productArr.filter((p) => p.approved === true));
           bindEditEvents();
           bindDeleteEvents();
+
+          Swal.fire({
+            icon: "warning",
+            title: "Product Added",
+            text: "Your product is waiting for approval.",
+          });
         })
         .catch((error) => console.error("Error:", error));
     });
@@ -123,6 +281,8 @@ window.addEventListener("load", function () {
         seller: user,
       };
 
+      if (!validateEditForm(updatedProduct)) return;
+
       fetch(`http://localhost:3000/products/${currentEditProductId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -134,12 +294,19 @@ window.addEventListener("load", function () {
             (p) => p.id == currentEditProductId
           );
           if (index !== -1) {
-            updatedProduct.id = currentEditProductId; 
+            updatedProduct.id = currentEditProductId;
             productArr[index] = updatedProduct;
             displayProducts(productArr.filter((p) => p.approved === true));
             bindEditEvents();
             bindDeleteEvents();
             showProductList();
+
+            Swal.fire({
+              icon: "success",
+              title: "Product Updated",
+              text: "Your product has been successfully updated!",
+            });
+
           }
         })
         .catch((err) => console.error("Update error:", err));
@@ -160,9 +327,8 @@ window.addEventListener("load", function () {
                     <div class="product-bottom-details">
                         <div>
                             <p>Quantity: ${p.quantity}</p>
-                            <div class="product-price"><small>$${
-                              p.price
-                            }</small></div>
+                            <div class="product-price"><small>$${p.price
+            }</small></div>
                         </div>
                         <div class="product-controls">
                             <i class="fa fa-pen" data-index="${i}"></i>
@@ -181,66 +347,82 @@ window.addEventListener("load", function () {
         icon.addEventListener("click", () => {
           const id = icon.getAttribute("data-id");
           const product = productArr.find((p) => p.id == id);
-    
+
           if (product && product.seller.email !== user.email) {
-            alert("You are not authorized to delete this product.");
+            Swal.fire("Unauthorized", "You are not authorized to delete this product.", "error");
             return;
           }
-    
-          fetch(`http://localhost:3000/products/${id}`, {
-            method: "DELETE",
-          })
-            .then((res) => {
-              if (!res.ok) throw new Error("Delete failed");
-              return fetch(`http://localhost:3000/reviews?productId=${id}`);
-            })
-            .then((res) => res.json())
-            .then((reviews) => {
-              const deletePromises = reviews.map((review) =>
-                fetch(`http://localhost:3000/reviews/${review.id}`, {
-                  method: "DELETE",
+
+          Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to undo this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            confirmButtonText: "Yes, delete it!",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              fetch(`http://localhost:3000/products/${id}`, {
+                method: "DELETE",
+              })
+                .then((res) => {
+                  if (!res.ok) throw new Error("Delete failed");
+                  return fetch(`http://localhost:3000/reviews?productId=${id}`);
                 })
-              );
-              return Promise.all(deletePromises);
-            })
-            .then(() => {
-              productArr = productArr.filter((p) => p.id != id);
-              displayProducts(productArr.filter((p) => p.approved === true));
-              bindEditEvents();
-              bindDeleteEvents();
-            })
-            .catch((err) => console.error("Delete error:", err));
+                .then((res) => res.json())
+                .then((reviews) => {
+                  const deletePromises = reviews.map((review) =>
+                    fetch(`http://localhost:3000/reviews/${review.id}`, {
+                      method: "DELETE",
+                    })
+                  );
+                  return Promise.all(deletePromises);
+                })
+                .then(() => {
+                  productArr = productArr.filter((p) => p.id != id);
+                  displayProducts(productArr.filter((p) => p.approved === true));
+                  bindEditEvents();
+                  bindDeleteEvents();
+                  Swal.fire("Deleted!", "The product has been deleted.", "success");
+                })
+                .catch((err) => {
+                  console.error("Delete error:", err);
+                  Swal.fire("Error", "Failed to delete the product.", "error");
+                });
+            }
+          });
         });
       });
     }
-    
 
 
-   function bindEditEvents() {
-     document.querySelectorAll(".fa-pen").forEach((icon) => {
-       icon.addEventListener("click", () => {
-         const index = icon.getAttribute("data-index");
-         const product = productArr[index];
 
-         if (product.seller.email !== user.email) {
-           alert("You are not authorized to edit this product.");
-           return;
-         }
+    function bindEditEvents() {
+      document.querySelectorAll(".fa-pen").forEach((icon) => {
+        icon.addEventListener("click", () => {
+          const index = icon.getAttribute("data-index");
+          const product = productArr[index];
 
-         productForm.title.value = product.title;
-         productForm.imageUrl.value = product.imageUrl;
-         productForm.price.value = product.price;
-         productForm.description.value = product.description;
-         productForm.category.value = product.category;
-         productForm.quantity.value = product.quantity;
-         currentEditProductId = product.id;
+          if (product.seller.email !== user.email) {
+            alert("You are not authorized to edit this product.");
+            return;
+          }
 
-         showProductForm();
-         submitButton.style.display = "none";
-         updateBtn.style.display = "block";
-       });
-     });
-   }
+          productForm.title.value = product.title;
+          productForm.imageUrl.value = product.imageUrl;
+          productForm.price.value = product.price;
+          productForm.description.value = product.description;
+          productForm.category.value = product.category;
+          productForm.quantity.value = product.quantity;
+          currentEditProductId = product.id;
+
+          showProductForm();
+          submitButton.style.display = "none";
+          updateBtn.style.display = "block";
+        });
+      });
+    }
 
 
     function listAllproducts() {
@@ -272,58 +454,57 @@ window.addEventListener("load", function () {
     listAllproducts();
   }
 
-  //list all orders 
 
-const seller = JSON.parse(localStorage.getItem("user")); 
-const viewOrdersBtn = document.querySelector("#view-orders");
-const OrderManagement = document.querySelector(".Order-Management");
-const ordersContainer = document.querySelector(".orders-containers");
-const ordersList = document.querySelector("section");
-
+  const seller = JSON.parse(localStorage.getItem("user"));
+  const viewOrdersBtn = document.querySelector("#view-orders");
+  const OrderManagement = document.querySelector(".Order-Management");
+  const ordersContainer = document.querySelector(".orders-containers");
+  const ordersList = document.querySelector("section");
 
 
- viewOrdersBtn.addEventListener("click", function () {
-  ordersList.style.display = "block";
-  
+
+  viewOrdersBtn.addEventListener("click", function () {
+    ordersList.style.display = "block";
+
     document.getElementById("new-product-form").style.display = "none";
     document.getElementById("product-list").style.display = "none";
-    listSellerOrders(); 
- })
+    listSellerOrders();
+  })
 
- OrderManagement.addEventListener("click", function () {
-  document.querySelector("#new-product-form").style.display = "none";
-  document.querySelector(".product-list").style.display = "flex";
-  ordersList.style.display = "none";
-  
-  
-  showProductList();
- })
+  OrderManagement.addEventListener("click", function () {
+    document.querySelector("#new-product-form").style.display = "none";
+    document.querySelector(".product-list").style.display = "flex";
+    ordersList.style.display = "none";
 
 
+    showProductList();
+  })
 
-function listSellerOrders() {
-  fetch("http://localhost:3000/orders")
-    .then((res) => res.json())
-    .then((orders) => {
-      ordersContainer.innerHTML = ""; 
-      let orderCount = 0;
-      
 
-      orders.forEach((order) => {
-        
-        const sellerProducts = order.products.filter(
-          (prod) => prod.seller?.email === seller.email
-        );
-        
-        if (sellerProducts.length > 0) {
-          orderCount++;
-          const orderDiv = document.createElement("div");
-          
-          
-          const productsHTML = sellerProducts
 
-            .map(
-              (prod) => `
+  function listSellerOrders() {
+    fetch("http://localhost:3000/orders")
+      .then((res) => res.json())
+      .then((orders) => {
+        ordersContainer.innerHTML = "";
+        let orderCount = 0;
+
+
+        orders.forEach((order) => {
+
+          const sellerProducts = order.products.filter(
+            (prod) => prod.seller?.email === seller.email
+          );
+
+          if (sellerProducts.length > 0) {
+            orderCount++;
+            const orderDiv = document.createElement("div");
+
+
+            const productsHTML = sellerProducts
+
+              .map(
+                (prod) => `
               <div class="order-card">
                         <img style="width: 100px; height: 100px;" src="${prod.imageUrl}" alt="">
                         <div class="order-details">
@@ -338,9 +519,9 @@ function listSellerOrders() {
                     </div>
                  </div>
             `
-            )
-            .join("");
-          orderDiv.innerHTML = `
+              )
+              .join("");
+            orderDiv.innerHTML = `
             <h2>order #${orderCount}</h2>
             ${productsHTML}
             <h2>Total: $${order.total}</h2>
@@ -362,7 +543,7 @@ function listSellerOrders() {
 
   
           `;
-          orderDiv.style=`
+            orderDiv.style = `
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 10px;
@@ -372,37 +553,39 @@ function listSellerOrders() {
             transition: transform 0.2s;
           
             `
-          ordersContainer.appendChild(orderDiv);
+            ordersContainer.appendChild(orderDiv);
 
-          const statusSelect = orderDiv.querySelector("#status");
-          statusSelect.addEventListener("change", function () {
-            const newStatus = statusSelect.value;
-            const orderId = statusSelect.getAttribute("data-id");
-            fetch(`http://localhost:3000/orders/${orderId}`, {
-              method: "PATCH",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({ status: newStatus }),
-            })
-              .then((res) => res.json())
-              .then((data) => console.log(data))
-              .catch((err) => console.error("Fetch error:", err));
-          });
-          
+            const statusSelect = orderDiv.querySelector("#status");
+            statusSelect.addEventListener("change", function () {
+              const newStatus = statusSelect.value;
+              const orderId = statusSelect.getAttribute("data-id");
+              fetch(`http://localhost:3000/orders/${orderId}`, {
+                method: "PATCH",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ status: newStatus }),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  listSellerOrders();
+                })
+                .catch((err) => console.error("Fetch error:", err));
+            });
+
+          }
+
+
+
+
+        });
+
+        if (orderCount === 0) {
+          ordersContainer.innerHTML = "<p>No orders found for this seller.</p>";
         }
-        
-        
-        
-        
-      });
-
-      if (orderCount === 0) {
-        ordersContainer.innerHTML = "<p>No orders found for this seller.</p>";
-      }
-    })
-    .catch((err) => console.error("Fetch error:", err));
-}
+      })
+      .catch((err) => console.error("Fetch error:", err));
+  }
 
 
 
