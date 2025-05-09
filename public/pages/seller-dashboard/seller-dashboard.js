@@ -895,13 +895,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Apply date sorting
-    if (dateSort === "newest") {
+    if (dateSort === "oldest") {
       filteredOrders.sort((a, b) => {
         const dateA = a.date ? new Date(a.date) : new Date(0);
         const dateB = b.date ? new Date(b.date) : new Date(0);
         return dateB - dateA;
       });
-    } else if (dateSort === "oldest") {
+    } else if (dateSort === "newest") {
       filteredOrders.sort((a, b) => {
         const dateA = a.date ? new Date(a.date) : new Date(0);
         const dateB = b.date ? new Date(b.date) : new Date(0);

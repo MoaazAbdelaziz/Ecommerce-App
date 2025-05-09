@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     logOut.style.display = "none";
   } else {
     if (user.role == "seller") {
+      window.location.href = "./../seller-dashboard/seller-dashboard.html";
       sellerDashboard.style.display = "flex";
       orderDashboard.style.display = "none";
       logIn.style.display = "none";
