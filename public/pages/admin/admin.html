@@ -4,48 +4,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../all.css">
-    <link rel="stylesheet" href="./admin.css">
-    <title>Dashboard</title>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul>
-            <li>
-                <a class="home-link">
+    <div class="dashboard-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>AdminPanel</span>
+                </div>
+                <button class="toggle-sidebar" id="toggle-sidebar">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fa-solid fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar">A</div>
+                    <div class="user-details">
+                        <p class="user-name">Admin User</p>
+                        <p class="user-email">Admin Email</p>
+                    </div>
+                </div>
+                <a href="#" class="logout-btn" id="logout-btn">
                     <i class="fa-solid fa-right-from-bracket"></i>
-                    <span class="logout">Logout</span>
+                    <span>Logout</span>
                 </a>
-            </li>
+            </div>
+        </aside>
 
-        </ul>
-    </nav>
+        <main class="main-content">
+            <header class="main-header">
+                <div class="mobile-header">
+                    <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="logo">
+                        <i class="fa-solid fa-chart-line"></i>
+                        <span>AdminPanel</span>
+                    </div>
+                </div>
 
+                <div class="header-content">
+                    <h1 class="welcome-message">Welcome back, <span id="admin-name">Admin</span></h1>
+                    <p class="subtitle">Here's an overview of your admin dashboard</p>
+                </div>
+            </header>
 
-    <!-- Dashboard Cards -->
-    <main class="dashboard">
-        <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="User Management" />
-            <h2>User Management</h2>
-            <p>Add, edit, or remove users. Manage roles and permissions.</p>
-            <button class="manage-users">Manage Users</button>
-        </div>
-        <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" alt="Product Management" />
-            <h2>Product Management</h2>
-            <p>Approve or reject products. Edit or delete existing items.</p>
-            <button class="manage-products">Manage Products</button>
-        </div>
-        <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="Order Management" />
-            <h2>Order Management</h2>
-            <p>View and manage all customer orders in one place.</p>
-            <button class="manage-orders">Manage Orders</button>
-        </div>
-    </main>
+            <section class="management-section">
+                <h2 class="section-title">Management</h2>
+                <div class="card-grid">
+                    <div class="management-card">
+                        <div class="card-icon user-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <h3 class="card-title">User Management</h3>
+                        <p class="card-description">Add, edit, or remove users. Manage roles and permissions.</p>
+                        <button class="card-button manage-users">Manage Users</button>
+                    </div>
 
-    <script src="./admin.js"></script>
+                    <div class="management-card">
+                        <div class="card-icon product-icon">
+                            <i class="fa-solid fa-box"></i>
+                        </div>
+                        <h3 class="card-title">Product Management</h3>
+                        <p class="card-description">Approve or reject products. Edit or delete existing items.</p>
+                        <button class="card-button manage-products">Manage Products</button>
+                    </div>
+
+                    <div class="management-card">
+                        <div class="card-icon order-icon">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                        </div>
+                        <h3 class="card-title">Order Management</h3>
+                        <p class="card-description">View and manage all customer orders in one place.</p>
+                        <button class="card-button manage-orders">Manage Orders</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
 </body>
 
 </html>

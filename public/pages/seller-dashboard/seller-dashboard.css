@@ -1,25 +1,25 @@
 /* Base Styles */
 :root {
-  --primary-color: #0156FF;
+  --primary-color: #0156ff;
   --primary-dark: #0043cc;
-  --secondary-color: #FF6B6B;
-  --accent-color: #6C5CE7;
-  --success-color: #00B894;
-  --warning-color: #FDCB6E;
-  --danger-color: #FF7675;
-  --text-color: #2D3748;
+  --secondary-color: #ff6b6b;
+  --accent-color: #6c5ce7;
+  --success-color: #00b894;
+  --warning-color: #fdcb6e;
+  --danger-color: #ff7675;
+  --text-color: #2d3748;
   --text-light: #718096;
-  --background-color: #F7FAFC;
-  --card-bg: #FFFFFF;
-  --border-color: #E2E8F0;
-  --sidebar-bg: #1A202C;
-  --sidebar-text: #A0AEC0;
-  --sidebar-active: #FFFFFF;
-  --sidebar-hover: #2D3748;
+  --background-color: #f7fafc;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --sidebar-bg: #1a202c;
+  --sidebar-text: #a0aec0;
+  --sidebar-active: #ffffff;
+  --sidebar-hover: #2d3748;
   --transition: all 0.3s ease;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
-  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
   --border-radius: 8px;
 }
 
@@ -30,7 +30,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   line-height: 1.6;
   color: var(--text-color);
@@ -50,11 +50,13 @@ ul {
 
 button {
   cursor: pointer;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-input, select, textarea {
-  font-family: 'Poppins', sans-serif;
+input,
+select,
+textarea {
+  font-family: "Poppins", sans-serif;
 }
 
 /* Sidebar Styles */
@@ -97,7 +99,7 @@ input, select, textarea {
 
 .menu-content {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: hidden;
   padding: 20px 0;
   position: relative;
 }
@@ -669,8 +671,8 @@ section.active {
   font-size: 14px;
 }
 
-.form-group input, 
-.form-group select, 
+.form-group input,
+.form-group select,
 .form-group textarea {
   padding: 12px 15px;
   border: 1px solid var(--border-color);
@@ -678,8 +680,8 @@ section.active {
   transition: var(--transition);
 }
 
-.form-group input:focus, 
-.form-group select:focus, 
+.form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-color);
@@ -990,7 +992,7 @@ section.active {
   .stats-cards {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
@@ -1000,28 +1002,28 @@ section.active {
   .sidebar {
     transform: translateX(-100%);
   }
-  
+
   .sidebar.active {
     transform: translateX(0);
   }
-  
+
   .main-content {
     margin-left: 0;
     width: 100%;
   }
-  
+
   .menu-toggle {
     display: block;
   }
-  
+
   .form-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .form-group.full-width {
     grid-column: span 1;
   }
-  
+
   .preview-content {
     flex-direction: column;
     align-items: center;
@@ -1032,35 +1034,35 @@ section.active {
   .top-navbar {
     padding: 0 15px;
   }
-  
+
   .search-container input {
     width: 200px;
   }
-  
+
   .filter-bar {
     flex-direction: column;
     gap: 15px;
     align-items: flex-start;
   }
-  
+
   .filter-options {
     width: 100%;
     overflow-x: auto;
     padding-bottom: 10px;
   }
-  
+
   .section-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
   }
-  
+
   .order-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
-  
+
   .order-footer {
     flex-direction: column;
     gap: 15px;
@@ -1071,29 +1073,28 @@ section.active {
   .stats-cards {
     grid-template-columns: 1fr;
   }
-  
+
   .navbar-right {
     gap: 10px;
   }
-  
+
   .search-container {
     display: none;
   }
-  
+
   .user-name {
     display: none;
   }
-  
+
   .order-product {
     flex-direction: column;
   }
-  
+
   .order-product-image {
     width: 100%;
     height: 150px;
   }
 }
-
 
 /* Adjust the filter bar to ensure the search bar is properly styled */
 .filter-bar {
@@ -1123,12 +1124,12 @@ section.active {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .filter-bar .search-container {
     width: 100%;
     max-width: none;
   }
-  
+
   .filter-options {
     width: 100%;
     overflow-x: auto;
