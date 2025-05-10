@@ -5,8 +5,8 @@ A full-featured **Ecommerce Web Application** built using the **MERN Stack** (Mo
 ## 🚀 Features
 
 ### 👤 Authentication & Authorization
-- User registration & login with JWT
-- Secure routes with role-based access (user/admin)
+- User registration & login
+- Secure routes with role-based access (user/seller/admin)
 
 ### 🛍️ Product Management
 - Browse all products with filtering & searching
