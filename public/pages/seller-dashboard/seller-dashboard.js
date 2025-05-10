@@ -15,7 +15,7 @@ const validateAddForm = function ({ title, imageUrl, price, description, categor
     Swal.fire({
       icon: "error",
       title: "Invalid Image URL",
-      text: "Please enter a valid image link (e.g., ending with .jpg, .png, etc.).",
+      text: "Please enter a valid image link.",
     });
     return false;
   }
@@ -92,7 +92,7 @@ const validateEditForm = function ({ title, imageUrl, price, description, catego
     Swal.fire({
       icon: "error",
       title: "Invalid Image URL",
-      text: "Please enter a valid image link (e.g., ending with .jpg, .png, etc.).",
+      text: "Please enter a valid image link.",
     });
     return false;
   }
