@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../../all.css">
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+    <title>Home</title>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-icon" style="display: flex; gap: 10px; align-items: center;">
+            <svg width="34" height="41" viewBox="0 0 34 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M17.0333 0.945374L0.297119 10.8637V23.0708L17.0333 32.9891L30.459 25.3596V28.9836L17.0333 36.9946L0.297119 26.8855V31.2725L17.0333 41L33.7695 31.2725V19.0653L20.3438 26.8855V23.0708L33.7695 15.0599V10.8637L17.0333 0.945374Z"
+                    fill="#0156FF" />
+            </svg>
+            <p style="font-weight: 600; font-size: 20px;">Tech Store</p>
+        </div>
+        <div class="nav-links">
+            <ul style="gap: 20px; display: flex; justify-content: space-between; align-items: center;">
+                <li class="seller-dashboard"><a style=" cursor: pointer;">Seller Dashboard</a></li>
+                <li class="cart"><a href="./../cart/cart.html" style=" cursor: pointer;">Cart</a></li>
+                <li class="orders"><a href="./../order/order.html" style=" cursor: pointer;">Orders</a></li>
+                <li class="logout"><a id="logout" style="cursor: pointer;">Logout</a></li>
+                <li class="login"><a id="login" style="cursor: pointer;">Login</a></li>
+            </ul>
+        </div>
+
+    </nav>
+
+
+    <section class="game-section">
+        <h2 class="line-title">trending games</h2>
+        <div class="owl-carousel custom-carousel owl-theme">
+            <div class="item active"
+                style="background-image: url(https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/1245620/capsule_616x353.jpg?t=1744748041);">
+                <div class="item-desc">
+                    <h3>Elden Ring</h3>
+                    <p>
+                        Elden Ring is an action RPG developed by FromSoftware and published by Bandai Namco. R. Martin.
+                        With its challenging combat and immersive storytelling, Elden Ring offers a unique
+                        and unforgettable adventure.
+                    </p>
+                </div>
+            </div>
+            <div class="item"
+                style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/winter-3.jpg);">
+                <div class="item-desc">
+                    <h3>The Witcher 3</h3>
+                    <p>The Witcher 3 is a multiplayer online battle arena by Valve. The game is a sequel to Defense
+                        of the Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.
+                    </p>
+                </div>
+            </div>
+            <div class="item"
+                style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/rdr-2.jpg);">
+                <div class="item-desc">
+                    <h3>RDR 2</h3>
+                    <p>RDR 2 is a multiplayer online battle arena by Valve. The game is a sequel to Defense of the
+                        Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.</p>
+                </div>
+            </div>
+            <div class="item"
+                style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/pubg.jpg);">
+                <div class="item-desc">
+                    <h3>PUBG Mobile</h3>
+                    <p>PUBG 2 is a multiplayer online battle arena by Valve. The game is a sequel to Defense of the
+                        Ancients, which was a community-created mod for Blizzard Entertainment's Warcraft III.</p>
+                </div>
+            </div>
+            <div class="item"
+                style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/fortnite.jpg);">
+                <div class="item-desc">
+                    <h3>Fortnite</h3>
+                    <p>Battle royale where 100 players fight to be the last person standing. which was a
+                        community-created
+                        mod
+                        for Blizzard Entertainment's Warcraft III.</p>
+                </div>
+            </div>
+            <div class="item"
+                style="background-image: url(https://www.yudiz.com/codepen/expandable-animated-card-slider/far-cry-5.jpg);">
+                <div class="item-desc">
+                    <h3>Far Cry 5</h3>
+                    <p>Far Cry 5 is a 2018 first-person shooter game developed by Ubisoft.
+                        which was a community-created mod for Blizzard Entertainment's Warcraft III.</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <div style="margin-top: -20px;" class="search-input">
+        <input type="search" name="search" id="searchInput" placeholder="search for product">
+    </div>
+
+    <div class="products-container"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="./home.js"></script>
+</body>
+
+</html>

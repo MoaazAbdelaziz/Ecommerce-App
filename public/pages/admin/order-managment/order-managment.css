@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #f8fafc, #e0f2fe, #f3e8ff);
+  background-size: 400% 400%;
+  animation: gradientShift 18s ease infinite;
+  color: #2c3e50;
+  min-height: 100vh;
+  padding-bottom: 40px;
+}
+
+.navbar {
+  background: #2563eb;
+  color: #fff;
+  padding: 18px 40px;
+  font-size: 18px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.navbar a:hover {
+  opacity: 0.85;
+}
+
+.order-management-container {
+  padding: 40px 60px;
+}
+
+.order-management-container h1 {
+  font-size: 30px;
+  color: #1e293b;
+  margin-bottom: 25px;
+}
+
+.order-container {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.order-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  width: 80%;
+  transition: 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+}
+
+.order-details {
+  padding: 20px;
+  flex: 1;
+}
+
+.product-title {
+  font-size: 20px;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+.order-details p {
+  font-size: 15px;
+  margin: 4px 0;
+  color: #334155;
+}
+
+.order-actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.order-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-cancel {
+  background-color: #ef4444;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #b91c1c;
+}

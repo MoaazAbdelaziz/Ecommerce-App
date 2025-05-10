@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../all.css">
+    <link rel="stylesheet" href="./product-managment.css">
+    <title>Product Dashboard</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li>
+                <a class="go-back" style="cursor: pointer;">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </li>
+            <li>
+                <a class="logout-link" style="cursor: pointer;">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span class="logout">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="product-management-container">
+        <h1>Product Management</h1>
+
+        <div class="controls">
+            <div style="display: flex; gap: 20px; flex-direction: column;">
+                <label for="search-input" style="font-size: 20px; font-weight: 600; color: #2563eb;">
+                    Enter product title, category or seller name
+                </label>
+                <input type="text" placeholder="Search products" class="search-input" />
+            </div>
+            <select class="filter-select">
+                <option value="not approved" selected>Not Approved</option>
+                <option value="approved">Approved</option>
+                <option value="all">All</option>
+            </select>
+        </div>
+
+        <div class="product-container">
+        </div>
+    </main>
+
+    <div id="update-modal">
+        <div class="close"></div>
+        <form action="#" id="update-form">
+            <ul>
+                <h1 class="title">Update Product</h1>
+                <li>
+                    <label for="title">Title:</label>
+                    <input type="text" name="title" id="title" placeholder="Title">
+
+                    <label for="description">Description:</label>
+                    <input type="text" name="description" id="description" placeholder="Description">
+
+                    <label for="price">Price:</label>
+                    <input type="number" name="price" id="price" placeholder="Price">
+
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" name="quantity" id="quantity" placeholder="Quantity">
+
+                    <label for="category">Category:</label>
+                    <input type="text" name="category" id="category" placeholder="Category">
+
+                    <label for="image-url">Image URL:</label>
+                    <input type="text" name="imageUrl" id="image-url" placeholder="Image URL">
+                </li>
+
+                <li>
+                    <button type="submit" class="btn-update" id="update">Update</button>
+                </li>
+            </ul>
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./product-managment.js"></script>
+</body>
+
+</html>
