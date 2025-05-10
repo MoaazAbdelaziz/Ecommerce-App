@@ -4,68 +4,294 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../all.css">
+    <title>User Management Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./user-managment.css">
-    <title>User Dashboard</title>
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul>
-            <li>
-                <a class="go-back" style="cursor: pointer;">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
-            </li>
-            <li>
-                <a class="logout-link" style="cursor: pointer;">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <span>AdminPanel</span>
+                </div>
+                <button class="toggle-sidebar" id="toggle-sidebar" aria-label="Toggle Sidebar">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item">
+                        <a href="../admin.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item active">
+                        <a href="user-managment.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-users"></i>
+                            <span>User Management</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="./../product-managment/product-managment.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-box"></i>
+                            <span>Product Management</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="./../order-managment/order-managment.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                            <span>Order Management</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" class="sidebar-menu-link">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" class="sidebar-menu-link">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar" id="user-avatar">A</div>
+                    <div class="user-details">
+                        <p class="user-name" id="user-name">Admin User</p>
+                        <p class="user-email" id="user-email">admin@example.com</p>
+                    </div>
+                </div>
+                <button class="logout-btn" id="logout-btn">
                     <i class="fa-solid fa-right-from-bracket"></i>
-                    <span class="logout">Logout</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
 
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="mobile-header">
+                    <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="logo">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <span>AdminPanel</span>
+                    </div>
+                </div>
 
-    <main class="user-management-container">
-        <h1>User Management</h1>
+                <div class="header-content">
+                    <div class="page-title">
+                        <h1>User Management</h1>
+                        <p class="subtitle">Manage your users, roles and permissions</p>
+                    </div>
+                    <div class="header-actions">
+                        <div class="search-container">
+                            <i class="fa-solid fa-search search-icon"></i>
+                            <input type="text" id="user-search" class="search-input" placeholder="Search users...">
+                        </div>
+                        <div class="user-avatar header-avatar" id="header-avatar">A</div>
+                    </div>
+                </div>
+            </header>
 
-        <div class="controls">
-            <input type="text" placeholder="Search users by name..." class="search-input" />
-            <input type="button" value="Add New User" class="add-user-btn" />
-        </div>
+            <section class="user-stats">
+                <div class="stat-card">
+                    <div class="stat-icon total-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Total Users</h3>
+                        <p class="stat-value" id="total-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon admin-icon">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Admins</h3>
+                        <p class="stat-value" id="admin-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon seller-icon">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Sellers</h3>
+                        <p class="stat-value" id="seller-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon customer-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Customers</h3>
+                        <p class="stat-value" id="customer-count">0</p>
+                    </div>
+                </div>
+            </section>
 
-        <div class="user-container">
-        </div>
-    </main>
+            <section class="user-filters">
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label for="role-filter">Filter by Role</label>
+                        <select id="role-filter" class="filter-select">
+                            <option value="all" selected>All Roles</option>
+                            <option value="admin">Admin</option>
+                            <option value="seller">Seller</option>
+                            <option value="customer">Customer</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-filter">Sort By</label>
+                        <select id="sort-filter" class="filter-select">
+                            <option value="name-asc" selected>Name (A-Z)</option>
+                            <option value="name-desc">Name (Z-A)</option>
+                            <option value="role">Role</option>
+                            <option value="recent">Recently Added</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button id="add-user-btn" class="action-btn primary">
+                        <i class="fa-solid fa-user-plus"></i>
+                        Add User
+                    </button>
+                    <button id="export-btn" class="action-btn">
+                        <i class="fa-solid fa-file-export"></i>
+                        Export
+                    </button>
+                    <button id="refresh-btn" class="action-btn">
+                        <i class="fa-solid fa-rotate"></i>
+                        Refresh
+                    </button>
+                </div>
+            </section>
 
+            <section class="users-section">
+                <div class="users-container" id="users-container">
+                    <!-- Users will be loaded here -->
+                    <div class="loading-container">
+                        <div class="loading-spinner"></div>
+                        <p>Loading users...</p>
+                    </div>
+                </div>
 
-    <div id="add-update-modal">
-        <div class="close"></div>
-        <form action="#" id="add-update-form">
-            <ul>
-                <h1 class="title">Update User</h1>
-                <li>
-                    <input type="text" name="name" id="name" placeholder="Name">
-                    <input type="email" name="email" id="email" placeholder="Email">
-                </li>
-                <li>
-                    <input type="password" name="password" id="password" placeholder="Password">
-                </li>
-                <li>
-                    <select name="role" id="role">
-                        <option value="admin">Admin</option>
-                        <option value="customer">Customer</option>
-                        <option value="seller">Seller</option>
-                    </select>
-                </li>
-                <li>
-                    <input type="submit" value="Update" class="btn" id="submit">
-                </li>
-            </ul>
-        </form>
+                <div class="empty-state" id="empty-state" style="display: none;">
+                    <div class="empty-icon">
+                        <i class="fa-solid fa-users-slash"></i>
+                    </div>
+                    <h3>No Users Found</h3>
+                    <p>There are no users matching your current filters.</p>
+                    <button id="reset-filters" class="btn-primary">Reset Filters</button>
+                </div>
+
+                <div class="pagination" id="pagination">
+                    <button class="pagination-btn" id="prev-page" disabled>
+                        <i class="fa-solid fa-chevron-left"></i>
+                        Previous
+                    </button>
+                    <div class="pagination-info">
+                        Page <span id="current-page">1</span> of <span id="total-pages">1</span>
+                    </div>
+                    <button class="pagination-btn" id="next-page" disabled>
+                        Next
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+        </main>
     </div>
 
+    <!-- User Modal -->
+    <div class="modal" id="user-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Add New User</h2>
+                <button class="close-modal" id="close-modal">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="user-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Enter email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="password-input-container">
+                                <input type="password" id="password" name="password" placeholder="Enter password"
+                                    required>
+                                <button type="button" class="toggle-password" id="toggle-password">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">User Role</label>
+                            <select id="role" name="role" required>
+                                <option value="" disabled selected>Select a role</option>
+                                <option value="admin">Admin</option>
+                                <option value="seller">Seller</option>
+                                <option value="customer">Customer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-btn">Cancel</button>
+                        <button type="submit" class="btn-primary" id="save-btn">Add User</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmation-modal">
+        <div class="modal-content confirmation-content">
+            <div class="modal-header">
+                <h2 id="confirmation-title">Confirm Action</h2>
+                <button class="close-modal" id="close-confirmation">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="confirmation-icon">
+                    <i class="fa-solid fa-exclamation-triangle"></i>
+                </div>
+                <p id="confirmation-message">Are you sure you want to perform this action?</p>
+                <div class="confirmation-actions">
+                    <button class="btn-secondary" id="cancel-confirmation">Cancel</button>
+                    <button class="btn-danger" id="confirm-action">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./user-managment.js"></script>

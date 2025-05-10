@@ -1,11 +1,11 @@
 {
   "users": [
     {
-      "id": "3a01",
       "name": "Hisham Fawzy Ali Hassan",
       "email": "hishamfawzy16@gmail.com",
+      "password": "11223344",
       "role": "customer",
-      "password": "11223344"
+      "id": "3a01"
     },
     {
       "id": "e8a8",
@@ -22,11 +22,11 @@
       "password": "123456"
     },
     {
-      "id": "3379",
       "name": "kenacomb is the best ",
       "email": "kenacomb@gmail.com",
+      "password": "111111",
       "role": "seller",
-      "password": "111111"
+      "id": "3379"
     }
   ],
   "products": [

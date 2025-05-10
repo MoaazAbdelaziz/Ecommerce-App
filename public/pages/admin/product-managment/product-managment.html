@@ -4,81 +4,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../all.css">
+    <title>Product Management Dashboard</title>
     <link rel="stylesheet" href="./product-managment.css">
-    <title>Product Dashboard</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul>
-            <li>
-                <a class="go-back" style="cursor: pointer;">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
-            </li>
-            <li>
-                <a class="logout-link" style="cursor: pointer;">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                    <span class="logout">Logout</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    <main class="product-management-container">
-        <h1>Product Management</h1>
-
-        <div class="controls">
-            <div style="display: flex; gap: 20px; flex-direction: column;">
-                <label for="search-input" style="font-size: 20px; font-weight: 600; color: #2563eb;">
-                    Enter product title, category or seller name
-                </label>
-                <input type="text" placeholder="Search products" class="search-input" />
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fa-solid fa-shop"></i>
+                    <span>AdminPanel</span>
+                </div>
+                <button class="toggle-sidebar" id="toggle-sidebar" aria-label="Toggle Sidebar">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
-            <select class="filter-select">
-                <option value="not approved" selected>Not Approved</option>
-                <option value="approved">Approved</option>
-                <option value="all">All</option>
-            </select>
-        </div>
 
-        <div class="product-container">
-        </div>
-    </main>
+            <div class="sidebar-content">
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item">
+                        <a href="../admin.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="./../user-managment/user-managment.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-users"></i>
+                            <span>User Management</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item active">
+                        <a href="./product-managment.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-box"></i>
+                            <span>Product Management</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="./../order-managment/order-managment.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                            <span>Order Management</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" class="sidebar-menu-link">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" class="sidebar-menu-link">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
-    <div id="update-modal">
-        <div class="close"></div>
-        <form action="#" id="update-form">
-            <ul>
-                <h1 class="title">Update Product</h1>
-                <li>
-                    <label for="title">Title:</label>
-                    <input type="text" name="title" id="title" placeholder="Title">
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar" id="user-avatar">A</div>
+                    <div class="user-details">
+                        <p class="user-name" id="user-name">Admin User</p>
+                        <p class="user-email" id="user-email">admin@example.com</p>
+                    </div>
+                </div>
+                <a href="#" class="logout-btn" id="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
 
-                    <label for="description">Description:</label>
-                    <input type="text" name="description" id="description" placeholder="Description">
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="mobile-header">
+                    <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="logo">
+                        <i class="fa-solid fa-shop"></i>
+                        <span>AdminPanel</span>
+                    </div>
+                </div>
 
-                    <label for="price">Price:</label>
-                    <input type="number" name="price" id="price" placeholder="Price">
+                <div class="header-content">
+                    <div class="page-title">
+                        <h1>Product Management</h1>
+                        <p class="subtitle">View, edit and manage your product catalog</p>
+                    </div>
+                    <div class="header-actions">
+                        <div class="search-container">
+                            <i class="fa-solid fa-search search-icon"></i>
+                            <input type="text" id="product-search" class="search-input"
+                                placeholder="Search products...">
+                        </div>
+                        <div class="notifications-dropdown">
+                            <button class="notifications-btn" id="notifications-btn">
+                                <i class="fa-solid fa-bell"></i>
+                                <span class="badge">3</span>
+                            </button>
+                            <div class="dropdown-content" id="notifications-dropdown">
+                                <div class="dropdown-header">Notifications</div>
+                                <div class="dropdown-item">
+                                    <div class="notification-icon new-product">
+                                        <i class="fa-solid fa-box"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">New Product Added</p>
+                                        <p class="notification-desc">Wireless Headphones has been added</p>
+                                        <p class="notification-time">5 minutes ago</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <div class="notification-icon low-stock">
+                                        <i class="fa-solid fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">Low Stock Alert</p>
+                                        <p class="notification-desc">Smart Watch is running low on stock</p>
+                                        <p class="notification-time">1 hour ago</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <div class="notification-icon approval">
+                                        <i class="fa-solid fa-check-circle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">Product Approved</p>
+                                        <p class="notification-desc">Bluetooth Speaker has been approved</p>
+                                        <p class="notification-time">3 hours ago</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown-footer">
+                                    <a href="#">View All Notifications</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-avatar header-avatar" id="header-avatar">A</div>
+                    </div>
+                </div>
+            </header>
 
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" name="quantity" id="quantity" placeholder="Quantity">
+            <section class="product-filters">
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label for="status-filter">Status</label>
+                        <select id="status-filter" class="filter-select">
+                            <option value="all">All Products</option>
+                            <option value="not approved">Not Approved</option>
+                            <option value="approved" selected>Approved</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="category-filter">Category</label>
+                        <select id="category-filter" class="filter-select">
+                            <option value="all" selected>All Categories</option>
+                            <option value="audio">Audio</option>
+                            <option value="smartphones">Smartphones</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="laptops">Laptops</option>
+                            <option value="accessories">Accessories</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="photography">Photography</option>
+                            <option value="televisions">Televisions</option>
+                            <option value="shoes">Shoes</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="seller-filter">Seller</label>
+                        <select id="seller-filter" class="filter-select">
+                            <option value="all" selected>All Sellers</option>
+                            <!-- Sellers will be populated dynamically -->
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-filter">Sort By</label>
+                        <select id="sort-filter" class="filter-select">
+                            <option value="title-asc">Name (A-Z)</option>
+                            <option value="title-desc">Name (Z-A)</option>
+                            <option value="price-high">Price (High to Low)</option>
+                            <option value="price-low" selected>Price (Low to High)</option>
+                            <option value="quantity-high">Quantity (High to Low)</option>
+                            <option value="quantity-low">Quantity (Low to High)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button id="add-product-btn" class="action-btn primary">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Product
+                    </button>
+                    <button id="export-btn" class="action-btn">
+                        <i class="fa-solid fa-file-export"></i>
+                        Export
+                    </button>
+                    <button id="refresh-btn" class="action-btn">
+                        <i class="fa-solid fa-rotate"></i>
+                        Refresh
+                    </button>
+                </div>
+            </section>
 
-                    <label for="category">Category:</label>
-                    <input type="text" name="category" id="category" placeholder="Category">
+            <section class="product-stats">
+                <div class="stat-card">
+                    <div class="stat-icon total-icon">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Total Products</h3>
+                        <p class="stat-value" id="total-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon approved-icon">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Approved</h3>
+                        <p class="stat-value" id="approved-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon pending-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Pending Approval</h3>
+                        <p class="stat-value" id="pending-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon low-stock-icon">
+                        <i class="fa-solid fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Low Stock</h3>
+                        <p class="stat-value" id="low-stock-count">0</p>
+                    </div>
+                </div>
+            </section>
 
-                    <label for="image-url">Image URL:</label>
-                    <input type="text" name="imageUrl" id="image-url" placeholder="Image URL">
-                </li>
+            <section class="products-section">
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="fa-solid fa-grid-2"></i> Grid
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="fa-solid fa-list"></i> List
+                    </button>
+                </div>
 
-                <li>
-                    <button type="submit" class="btn-update" id="update">Update</button>
-                </li>
-            </ul>
-        </form>
+                <div class="products-container grid-view" id="products-container">
+                    <!-- Products will be loaded here -->
+                    <div class="loading-container">
+                        <div class="loading-spinner"></div>
+                        <p>Loading products...</p>
+                    </div>
+                </div>
+
+                <div class="empty-state" id="empty-state" style="display: none;">
+                    <div class="empty-icon">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3>No Products Found</h3>
+                    <p>There are no products matching your current filters.</p>
+                    <button id="reset-filters" class="btn-primary">Reset Filters</button>
+                </div>
+
+                <div class="pagination" id="pagination">
+                    <button class="pagination-btn" id="prev-page" disabled>
+                        <i class="fa-solid fa-chevron-left"></i>
+                        Previous
+                    </button>
+                    <div class="pagination-info">
+                        Page <span id="current-page">1</span> of <span id="total-pages">1</span>
+                    </div>
+                    <button class="pagination-btn" id="next-page" disabled>
+                        Next
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+        </main>
     </div>
 
+    <!-- Product Details Modal -->
+    <div class="modal" id="product-details-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Product Details</h2>
+                <button class="close-modal" id="close-modal">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="product-details-content">
+                <form id="product-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="product-title">Product Title</label>
+                            <input type="text" id="product-title" name="title" placeholder="Enter product title"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-category">Category</label>
+                            <input type="text" id="product-category" name="category" placeholder="Enter category"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-price">Price ($)</label>
+                            <input type="number" id="product-price" name="price" placeholder="0.00" min="0" step="0.01"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-quantity">Quantity</label>
+                            <input type="number" id="product-quantity" name="quantity" placeholder="0" min="0" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="product-description">Description</label>
+                            <textarea id="product-description" name="description" rows="4"
+                                placeholder="Enter product description" required></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="product-image">Image URL</label>
+                            <input type="url" id="product-image" name="imageUrl"
+                                placeholder="https://example.com/image.jpg" required>
+                        </div>
+                        <div class="form-group image-preview full-width">
+                            <label>Image Preview</label>
+                            <div class="preview-container">
+                                <img id="image-preview" src="./placeholder200x150.svg"
+                                    alt="Product image preview">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="product-approved">Approval Status</label>
+                            <select id="product-approved" name="approved">
+                                <option value="true">Approved</option>
+                                <option value="false">Not Approved</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancel-btn">Cancel</button>
+                        <button type="submit" class="btn-primary" id="save-btn">Save Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmation-modal">
+        <div class="modal-content confirmation-content">
+            <div class="modal-header">
+                <h2 id="confirmation-title">Confirm Action</h2>
+                <button class="close-modal" id="close-confirmation">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="confirmation-content">
+                <p id="confirmation-message">Are you sure you want to perform this action?</p>
+                <div class="confirmation-actions">
+                    <button class="btn-secondary" id="cancel-confirmation">Cancel</button>
+                    <button class="btn-danger" id="confirm-action">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./product-managment.js"></script>

@@ -2,36 +2,299 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../../all.css" />
-    <link rel="stylesheet" href="./order-managment.css" />
-    <title>Order Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management Dashboard</title>
+    <link rel="stylesheet" href="./order-managment.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar">
-        <ul>
-            <li>
-                <a class="go-back" style="cursor: pointer;">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
-            </li>
-            <li>
-                <a class="logout-link" style="cursor: pointer;">
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fa-solid fa-shop"></i>
+                    <span>AdminPanel</span>
+                </div>
+                <button class="toggle-sidebar" id="toggle-sidebar" aria-label="Toggle Sidebar">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="sidebar-content">
+                <ul class="sidebar-menu">
+                    <li class="sidebar-menu-item">
+                        <a href="../admin.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-home"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="./../user-managment/user-managment.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-users"></i>
+                            <span>User Management</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="./../product-managment/product-managment.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-box"></i>
+                            <span>Product Management</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item active">
+                        <a href="./order-managment.html" class="sidebar-menu-link">
+                            <i class="fa-solid fa-shopping-cart"></i>
+                            <span>Order Management</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" class="sidebar-menu-link">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a href="#" class="sidebar-menu-link">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar" id="user-avatar">A</div>
+                    <div class="user-details">
+                        <p class="user-name" id="user-name">Admin User</p>
+                        <p class="user-email" id="user-email">admin@example.com</p>
+                    </div>
+                </div>
+                <a href="#" class="logout-btn" id="logout-btn">
                     <i class="fa-solid fa-right-from-bracket"></i>
-                    <span class="logout">Logout</span>
+                    <span>Logout</span>
                 </a>
-            </li>
-        </ul>
-    </nav>
+            </div>
+        </aside>
 
-    <main class="order-management-container">
-        <h1>Order Management</h1>
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="mobile-header">
+                    <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="logo">
+                        <i class="fa-solid fa-shop"></i>
+                        <span>AdminPanel</span>
+                    </div>
+                </div>
 
-        <div class="order-container">
+                <div class="header-content">
+                    <div class="page-title">
+                        <h1>Order Management</h1>
+                        <p class="subtitle">View and manage all customer orders</p>
+                    </div>
+                    <div class="header-actions">
+                        <div class="search-container">
+                            <i class="fa-solid fa-search search-icon"></i>
+                            <input type="text" id="order-search" class="search-input" placeholder="Search orders...">
+                        </div>
+                        <div class="notifications-dropdown">
+                            <button class="notifications-btn" id="notifications-btn">
+                                <i class="fa-solid fa-bell"></i>
+                                <span class="badge">3</span>
+                            </button>
+                            <div class="dropdown-content" id="notifications-dropdown">
+                                <div class="dropdown-header">Notifications</div>
+                                <div class="dropdown-item">
+                                    <div class="notification-icon new-order">
+                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">New Order Received</p>
+                                        <p class="notification-desc">Order #12345 has been placed</p>
+                                        <p class="notification-time">5 minutes ago</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <div class="notification-icon cancelled">
+                                        <i class="fa-solid fa-ban"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">Order Cancelled</p>
+                                        <p class="notification-desc">Order #12342 has been cancelled</p>
+                                        <p class="notification-time">1 hour ago</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown-item">
+                                    <div class="notification-icon shipped">
+                                        <i class="fa-solid fa-truck"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">Order Shipped</p>
+                                        <p class="notification-desc">Order #12340 has been shipped</p>
+                                        <p class="notification-time">3 hours ago</p>
+                                    </div>
+                                </div>
+                                <div class="dropdown-footer">
+                                    <a href="#">View All Notifications</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-avatar header-avatar" id="header-avatar">A</div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="order-filters">
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label for="status-filter">Status</label>
+                        <select id="status-filter" class="filter-select">
+                            <option value="all">All Orders</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="date-filter">Date Range</label>
+                        <select id="date-filter" class="filter-select">
+                            <option value="all">All Time</option>
+                            <option value="today">Today</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="year">This Year</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sort-filter">Sort By</label>
+                        <select id="sort-filter" class="filter-select">
+                            <option value="date-desc" selected>Date (Newest)</option>
+                            <option value="date-asc">Date (Oldest)</option>
+                            <option value="total-desc">Total (High to Low)</option>
+                            <option value="total-asc">Total (Low to High)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button id="export-btn" class="action-btn">
+                        <i class="fa-solid fa-file-export"></i>
+                        Export
+                    </button>
+                    <button id="refresh-btn" class="action-btn">
+                        <i class="fa-solid fa-rotate"></i>
+                        Refresh
+                    </button>
+                </div>
+            </section>
+
+            <section class="order-stats">
+                <div class="stat-card">
+                    <div class="stat-icon pending-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Pending Orders</h3>
+                        <p class="stat-value" id="pending-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon processing-icon">
+                        <i class="fa-solid fa-spinner"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Processing</h3>
+                        <p class="stat-value" id="processing-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon shipped-icon">
+                        <i class="fa-solid fa-truck"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Shipped</h3>
+                        <p class="stat-value" id="shipped-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon delivered-icon">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Delivered</h3>
+                        <p class="stat-value" id="delivered-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon cancelled-icon">
+                        <i class="fa-solid fa-ban"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Cancelled</h3>
+                        <p class="stat-value" id="cancelled-count">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="orders-section">
+                <div class="orders-container" id="orders-container">
+                    <!-- Orders will be loaded here -->
+                    <div class="loading-container">
+                        <div class="loading-spinner"></div>
+                        <p>Loading orders...</p>
+                    </div>
+                </div>
+                <div class="empty-state" id="empty-state" style="display: none;">
+                    <div class="empty-icon">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3>No Orders Found</h3>
+                    <p>There are no orders matching your current filters.</p>
+                    <button id="reset-filters" class="btn-primary">Reset Filters</button>
+                </div>
+                <div class="pagination" id="pagination">
+                    <button class="pagination-btn" id="prev-page" disabled>
+                        <i class="fa-solid fa-chevron-left"></i>
+                        Previous
+                    </button>
+                    <div class="pagination-info">
+                        Page <span id="current-page">1</span> of <span id="total-pages">1</span>
+                    </div>
+                    <button class="pagination-btn" id="next-page" disabled>
+                        Next
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="order-details-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Order Details</h2>
+                <button class="close-modal" id="close-modal">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="order-details-content">
+                <!-- Order details will be loaded here -->
+            </div>
         </div>
-    </main>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./order-managment.js"></script>
