@@ -258,7 +258,7 @@ const editProduct = async function (id, updatedProduct) {
 };
 
 const validateEditForm = function ({ title, imageUrl, price, description, category, quantity }) {
-    const urlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp|svg))/i;
+    const urlPattern = /^(https?:\/\/.*\.(png|jpe?g|gif|webp|svg)(\?.*)?|data:image\/(png|jpe?g|gif|webp|svg);base64,[a-zA-Z0-9+/=]+)$/i;
 
     if (!title || !imageUrl || !price || !description || !category || quantity === "") {
         Swal.fire({
