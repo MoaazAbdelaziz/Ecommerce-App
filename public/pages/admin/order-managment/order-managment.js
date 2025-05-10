@@ -1,8 +1,15 @@
 const renderOrders = function (orderContainer, orders) {
   orderContainer.innerHTML = "";
 
-  orders.forEach((order) => {
-    orderContainer.innerHTML += `
+  if (orders.length === 0) {
+    orderContainer.innerHTML = `
+            <div style="text-align: center; width: 100%; padding: 40px; font-size: 18px; color: #64748b;">
+                No pending orders found.
+            </div>
+        `;
+  } else {
+    orders.forEach((order) => {
+      orderContainer.innerHTML += `
         <div class="order-card">
             <div class="order-details">
                 <p><strong>Order ID:</strong> ${order.id}</p>
@@ -16,7 +23,8 @@ const renderOrders = function (orderContainer, orders) {
             </div>
         </div>
         `;
-  });
+    });
+  }
 };
 
 const getOrders = async function () {
