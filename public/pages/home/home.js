@@ -10,7 +10,6 @@ window.onload = function () {
   let products = []; // Global declaration
 
   if (!user) {
-    console.log("User not logged in. Redirecting to login page.");
     cart.style.display = "none";
     orderDashboard.style.display = "none";
     sellerDashboard.style.display = "none";
@@ -31,7 +30,6 @@ window.onload = function () {
     } else if (user.role == "admin") {
       window.location.href = "./../admin/admin.html";
     } else {
-      console.log("User role not recognized. Hiding seller dashboard.");
       sellerDashboard.style.display = "none";
       orderDashboard.style.display = "none";
     }
@@ -44,12 +42,10 @@ window.onload = function () {
     window.location.href = "./../seller-dashboard/seller-dashboard.html";
   });
 
-  console.log("Page loaded successfully!");
   // Check if user is logged in
   logOut.addEventListener("click", function () {
     localStorage.removeItem("user");
     window.location.href = "./../auth/auth.html";
-    console.log("User logged out. Redirecting to login page.");
   });
 
   // const orderDashboard = document.querySelector(".orders");
@@ -61,18 +57,18 @@ window.onload = function () {
   ////////////////////
 
   // Fetch and display products
- fetch("http://localhost:3000/products")
-   .then((res) => res.json())
-   .then((data) => {
-     products = data; // store globally
-     const container = document.querySelector(".products-container");
+  fetch("http://localhost:3000/products")
+    .then((res) => res.json())
+    .then((data) => {
+      products = data; // store globally
+      const container = document.querySelector(".products-container");
 
-     const approvedProducts = products.filter((p) => p.approved);
-     displayProducts(approvedProducts);
-   })
-   .catch((error) => {
-     console.error("Error fetching products:", error);
-   });
+      const approvedProducts = products.filter((p) => p.approved);
+      displayProducts(approvedProducts);
+    })
+    .catch((error) => {
+      console.error("Error fetching products:", error);
+    });
 
   // Function to handle adding to cart
 
@@ -196,7 +192,6 @@ window.onload = function () {
       const productCard = e.target.closest(".product-contentt");
       if (productCard) {
         const id = productCard.getAttribute("data-id");
-        console.log(id);
         productDetails(id);
       }
     });
@@ -212,12 +207,10 @@ window.onload = function () {
       const card = document.createElement("div");
       card.classList.add("product-card");
       card.innerHTML = `
-      <div style="width: 100%; cursor: pointer;" data-id="${
-        product.id
-      }" class="product-contentt" >
-        <img style="width: 100%;" src="${product.imageUrl}" alt="${
-        product.title
-      }" />
+      <div style="width: 100%; cursor: pointer;" data-id="${product.id
+        }" class="product-contentt" >
+        <img style="width: 100%;" src="${product.imageUrl}" alt="${product.title
+        }" />
         <div class="product-content">
           <h3>${product.title.slice(0, 20)}</h3>
           <p><strong>Price:</strong> ${product.price} EGP</p>

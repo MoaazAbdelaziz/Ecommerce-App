@@ -144,7 +144,6 @@ const attachUpdateEventListeners = function () {
             const id = this.getAttribute("data-id");
 
             const product = products.find(p => p.id == id);
-            console.log(product)
             updateForm.setAttribute("data-id", id);
 
             updateForm.querySelector("#title").value = product.title;
@@ -168,6 +167,8 @@ const attachUpdateEventListeners = function () {
             description: updateForm.querySelector("#description").value,
             imageUrl: updateForm.querySelector("#image-url").value
         };
+
+        if (!validateEditForm(updatedProduct)) return;
 
         try {
             await editProduct(id, updatedProduct);
@@ -255,6 +256,83 @@ const editProduct = async function (id, updatedProduct) {
     });
     if (!response.ok) throw new Error("Network response was not ok " + response.statusText);
 };
+
+const validateEditForm = function ({ title, imageUrl, price, description, category, quantity }) {
+    const urlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp|svg))/i;
+
+    if (!title || !imageUrl || !price || !description || !category || quantity === "") {
+        Swal.fire({
+            icon: "warning",
+            title: "Missing Fields",
+            text: "Please fill in all fields.",
+        });
+        return false;
+    }
+
+    if (!urlPattern.test(imageUrl)) {
+        Swal.fire({
+            icon: "error",
+            title: "Invalid Image URL",
+            text: "Please enter a valid image link (e.g., ending with .jpg, .png, etc.).",
+        });
+        return false;
+    }
+
+    if (isNaN(price) || price <= 0) {
+        Swal.fire({
+            icon: "error",
+            title: "Invalid Price",
+            text: "Price must be a positive number.",
+        });
+        return false;
+    }
+
+    if (isNaN(quantity) || quantity <= 0) {
+        Swal.fire({
+            icon: "error",
+            title: "Invalid Quantity",
+            text: "Quantity must be a positive integer.",
+        });
+        return false;
+    } else if (quantity >= 100) {
+        Swal.fire({
+            icon: "error",
+            title: "Invalid Quantity",
+            text: "Quantity must be less than or equal to 100.",
+        });
+        return false;
+    }
+
+    if (description.length < 10) {
+        Swal.fire({
+            icon: "error",
+            title: "Invalid Description",
+            text: "Description must be at least 10 characters long.",
+        });
+        return false;
+    }
+
+    if (category.length < 3) {
+        Swal.fire({
+            icon: "error",
+            title: "Invalid Category",
+            text: "Category must be at least 3 characters long.",
+        });
+        return false;
+    }
+
+    if (title.length < 3) {
+        Swal.fire({
+            icon: "error",
+            title: "Invalid Title",
+            text: "Title must be at least 3 characters long.",
+        });
+        return false;
+    }
+
+    return true;
+}
+
 
 let products = [];
 let currentFilter = "not approved";
