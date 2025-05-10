@@ -5,7 +5,6 @@ window.addEventListener('load', function () {
     const manageProductsBtn = document.querySelector(".manage-products");
     const manageOrdersBtn = document.querySelector(".manage-orders");
 
-    console.log(user);
 
     if (!user) {
         window.location.href = "./../home/home.html";

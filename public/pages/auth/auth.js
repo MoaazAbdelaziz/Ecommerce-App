@@ -17,9 +17,7 @@ window.onload = function () {
       });
     })
 }
-for (let i = 0; i < arrUsers.length; i++) {
-  console.log(arrUsers[i].name, arrUsers[i].email, arrUsers[i].password);
-}
+
 
 
 const signUpButton = document.getElementById("signUp");
@@ -77,7 +75,6 @@ signUpForm.addEventListener("submit", (event) => {
         return response.json();
       })
       .then((result) => {
-        console.log("Success:", result);
         signUpForm.reset();
         hideAlert(alertBox);
       })
@@ -85,8 +82,6 @@ signUpForm.addEventListener("submit", (event) => {
         console.error("Error:", error);
         showAlert(alertBox, "There was a problem with registration");
       });
-  } else {
-    console.log("Form not valid, fix the errors first.");
   }
 });
 
@@ -120,7 +115,6 @@ loginForm.addEventListener("submit", (event) => {
           user.password === loginPassword.value.trim()
       );
       if (user) {
-        console.log("✅ Login successful:", user);
         loginForm.reset();
         localStorage.setItem("user", JSON.stringify(user));
         hideAlert(loginAlertBox);
