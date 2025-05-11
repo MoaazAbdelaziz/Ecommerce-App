@@ -39,7 +39,7 @@ A full-featured **Ecommerce Web Application** built using the **MERN Stack** (Mo
 ## 🧑‍💻 Developers
 
 ### 👨‍💻 Moaaz Abdelaziz
-GitHub: @MoaazAbdelaziz
+GitHub: [@MoaazAbdelaziz](https://github.com/MoaazAbdelaziz)
 
 
 ### 👨‍💻 Hisham Fawzy  
